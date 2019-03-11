@@ -3,13 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Melifox19 | Inscription</title>
+    <title>Mélifox - S'enregistrer</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-    <!-- Title icon -->
-    <link rel="shortcut icon" href="{{{ asset('img/melicon.png') }}}">
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -37,18 +34,18 @@
 <body class="hold-transition register-page">
 <div class="register-box">
     <div class="register-logo">
-        <a href="{{ url('/home') }}"><b>MELIFOX19</b></a>
+        <a href="{{ url('/home') }}"><b>Mélifox </b>2019</a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">S'enregistrer</p>
+        <p class="login-box-msg">Renseigner les champs ci-dessous pour s'enregistrer</p>
 
         <form method="post" action="{{ url('/register') }}">
 
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nom">
+                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nom complet">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('name'))
@@ -59,7 +56,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail">
+                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
                 @if ($errors->has('email'))
@@ -81,7 +78,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmer le mot de passe">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmer mot de passe">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password_confirmation'))
@@ -92,22 +89,22 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-7">
+                <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> J'accepte les <a href="#">CGU</a>
+                            <input type="checkbox"> Je n'ai pas lu les <a href="#">termes de service</a>
                         </label>
                     </div>
                 </div>
                 <!-- /.col -->
-                <div class="col-xs-5">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">S'enregistrer</button>
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">S'inscrire</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
-        <a href="{{ url('/login') }}" class="text-center">J'ai déjà un compte</a>
+        <a href="{{ url('/login') }}" class="text-center">Je possède déjà un compte</a>
     </div>
     <!-- /.form-box -->
 </div>

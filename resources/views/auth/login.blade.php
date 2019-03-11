@@ -3,13 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Melifox19 | Connexion</title>
+    <title>Mélifox 2019 - Login</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-    <!-- Title icon -->
-    <link rel="shortcut icon" href="{{{ asset('img/melicon.png') }}}">
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -38,25 +35,25 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>MELIFOX19</b></a>
+        <a href="{{ url('/home') }}"><b>Mélifox </b>2019</a>
     </div>
 
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Connectez-vous</p>
+        <p class="login-box-msg">Veuillez vous enregistrer pour continuer</p>
 
         <form method="post" action="{{ url('/login') }}">
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail">
+                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if ($errors->has('email'))
                     <span class="help-block">
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
                 @endif
-            </div>submit
+            </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
                 <input type="password" class="form-control" placeholder="Mot de passe" name="password">
@@ -69,22 +66,24 @@
 
             </div>
             <div class="row">
-                <div class="col-xs-7">
+                
+                <!-- /.col -->
+                <div class="col-xs-6">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Se connecter</button>
+                </div>
+
+                <!-- /.col -->
+                <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox" name="remember"> Rester connecté
+                            <input type="checkbox" name="remember"> Se souvenir de moi
                         </label>
                     </div>
                 </div>
-                <!-- /.col -->
-                <div class="col-xs-5">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Se connecter</button>
-                </div>
-                <!-- /.col -->
             </div>
         </form>
 
-        <a href="{{ url('/password/reset') }}">Mot de passe oublié</a><br>
+        <a href="{{ url('/password/reset') }}">J'ai oublié mon mot de passe</a><br>
         <a href="{{ url('/register') }}" class="text-center">S'enregistrer</a>
 
     </div>
