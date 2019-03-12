@@ -47,5 +47,10 @@ class Rucher extends Model
 
     ];
 
+    public function ruches()
+    {
+      return $this->hasMany(\App\Models\Ruche::class, 'idRucher');
+    }
+
 
 }

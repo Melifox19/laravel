@@ -67,6 +67,6 @@ class User extends Model
   **/
   public function ruchers()
   {
-    return $this->hasMany(\App\Models\Rucher::class);
+    return $this->hasMany(\App\Models\Rucher::class, 'idApiculteur');
   }
 }
