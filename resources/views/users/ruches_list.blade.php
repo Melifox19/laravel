@@ -1,3 +1,5 @@
+<link href="{!! asset('css/users_show.css') !!}" media="all" rel="stylesheet" type="text/css" />
+
 <div class="form-group">
   {!! Form::label('', 'Liste des ruches :') !!}
 
@@ -14,32 +16,34 @@
     </thead>
     <tbody>
       @foreach($user->ruchers as $rucher)
-      <tr>
-        <td>{!! $rucher->id !!}</td>
-        <td>{!! $rucher->nom !!}</td>
-        <td>{!! $rucher->created_at !!}</td>
-        <td>{!! $rucher->updated_at !!}</td>
-        <td>
+      <div class="rucher_case">
+        <tr>
+          <td>{!! $rucher->id !!}</td>
+          <td>{!! $rucher->nom !!}</td>
+          <td>{!! $rucher->created_at !!}</td>
+          <td>{!! $rucher->updated_at !!}</td>
+          <td>
 
-          {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
-          <div class='btn-group'>
-            <a href="{!! route('ruchers.show', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-          </div>
-          {!! Form::close() !!}
-        </td>
-      </tr>
+            {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
+            <div class='btn-group'>
+              <a href="{!! route('ruchers.show', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+            </div>
+            {!! Form::close() !!}
+          </td>
+        </tr>
 
-      <tr>
-        @foreach($rucher->ruches as $ruche)
-        <td>
-          {!! $ruche->id !!} <br />
+        <tr class="allRuche_case">
+          @foreach($rucher->ruches as $ruche)
+          <td class="ruche_case">
+            Ruche {!! $rucher->id !!}-{!! $ruche->addrMelinet !!} <br />
 
-          <div class='btn-group'>
-            <a href="{!! route('ruches.show', [$ruche->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-          </div>
-        </td>
-        @endforeach
-      </tr>
+            <div class='btn-group'>
+              <a href="{!! route('ruches.show', [$ruche->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+            </div>
+          </td>
+          @endforeach
+        </tr>
+      </div>
 
       @endforeach
     </tbody>
