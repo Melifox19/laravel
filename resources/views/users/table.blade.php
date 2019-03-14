@@ -7,7 +7,7 @@
         <th>Email verifié</th>
         <th>Mot de passe</th>
         <th>Jeton mémoire</th>
-        <th colspan="3">Action</th>
+        <th colspan="4">Action</th>
       </tr>
     </thead>
     <tbody>
