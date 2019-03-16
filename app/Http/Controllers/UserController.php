@@ -11,6 +11,9 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+/* Ajout de la dépendance pour hashing */
+use Illuminate\Support\Facades\Hash;
+
 class UserController extends AppBaseController
 {
   /** @var  UserRepository */
