@@ -15,11 +15,9 @@ Route::get('/', function () {
   return redirect('login');
 });
 
-// Active la vérification par mail
 Auth::routes();
 
-// Accès aux utilisateurs identifiés et vérifié
-Route::group(['middleware' => ['auth' /*, 'verified'*/]],function()
+Route::group(['middleware' => ['auth']],function()
 {
   // Route pour les administrateurs ------------------------------------------------------
 
@@ -29,7 +27,7 @@ Route::group(['middleware' => ['auth' /*, 'verified'*/]],function()
   });
 
   // Route pour tout les utilisateurs ----------------------------------------------------
-
+  
   Route::resource('ruchers', 'RucherController');
 
   Route::resource('melibornes', 'MeliborneController');
