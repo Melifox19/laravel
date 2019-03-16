@@ -22,7 +22,7 @@
         <?php else: ?>
         <td> &#10003; </td>
         <?php endif; ?>
-        <td><?php echo $user->password; ?></td>
+        <td>*********</td>
         <td><?php echo $user->remember_token; ?></td>
 
 

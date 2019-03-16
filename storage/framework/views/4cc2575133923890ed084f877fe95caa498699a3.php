@@ -1,3 +1,11 @@
+<!-- ID Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('id', 'ID:'); ?>
+
+    <?php echo Form::text('id', null, ['class' => 'form-control']); ?>
+
+</div>
+
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('name', 'Nom:'); ?>
@@ -26,7 +34,7 @@
 <div class="form-group col-sm-6">
     <?php echo Form::label('role', 'Rôle:'); ?>
 
-    <?php echo Form::select('type', ['2' => 'Apiculteur', '1' => 'Administrateur'], null, ['class' => 'form-control']); ?>
+    <?php echo Form::select('type', ['user' => 'Apiculteur', 'admin' => 'Administrateur'], null, ['class' => 'form-control']); ?>
 
 </div>
 

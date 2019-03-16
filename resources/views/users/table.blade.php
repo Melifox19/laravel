@@ -22,7 +22,7 @@
         @else
         <td> &#10003; </td>
         @endif
-        <td>{!! $user->password !!}</td>
+        <td>*********</td>
         <td>{!! $user->remember_token !!}</td>
 
 
