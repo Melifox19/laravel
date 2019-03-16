@@ -57,7 +57,7 @@
                     <strong><?php echo e($errors->first('email')); ?></strong>
                 </span>
                 <?php endif; ?>
-            </div>submit
+            </div>
 
             <div class="form-group has-feedback<?php echo e($errors->has('password') ? ' has-error' : ''); ?>">
                 <input type="password" class="form-control" placeholder="Mot de passe" name="password">
