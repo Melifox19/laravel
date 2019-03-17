@@ -56,7 +56,6 @@
                     <strong>{{ $errors->first('email') }}</strong>
                 </span>
                 @endif
-            </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
                 <input type="password" class="form-control" placeholder="Mot de passe" name="password">
