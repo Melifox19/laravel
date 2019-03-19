@@ -76,6 +76,13 @@ class profileController extends AppBaseController
       return redirect(route('home'));
     }
 
+    $request->validate([
+      "name" => "required|min:5|max:50",
+      "email" => "email",
+      "password" => "required|confirmed"
+    ]);
+
+    $request['password_confirm'] = Hash::make($request['$password_confirm']);
     $request['password'] = Hash::make($request['password']);
 
     $user = $this->userRepository->update($request->all(), $id);
