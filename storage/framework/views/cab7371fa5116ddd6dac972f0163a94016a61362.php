@@ -22,6 +22,14 @@
 
 </div>
 
+<!-- Confirm Password Field -->
+<div class="form-group col-sm-6">
+    <?php echo Form::label('password_confirmation', 'Confirmation du mot de passe:'); ?>
+
+    <?php echo Form::password('password_confirmation', ['class' => 'form-control']); ?>
+
+</div>
+
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('role', 'Rôle:'); ?>
