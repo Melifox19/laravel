@@ -34,6 +34,7 @@ class User extends Model
   public $fillable = [
     'name',
     'email',
+    'role',
     'email_verified_at',
     'password',
     'remember_token'
@@ -48,6 +49,7 @@ class User extends Model
     'id' => 'integer',
     'name' => 'string',
     'email' => 'string',
+    'role' => 'string',
     'password' => 'string',
     'remember_token' => 'string',
     'deleted_at' => 'string'
