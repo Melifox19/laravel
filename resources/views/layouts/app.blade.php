@@ -40,7 +40,7 @@
 
             <!-- Logo -->
             <a href="/home" class="logo">
-                <b>Melifox19</b>
+                <b>Melifox 2019</b>
             </a>
 
             <!-- Header Navbar -->
@@ -49,8 +49,13 @@
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+
+                <div>
+                    @include('layouts.topbar')
+                </div>
+
                 <!-- Navbar Right Menu -->
-                <div class="navbar-chttp://melifox19/public/img/melicon.pngustom-menu">
+                <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
