@@ -22,3 +22,13 @@
 {
   background-color: rgb(194, 151, 8);
 }
+
+.btn-primary
+{
+  background-color: rgb(247, 191, 7);
+  border-color: rgb(223, 174, 11);
+}
+
+.box.box-primary {
+  border-top-color: rgb(223, 174, 11);
+}

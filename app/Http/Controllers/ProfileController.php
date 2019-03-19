@@ -37,7 +37,7 @@ class profileController extends AppBaseController
   }
 
   /**
-  * Display the specified User.
+  * Show the form for editing the specified User.
   *
   * @param  int $id
   *
@@ -56,6 +56,14 @@ class profileController extends AppBaseController
     return view('profile.edit')->with('user', $user);
   }
 
+  /**
+  * Update user in Database
+  *
+  * @param  int $id
+  * @param  UpdateUserRequest $request
+  *
+  * @return Response
+  */
   public function update($id, UpdateUserRequest $request)
   {
     $user = $this->userRepository->findWithoutFail($id);
