@@ -23,7 +23,7 @@ class CreateMesuresTable extends Migration
             $table->float('latitude')->nullable();
             $table->integer('debitSonore')->nullable();
             $table->integer('idRuche')->unsigned();
-            $table->timestamps();
+            $table->timestamps()->useCurrent();
             $table->softDeletes();
             $table->foreign('idRuche')->references('id')->on('ruches');
         });

@@ -13,7 +13,7 @@
 
 
     @foreach($ruchers as $rucher) <!-- ========== Si l'utilisateur est un admin on affiche tout les ruchers ========== -->
-    
+
     <tr>
       <td>{!! $rucher->id !!}</td>
       <td>{!! $rucher->nom !!}</td>
@@ -34,6 +34,9 @@
 
     @else
 
+    <?php
+    $user = App\User::where('id', Auth::user()->id)->first();
+    ?>
 
     @foreach($user->ruchers as $rucher)  <!-- == Sinon on affiche seulement les ruchers de l'utilisateur en question == -->
 

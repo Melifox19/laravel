@@ -18,7 +18,7 @@ class CreateMelibornesTable extends Migration
             $table->integer('niveauBatterie');
             $table->string('idSigfox');
             $table->integer('idRucher')->unsigned();
-            $table->timestamps();
+            $table->timestamps()->useCurrent();
             $table->softDeletes();
             $table->foreign('idRucher')->references('id')->on('ruchers');
         });

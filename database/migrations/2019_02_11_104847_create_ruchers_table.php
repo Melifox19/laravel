@@ -17,7 +17,7 @@ class CreateRuchersTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->integer('idApiculteur')->unsigned();
-            $table->timestamps();
+            $table->timestamps()->useCurrent();
             $table->softDeletes();
             $table->foreign('idApiculteur')->references('id')->on('users');
         });

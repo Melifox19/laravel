@@ -13,7 +13,7 @@
 
 
     <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <!-- ========== Si l'utilisateur est un admin on affiche tout les ruchers ========== -->
-    
+
     <tr>
       <td><?php echo $rucher->id; ?></td>
       <td><?php echo $rucher->nom; ?></td>
@@ -37,6 +37,9 @@
 
     <?php else: ?>
 
+    <?php
+    $user = App\User::where('id', Auth::user()->id)->first();
+    ?>
 
     <?php $__currentLoopData = $user->ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>  <!-- == Sinon on affiche seulement les ruchers de l'utilisateur en question == -->
 
