@@ -1,0 +1,11 @@
+.login-page, .register-page
+{
+  background: right 0% bottom 0% no-repeat url("./img/wallpaper.png");
+  background-size: cover;
+}
+
+.login-box, .register-box
+{
+  background: white;
+  border: solid rgb(205, 86, 0) 2px;
+}
