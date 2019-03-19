@@ -1,19 +1,24 @@
 .skin-blue .main-header .logo
 {
-  background-color: rgb(205, 86, 0);
+  background-color: rgb(223, 174, 11);
 }
 
 .skin-blue .main-header .navbar
 {
-  background-color: rgb(235, 115, 29);
+  background-color: rgb(247, 191, 7);
+}
+
+.skin-blue .main-header li.user-header
+{
+  background-color: rgb(247, 191, 7)
 }
 
 .skin-blue .main-header .logo:hover
 {
-  background-color: rgb(157, 67, 2);
+  background-color: rgb(194, 151, 8);
 }
 
 .skin-blue .main-header .navbar .sidebar-toggle:hover
 {
-  background-color: rgb(157, 67, 2);
+  background-color: rgb(194, 151, 8);
 }
