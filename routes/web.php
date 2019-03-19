@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']],function()
 
   // Route pour tout les utilisateurs ----------------------------------------------------
 
+
   Route::get('/home', 'HomeController@index')->name('home');
 
   Route::get('/home', 'HomeController@index');
