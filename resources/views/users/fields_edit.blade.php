@@ -16,6 +16,12 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
+<!-- Confirm Password Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('password_confirm', 'Confirmation du mot de passe:') !!}
+    {!! Form::password('password_confirm', ['class' => 'form-control']) !!}
+</div>
+
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role', 'Rôle:') !!}

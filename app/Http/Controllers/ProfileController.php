@@ -11,6 +11,9 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+/* Ajout de la dépendance pour hashing */
+use Illuminate\Support\Facades\Hash;
+
 class profileController extends AppBaseController
 {
   /** @var  UserRepository */
@@ -37,7 +40,7 @@ class profileController extends AppBaseController
   }
 
   /**
-  * Show the form for editing the specified User.
+  * Display the specified User.
   *
   * @param  int $id
   *
@@ -57,10 +60,9 @@ class profileController extends AppBaseController
   }
 
   /**
-  * Update user in Database
+  * Display the specified User.
   *
   * @param  int $id
-  * @param  UpdateUserRequest $request
   *
   * @return Response
   */
