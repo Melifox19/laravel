@@ -1,8 +1,8 @@
 
 <?php if(Auth::user()->role == 'admin'): ?>
-  <li class="<?php echo e(Request::is('users*') ? 'active' : ''); ?>">
-    <a href="<?php echo route('users.index'); ?>"><i class="fa fa-edit"></i><span>Utilisateurs</span></a>
-  </li>
+<li class="<?php echo e(Request::is('users*') ? 'active' : ''); ?>">
+  <a href="<?php echo route('users.index'); ?>"><i class="fa fa-edit"></i><span>Utilisateurs</span></a>
+</li>
 <?php endif; ?>
 
 <li class="<?php echo e(Request::is('ruchers*') ? 'active' : ''); ?>">

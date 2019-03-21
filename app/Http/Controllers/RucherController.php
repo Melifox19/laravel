@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRucherRequest;
 use App\Http\Requests\UpdateRucherRequest;
+
 use App\Repositories\RucherRepository;
+
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
@@ -33,7 +35,7 @@ class RucherController extends AppBaseController
         $ruchers = $this->rucherRepository->paginate(10);
 
         return view('ruchers.index')
-            ->with('ruchers', $ruchers);
+            ->with('ruchers', $ruchers, 'users', $users);
     }
 
     /**

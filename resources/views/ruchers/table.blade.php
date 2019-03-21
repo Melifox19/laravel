@@ -34,10 +34,6 @@
 
     @else
 
-    <?php
-    $user = App\User::where('id', Auth::user()->id)->first();
-    ?>
-
     @foreach($user->ruchers as $rucher)  <!-- == Sinon on affiche seulement les ruchers de l'utilisateur en question == -->
 
     <tr>
