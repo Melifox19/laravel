@@ -50,5 +50,13 @@ class Meliborne extends Model
         'idSigfox' => 'email'
     ];
 
+    public function ruches()
+    {
+      return $this->hasMany(\App\Models\Ruche::class, 'idMeliborne');
+    }
 
+    public function ruchers()
+    {
+      return $this->belongsTo(\App\Models\Rucher::class, 'idRucher');
+    }
 }

@@ -20,7 +20,7 @@ class Alerte extends Model
     use SoftDeletes;
 
     public $table = 'alertes';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -49,8 +49,11 @@ class Alerte extends Model
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
-    
+    public function ruches()
+    {
+      return $this->belongsTo(\App\Models\Ruche::class, 'idRuche');
+    }
 }

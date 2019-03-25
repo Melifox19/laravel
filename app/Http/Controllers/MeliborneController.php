@@ -7,7 +7,12 @@ use App\Http\Requests\UpdateMeliborneRequest;
 use App\Repositories\MeliborneRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+
+use App\Models\Rucher;
+use App\Models\User;
+
 use Flash;
+use Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -30,7 +35,17 @@ class MeliborneController extends AppBaseController
     public function index(Request $request)
     {
         $this->meliborneRepository->pushCriteria(new RequestCriteria($request));
-        $melibornes = $this->meliborneRepository->all();
+
+        if ( Auth::user()->role == 'admin' )
+        {
+            $melibornes = $this->meliborneRepository->all();
+        }
+        else
+        {
+            $user = User::find(Auth::user()->id)->ruchers;
+            $melibornes = Rucher::find($user)->melibornes;
+            return var_dump($melibornes);
+        }
 
         return view('melibornes.index')
             ->with('melibornes', $melibornes);

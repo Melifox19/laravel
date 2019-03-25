@@ -9,7 +9,7 @@
   </thead>
   <tbody>
 
-    @foreach($ruchers as $rucher) <!-- ========== Si l'utilisateur est un admin on affiche tout les ruchers ========== -->
+    @foreach($ruchers as $rucher)
 
     <tr>
       <td>{!! $rucher->id !!}</td>
@@ -26,7 +26,7 @@
       </td>
     </tr>
 
-    @endforeach <!-- ================================================================================================== -->
+    @endforeach
 
   </tbody>
 </table>

@@ -6,7 +6,6 @@
         <th>E-mail</th>
         <th>Email verifié</th>
         <th>Mot de passe</th>
-        <th>Jeton mémoire</th>
         <th colspan="4">Action</th>
       </tr>
     </thead>
@@ -23,7 +22,6 @@
         <td> &#10003; </td>
         @endif
         <td>*********</td>
-        <td>{!! $user->remember_token !!}</td>
 
 
         <td>

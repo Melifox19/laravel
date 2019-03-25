@@ -9,7 +9,7 @@
   </thead>
   <tbody>
 
-    <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <!-- ========== Si l'utilisateur est un admin on affiche tout les ruchers ========== -->
+    <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
     <tr>
       <td><?php echo $rucher->id; ?></td>
@@ -29,7 +29,7 @@
       </td>
     </tr>
 
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <!-- ================================================================================================== -->
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
   </tbody>
 </table>

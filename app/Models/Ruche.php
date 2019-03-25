@@ -21,7 +21,7 @@ class Ruche extends Model
     use SoftDeletes;
 
     public $table = 'ruches';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -56,5 +56,14 @@ class Ruche extends Model
         'idSigfox' => 'email'
     ];
 
-    
+    public function melibornes()
+    {
+      return $this->belongsTo(\App\Models\Meliborne::class, 'idMeliborne');
+    }
+
+    public function ruchers()
+    {
+      return $this->belongsTo(\App\Models\Ruchers::class, 'idRucher');
+    }
+
 }

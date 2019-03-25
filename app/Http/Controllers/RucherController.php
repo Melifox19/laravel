@@ -38,7 +38,7 @@ class RucherController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $ruchers = $this->rucherRepository->paginate(10);
+            $ruchers = $this->rucherRepository->all();
         }
         else
         {

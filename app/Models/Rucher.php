@@ -52,6 +52,11 @@ class Rucher extends Model
       return $this->hasMany(\App\Models\Ruche::class, 'idRucher');
     }
 
+    public function melibornes()
+    {
+      return $this->hasMany(\App\Models\Meliborne::class, 'idRucher');
+    }
+
     public function users()
     {
       return $this->belongsTo(\App\Models\User::class, 'idApiculteur');
