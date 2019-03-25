@@ -20,6 +20,9 @@
         </div>
         <div class="col-md-8 no-float">
             <h2>High charts</h2>
+            <div class="container" id="hchart">
+                {!! $chart1 !!}
+            </div>
         </div>
     </div>
 </div>

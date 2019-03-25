@@ -1,18 +1,9 @@
 <ul class="nav navbar-nav">
-    <li class="nav-item">
-        <a href="/profile/rucher" class="nav-link">Paramètres rucher</a>
-    </li>
-    <li class="nav-item">
-        <a href="/profile/ruche">Paramètres ruches</a>
-    </li>
+  <li class="{{ Request::is('ruchers*') ? 'active' : '' }}">
+    <a href="{!! route('ruchers.index') !!}"><i class="fa fa-cog"></i><span> Ruchers</span></a>
+  </li>
 
-    @if(\Request::is('profile/ruche'))
-    <li class="nav-item">
-        <a href="#">+</a>
-    </li>
-
-    <li class="nav-item">
-        <a href="#">-</a>
-    </li>
-    @endif
+  <li class="{{ Request::is('ruches*') ? 'active' : '' }}">
+    <a href="{!! route('ruches.index') !!}"><i class="fa fa-cog"></i><span> Ruches</span></a>
+  </li>
 </ul>
