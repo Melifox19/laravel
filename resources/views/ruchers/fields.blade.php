@@ -4,11 +4,22 @@
     {!! Form::text('nom', null, ['class' => 'form-control']) !!}
 </div>
 
+@if ( Auth::user()->role == 'admin' )
 <!-- Idapiculteur Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('idApiculteur', 'Idapiculteur:') !!}
-    {!! Form::number('idApiculteur', null, ['class' => 'form-control']) !!}
+    <select class="form-control" name="idApiculteur">
+        @foreach($users as $user)
+            <option value="{!! $user->id !!}">{!! $user->name !!}</option>
+        @endforeach
+    </select>
 </div>
+@else
+<div class="form-group col-sm-6">
+    {!! Form::hidden('idApiculteur', Auth::user()->id) !!}
+</div>
+@endif
+
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

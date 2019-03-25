@@ -9,9 +9,6 @@
   </thead>
   <tbody>
 
-    <?php if(Auth::user()->role == 'admin'): ?>
-
-
     <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?> <!-- ========== Si l'utilisateur est un admin on affiche tout les ruchers ========== -->
 
     <tr>
@@ -33,20 +30,6 @@
     </tr>
 
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?> <!-- ================================================================================================== -->
-
-
-    <?php else: ?>
-
-    <?php
-    $user = App\User::where('id', Auth::user()->id)->first();
-    ?>
-
-    <?php echo $__env->make('users.ruches_list', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>   <!-- ========================================================================================== -->
-
-
-    <?php endif; ?>
-
-
 
   </tbody>
 </table>

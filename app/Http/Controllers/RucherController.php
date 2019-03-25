@@ -7,9 +7,12 @@ use App\Http\Requests\UpdateRucherRequest;
 
 use App\Repositories\RucherRepository;
 
+use App\Models\User;
+
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
@@ -24,61 +27,75 @@ class RucherController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Rucher.
-     *
-     * @param Request $request
-     * @return Response
-     */
+    * Display a listing of the Rucher.
+    *
+    * @param Request $request
+    * @return Response
+    */
     public function index(Request $request)
     {
         $this->rucherRepository->pushCriteria(new RequestCriteria($request));
-        $ruchers = $this->rucherRepository->paginate(10);
+
+        if ( Auth::user()->role == 'admin' )
+        {
+            $ruchers = $this->rucherRepository->paginate(10);
+        }
+        else
+        {
+            $ruchers = User::find(Auth::user()->id)->ruchers;
+        }
 
         return view('ruchers.index')
-            ->with('ruchers', $ruchers, 'users', $users);
+        ->with('ruchers', $ruchers);
     }
 
     /**
-     * Show the form for creating a new Rucher.
-     *
-     * @return Response
-     */
+    * Show the form for creating a new Rucher.
+    *
+    * @return Response
+    */
     public function create()
     {
-        return view('ruchers.create');
+        $users = User::all('name');
+        return view('ruchers.create', compact('id', 'users'));
     }
 
     /**
-     * Store a newly created Rucher in storage.
-     *
-     * @param CreateRucherRequest $request
-     *
-     * @return Response
-     */
+    * Store a newly created Rucher in storage.
+    *
+    * @param CreateRucherRequest $request
+    *
+    * @return Response
+    */
     public function store(CreateRucherRequest $request)
     {
+        $request->validate([
+            "nom" => "required|min:5|max:50",
+            "idApiculteur" => "required"
+        ]);
+
         $input = $request->all();
 
         $rucher = $this->rucherRepository->create($input);
 
-        Flash::success('Rucher saved successfully.');
+        Flash::success('Rucher créé avec succès');
 
         return redirect(route('ruchers.index'));
     }
 
     /**
-     * Display the specified Rucher.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Display the specified Rucher.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function show($id)
     {
         $rucher = $this->rucherRepository->findWithoutFail($id);
 
         if (empty($rucher)) {
-            Flash::error('Rucher not found');
+            Flash::error('Rucher introuvable');
 
             return redirect(route('ruchers.index'));
         }
@@ -87,18 +104,18 @@ class RucherController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified Rucher.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Show the form for editing the specified Rucher.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function edit($id)
     {
         $rucher = $this->rucherRepository->findWithoutFail($id);
 
         if (empty($rucher)) {
-            Flash::error('Rucher not found');
+            Flash::error('Rucher introuvable');
 
             return redirect(route('ruchers.index'));
         }
@@ -107,50 +124,55 @@ class RucherController extends AppBaseController
     }
 
     /**
-     * Update the specified Rucher in storage.
-     *
-     * @param  int              $id
-     * @param UpdateRucherRequest $request
-     *
-     * @return Response
-     */
+    * Update the specified Rucher in storage.
+    *
+    * @param  int              $id
+    * @param UpdateRucherRequest $request
+    *
+    * @return Response
+    */
     public function update($id, UpdateRucherRequest $request)
     {
+        $request->validate([
+            "nom" => "required|min:5|max:50",
+            "idApiculteur" => "required"
+        ]);
+
         $rucher = $this->rucherRepository->findWithoutFail($id);
 
         if (empty($rucher)) {
-            Flash::error('Rucher not found');
+            Flash::error('Rucher introuvable');
 
             return redirect(route('ruchers.index'));
         }
 
         $rucher = $this->rucherRepository->update($request->all(), $id);
 
-        Flash::success('Rucher updated successfully.');
+        Flash::success('Rucher mis à jour avec succès');
 
         return redirect(route('ruchers.index'));
     }
 
     /**
-     * Remove the specified Rucher from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Remove the specified Rucher from storage.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function destroy($id)
     {
         $rucher = $this->rucherRepository->findWithoutFail($id);
 
         if (empty($rucher)) {
-            Flash::error('Rucher not found');
+            Flash::error('Rucher introuvable');
 
             return redirect(route('ruchers.index'));
         }
 
         $this->rucherRepository->delete($id);
 
-        Flash::success('Rucher deleted successfully.');
+        Flash::success('Rucher supprimé avec succès');
 
         return redirect(route('ruchers.index'));
     }
