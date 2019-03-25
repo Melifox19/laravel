@@ -60,7 +60,7 @@ class UserController extends AppBaseController
   {
     $request->validate([
       "name" => "required|min:5|max:50",
-      "email" => "email",
+      "email" => "required|email",
       "password" => "required|confirmed"
     ]);
 
@@ -136,8 +136,8 @@ class UserController extends AppBaseController
 
     $request->validate([
       "name" => "required|min:5|max:50",
-      "email" => "email",
-      "password" => "required|confirmed"
+      "email" => "required|email",
+      "password" => "confirmed"
     ]);
 
 

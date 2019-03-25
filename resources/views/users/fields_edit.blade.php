@@ -25,7 +25,7 @@
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role', 'Rôle:') !!}
-    {!! Form::select('type', array('user' => 'Apiculteur', 'admin' => 'Administrateur'), null, ['class' => 'form-control']) !!}
+    {!! Form::select('role', array('user' => 'Apiculteur', 'admin' => 'Administrateur'), null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
