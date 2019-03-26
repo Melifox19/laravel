@@ -52,8 +52,11 @@ class MeliborneController extends AppBaseController
             ->get();
         }
 
+        $ruchers = DB::table('ruchers')->get();
+
         return view('melibornes.index')
-            ->with('melibornes', $melibornes);
+            ->with('melibornes', $melibornes)
+            ->with('ruchers', $ruchers);
     }
 
     /**
@@ -63,7 +66,11 @@ class MeliborneController extends AppBaseController
      */
     public function create()
     {
-        return view('melibornes.create');
+        $ruchers = DB::table('ruchers')
+        ->where('idApiculteur', '=', Auth::user()->id)
+        ->get();
+
+        return view('melibornes.create')->with('ruchers', $ruchers);;
     }
 
     /**
@@ -121,7 +128,13 @@ class MeliborneController extends AppBaseController
             return redirect(route('melibornes.index'));
         }
 
-        return view('melibornes.edit')->with('meliborne', $meliborne);
+        $ruchers = DB::table('ruchers')
+        ->where('idApiculteur', '=', Auth::user()->id)
+        ->get();
+
+        return view('melibornes.edit')
+        ->with('meliborne', $meliborne)
+        ->with('ruchers', $ruchers);
     }
 
     /**

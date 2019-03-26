@@ -4,17 +4,19 @@
       <th>ID</th>
       <th>Batterie</th>
       <th>ID SigFox</th>
-      <th>Dans le rucher..</th>
+      <th>Dans le rucher</th>
       <th colspan="3">Action</th>
     </tr>
   </thead>
   <tbody>
     <?php $__currentLoopData = $melibornes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $meliborne): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($meliborne->idRucher == $rucher->id): ?>
     <tr>
       <td><?php echo $meliborne->id; ?></td>
       <td><?php echo $meliborne->niveauBatterie; ?>%</td>
       <td><?php echo $meliborne->idSigfox; ?></td>
-      <td><?php echo $meliborne->idRucher; ?></td>
+      <td><?php echo $meliborne->idRucher; ?> - <?php echo $rucher->nom; ?></td>
       <td>
         <?php echo Form::open(['route' => ['melibornes.destroy', $meliborne->id], 'method' => 'delete']); ?>
 
@@ -28,6 +30,8 @@
 
       </td>
     </tr>
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>

@@ -15,14 +15,7 @@
     </select>
 </div>
 
-@else
-
-<div class="form-group col-sm-6">
-    {!! Form::hidden('idApiculteur', Auth::user()->id) !!}
-</div>
-
 @endif
-
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

@@ -10,11 +10,13 @@
   </thead>
   <tbody>
     @foreach($melibornes as $meliborne)
+    @foreach($ruchers as $rucher)
+    @if($meliborne->idRucher == $rucher->id)
     <tr>
       <td>{!! $meliborne->id !!}</td>
       <td>{!! $meliborne->niveauBatterie !!}%</td>
       <td>{!! $meliborne->idSigfox !!}</td>
-      <td>{!! $meliborne->idRucher !!}</td>
+      <td>{!! $meliborne->idRucher !!} - {!! $rucher->nom !!}</td>
       <td>
         {!! Form::open(['route' => ['melibornes.destroy', $meliborne->id], 'method' => 'delete']) !!}
         <div class='btn-group'>
@@ -25,6 +27,8 @@
         {!! Form::close() !!}
       </td>
     </tr>
+    @endif
+    @endforeach
     @endforeach
   </tbody>
 </table>
