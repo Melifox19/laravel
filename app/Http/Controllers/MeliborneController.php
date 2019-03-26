@@ -44,6 +44,7 @@ class MeliborneController extends AppBaseController
         else
         {
             $melibornes = DB::table('melibornes')
+            ->select('melibornes.*')
             ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
             ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
             ->where('users.id', '=', Auth::user()->id)
