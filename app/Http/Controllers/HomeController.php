@@ -24,39 +24,34 @@ class HomeController extends Controller
     public function index()
     {
         $chart1 = \Chart::title([
-              'text' => 'Voting ballon d`or 2018',
+              'text' => 'Température Méliruche',
             ])
             ->chart([
-              'type'     => 'line', // pie , columnt ect
+              'type'     => 'spline', // pie , columnt ect
               'renderTo' => 'hchart', // render the chart into your div with id
             ])
             ->subtitle([
-              'text' => 'This Subtitle',
+              'text' => 'Sous-titre', //sous-titre du tableau
             ])
             ->colors([
               '#0c2959'
             ])
             ->xaxis([
-              'categories' => [
-                'Alex Turner',
-                'Julian Casablancas',
-                'Bambang Pamungkas',
-                'Mbah Surip',
+              'type' => 'datetime',
+              'dateTimeLabelFormats' => [
+                'month' => '%e %b.'
               ],
-              'labels'     => [
-              'rotation'  => 15,
-              'align'     => 'top',
-              'formatter' => 'startJs:function(){return this.value + " (Footbal Player)"}:endJs',
-              // use 'startJs:yourjavasscripthere:endJs'
-            ],
+              'title' => [
+                'text' => 'Date'
+              ]
           ])
           ->yaxis([
             'text' => 'This Y Axis',
           ])
           ->legend([
             'layout'        => 'vertical',
-            'align'         => 'right',
-            'verticalAlign' => 'middle',
+            'align'         => 'middle',
+            'verticalAlign' => 'bottom',
           ])
           ->series(
              [
