@@ -10,7 +10,7 @@
 <div class="form-group col-sm-6">
     <?php echo Form::label('idRucher', 'Appartient au rucher:'); ?>
 
-    <select class="form-control" name="idApiculteur">
+    <select class="form-control" name="idRucher">
         <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <option value="<?php echo $rucher->id; ?>"><?php echo $rucher->id; ?> - <?php echo $rucher->nom; ?></option>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

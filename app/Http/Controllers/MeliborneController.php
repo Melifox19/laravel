@@ -43,12 +43,10 @@ class MeliborneController extends AppBaseController
         }
         else
         {
-            $id = Auth::user()->id;
-
             $melibornes = DB::table('melibornes')
             ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
             ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
-            ->where('users.id', '=', $id)
+            ->where('users.id', '=', Auth::user()->id)
             ->get();
         }
 

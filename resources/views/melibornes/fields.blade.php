@@ -7,7 +7,7 @@
 <!-- Idrucher Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('idRucher', 'Appartient au rucher:') !!}
-    <select class="form-control" name="idApiculteur">
+    <select class="form-control" name="idRucher">
         @foreach($ruchers as $rucher)
             <option value="{!! $rucher->id !!}">{!! $rucher->id !!} - {!! $rucher->nom !!}</option>
         @endforeach
