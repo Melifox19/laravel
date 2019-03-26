@@ -10,11 +10,13 @@
   <tbody>
 
     @foreach($ruchers as $rucher)
+    @foreach($users as $user)
+    @if($rucher->idApiculteur == $user->id)
 
     <tr>
       <td>{!! $rucher->id !!}</td>
       <td>{!! $rucher->nom !!}</td>
-      <td>{!! $rucher->idApiculteur !!}</td>
+      <td>{!! $rucher->idApiculteur !!} - {!! $user->name !!}</td>
       <td>
         {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
         <div class='btn-group'>
@@ -26,6 +28,8 @@
       </td>
     </tr>
 
+    @endif
+    @endforeach
     @endforeach
 
   </tbody>

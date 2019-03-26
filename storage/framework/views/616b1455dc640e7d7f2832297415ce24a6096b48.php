@@ -10,11 +10,13 @@
   <tbody>
 
     <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    <?php if($rucher->idApiculteur == $user->id): ?>
 
     <tr>
       <td><?php echo $rucher->id; ?></td>
       <td><?php echo $rucher->nom; ?></td>
-      <td><?php echo $rucher->idApiculteur; ?></td>
+      <td><?php echo $rucher->idApiculteur; ?> - <?php echo $user->name; ?></td>
       <td>
         <?php echo Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']); ?>
 
@@ -29,6 +31,8 @@
       </td>
     </tr>
 
+    <?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
   </tbody>

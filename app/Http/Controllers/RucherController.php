@@ -45,8 +45,11 @@ class RucherController extends AppBaseController
             $ruchers = User::find(Auth::user()->id)->ruchers;
         }
 
+        $users = User::all();
+
         return view('ruchers.index')
-        ->with('ruchers', $ruchers);
+        ->with('ruchers', $ruchers)
+        ->with('users', $users);
     }
 
     /**
