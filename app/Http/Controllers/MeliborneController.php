@@ -7,15 +7,15 @@ use App\Http\Requests\UpdateMeliborneRequest;
 use App\Repositories\MeliborneRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-
-use App\Models\Rucher;
-use App\Models\User;
-
 use Flash;
-use Auth;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+
+//Ajout des dépendances perso
+use Illuminate\Support\Facades\DB;
+use App\Models\Rucher;
+use App\Models\User;
+use Auth;
 
 class MeliborneController extends AppBaseController
 {
@@ -65,11 +65,19 @@ class MeliborneController extends AppBaseController
      */
     public function create()
     {
-        $ruchers = DB::table('ruchers')
-        ->where('idApiculteur', '=', Auth::user()->id)
-        ->get();
+            if ( Auth::user()->role == "admin")
+            {
+                $ruchers = Rucher::all();
+            }
+            else
+            {
+                $ruchers = DB::table('ruchers')
+                ->where('idApiculteur', '=', Auth::user()->id)
+                ->get();
+            }
 
-        return view('melibornes.create')->with('ruchers', $ruchers);;
+            return view('melibornes.create')
+            ->with('ruchers', $ruchers);
     }
 
     /**
@@ -85,7 +93,7 @@ class MeliborneController extends AppBaseController
 
         $meliborne = $this->meliborneRepository->create($input);
 
-        Flash::success('Meliborne saved successfully.');
+        Flash::success('Meliborne créé avec succès');
 
         return redirect(route('melibornes.index'));
     }
@@ -102,7 +110,7 @@ class MeliborneController extends AppBaseController
         $meliborne = $this->meliborneRepository->findWithoutFail($id);
 
         if (empty($meliborne)) {
-            Flash::error('Meliborne not found');
+            Flash::error('Meliborne introuvable');
 
             return redirect(route('melibornes.index'));
         }
@@ -122,14 +130,21 @@ class MeliborneController extends AppBaseController
         $meliborne = $this->meliborneRepository->findWithoutFail($id);
 
         if (empty($meliborne)) {
-            Flash::error('Meliborne not found');
+            Flash::error('Meliborne introuvable');
 
             return redirect(route('melibornes.index'));
         }
 
-        $ruchers = DB::table('ruchers')
-        ->where('idApiculteur', '=', Auth::user()->id)
-        ->get();
+        if ( Auth::user()->role == "admin")
+        {
+            $ruchers = Rucher::all();
+        }
+        else
+        {
+            $ruchers = DB::table('ruchers')
+            ->where('idApiculteur', '=', Auth::user()->id)
+            ->get();
+        }
 
         return view('melibornes.edit')
         ->with('meliborne', $meliborne)

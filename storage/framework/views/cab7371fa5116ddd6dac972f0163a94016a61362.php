@@ -34,7 +34,7 @@
 <div class="form-group col-sm-6">
     <?php echo Form::label('role', 'Rôle:'); ?>
 
-    <?php echo Form::select('type', ['user' => 'Apiculteur', 'admin' => 'Administrateur'], null, ['class' => 'form-control']); ?>
+    <?php echo Form::select('role', ['user' => 'Apiculteur', 'admin' => 'Administrateur'], null, ['class' => 'form-control']); ?>
 
 </div>
 

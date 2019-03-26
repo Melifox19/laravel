@@ -9,7 +9,7 @@
 <?php if( Auth::user()->role == 'admin' ): ?>
 <!-- Idapiculteur Field -->
 <div class="form-group col-sm-6">
-    <?php echo Form::label('idApiculteur', 'Propriétaire:'); ?>
+    <?php echo Form::label('idApiculteur', 'Idapiculteur:'); ?>
 
     <select class="form-control" name="idApiculteur">
         <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -18,15 +18,7 @@
     </select>
 </div>
 
-<?php else: ?>
-
-<div class="form-group col-sm-6">
-    <?php echo Form::hidden('idApiculteur', Auth::user()->id); ?>
-
-</div>
-
 <?php endif; ?>
-
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">

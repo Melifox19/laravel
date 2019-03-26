@@ -2,20 +2,22 @@
     <thead>
         <tr>
             <th>Addrmelinet</th>
-        <th>Idsigfox</th>
-        <th>Type</th>
-        <th>Idrucher</th>
-        <th>Idmeliborne</th>
+            <th>Idsigfox</th>
+            <th>Type</th>
+            <th>Idrucher</th>
+            <th>Idmeliborne</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($ruches as $ruche)
+        @foreach($ruches as $ruche)
+        @foreach($ruchers as $rucher)
+        @if( $ruche->idRucher == $rucher->id )
         <tr>
             <td>{!! $ruche->addrMelinet !!}</td>
             <td>{!! $ruche->idSigfox !!}</td>
             <td>{!! $ruche->type !!}</td>
-            <td>{!! $ruche->idRucher !!}</td>
+            <td>{!! $ruche->idRucher !!} - {!! $rucher->nom !!}</td>
             <td>{!! $ruche->idMeliborne !!}</td>
             <td>
                 {!! Form::open(['route' => ['ruches.destroy', $ruche->id], 'method' => 'delete']) !!}
@@ -27,6 +29,8 @@
                 {!! Form::close() !!}
             </td>
         </tr>
-    @endforeach
+        @endif
+        @endforeach
+        @endforeach
     </tbody>
 </table>

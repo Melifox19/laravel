@@ -59,8 +59,10 @@ class RucherController extends AppBaseController
     */
     public function create()
     {
-        $users = User::all('name');
-        return view('ruchers.create', compact('id', 'users'));
+        $users = User::all('id','name');
+        
+        return view('ruchers.create')
+        ->with('users', $users);
     }
 
     /**
@@ -123,7 +125,11 @@ class RucherController extends AppBaseController
             return redirect(route('ruchers.index'));
         }
 
-        return view('ruchers.edit')->with('rucher', $rucher);
+        $users = User::all('id','name');
+
+        return view('ruchers.edit')
+        ->with('rucher', $rucher)
+        ->with('users', $users);
     }
 
     /**

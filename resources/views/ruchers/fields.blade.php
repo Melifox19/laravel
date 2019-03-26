@@ -7,7 +7,7 @@
 @if ( Auth::user()->role == 'admin' )
 <!-- Idapiculteur Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('idApiculteur', 'Idapiculteur:') !!}
+    {!! Form::label('idApiculteur', 'Propriétaire:') !!}
     <select class="form-control" name="idApiculteur">
         @foreach($users as $user)
             <option value="{!! $user->id !!}">{!! $user->name !!}</option>
