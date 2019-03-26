@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateMeliborneRequest;
 use App\Repositories\MeliborneRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Rucher;
 use App\Models\User;
@@ -42,9 +43,13 @@ class MeliborneController extends AppBaseController
         }
         else
         {
-            $user = User::find(Auth::user()->id)->ruchers;
-            $melibornes = Rucher::find($user)->melibornes;
-            return var_dump($melibornes);
+            $id = Auth::user()->id;
+
+            $melibornes = DB::table('melibornes')
+            ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
+            ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
+            ->where('users.id', '=', $id)
+            ->get();
         }
 
         return view('melibornes.index')

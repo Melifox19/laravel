@@ -25,7 +25,8 @@ class Mesure extends Model
 
     public $table = 'mesures';
 
-
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -53,7 +54,8 @@ class Mesure extends Model
         'longitude' => 'float',
         'latitude' => 'float',
         'debitSonore' => 'integer',
-        'idRuche' => 'integer'
+        'idRuche' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**

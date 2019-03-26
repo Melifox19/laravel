@@ -22,7 +22,8 @@ class Ruche extends Model
 
     public $table = 'ruches';
 
-
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -43,7 +44,8 @@ class Ruche extends Model
         'addrMelinet' => 'integer',
         'idSigfox' => 'string',
         'idRucher' => 'integer',
-        'idMeliborne' => 'integer'
+        'idMeliborne' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**

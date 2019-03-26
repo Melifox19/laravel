@@ -21,7 +21,8 @@ class Alerte extends Model
 
     public $table = 'alertes';
 
-
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -40,7 +41,8 @@ class Alerte extends Model
     protected $casts = [
         'horodatageAlerte' => 'datetime',
         'description' => 'string',
-        'idRuche' => 'integer'
+        'idRuche' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**
