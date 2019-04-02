@@ -1,4 +1,4 @@
-<script src="<?php echo e(URL::asset('js/rucheForm.js')); ?>" type="text/text/javascript"></script>
+<script src="<?php echo e(URL::asset('js/rucheForm.js')); ?>" type="text/javascript"></script>
 
 <!-- Addrmelinet Field -->
 <div class="form-group col-sm-6">
@@ -34,10 +34,10 @@
 </div>
 
 <!-- Idmeliborne Field -->
-<div class="form-group col-sm-6">
+<div id="meliborneField" class="form-group col-sm-6" style="display:block">
     <?php echo Form::label('idMeliborne', 'Appartient à la Méliborne:'); ?>
 
-    <select class="form-control" name="idRucher">
+    <select class="form-control" name="idMeliborne">
         <?php $__currentLoopData = $melibornes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $meliborne): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <option value="<?php echo $meliborne->id; ?>"><?php echo $meliborne->id; ?> - <?php echo $meliborne->nom; ?></option>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -45,7 +45,7 @@
 </div>
 
 <!-- Idsigfox Field -->
-<div class="form-group col-sm-6" style="display:none">
+<div id="sigfoxField" class="form-group col-sm-6" style="display:none">
     <?php echo Form::label('idSigfox', 'ID SigFox:'); ?>
 
     <?php echo Form::text('idSigfox', null, ['class' => 'form-control']); ?>
