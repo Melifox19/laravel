@@ -14,6 +14,7 @@ use Response;
 //Ajout des dépendances perso
 use Illuminate\Support\Facades\DB;
 use App\Models\Rucher;
+use App\Models\Meliborne;
 use App\Models\User;
 use Auth;
 
@@ -67,7 +68,25 @@ class RucheController extends AppBaseController
      */
     public function create()
     {
-        return view('ruches.create');
+      if ( Auth::user()->role == "admin")
+      {
+          $ruchers = Rucher::all();
+          $melibornes = Meliborne::all();
+      }
+      else
+      {
+          $ruchers = DB::table('ruchers')
+          ->where('idApiculteur', '=', Auth::user()->id)
+          ->get();
+
+          $melibornes = DB::table('melibornes')
+          ->where('idApiculteur', '=', Auth::user()->id)
+          ->get();
+      }
+
+        return view('ruches.create')
+        ->with('ruchers', $ruchers)
+        ->with('melibornes', $melibornes);
     }
 
     /**
