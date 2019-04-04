@@ -25,5 +25,4 @@ Homestead.json
 
 
 #Custom
-storage\debugbar
-storage\framework\sessions
+storage\*
