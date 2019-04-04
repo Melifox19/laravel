@@ -11,6 +11,12 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+//Ajout des dépendances perso
+use Illuminate\Support\Facades\DB;
+use App\Models\Rucher;
+use App\Models\User;
+use Auth;
+
 class MeliborneController extends AppBaseController
 {
     /** @var  MeliborneRepository */
@@ -30,10 +36,26 @@ class MeliborneController extends AppBaseController
     public function index(Request $request)
     {
         $this->meliborneRepository->pushCriteria(new RequestCriteria($request));
-        $melibornes = $this->meliborneRepository->all();
+
+        if ( Auth::user()->role == 'admin' )
+        {
+            $melibornes = $this->meliborneRepository->all();
+        }
+        else
+        {
+            $melibornes = DB::table('melibornes')
+            ->select('melibornes.*')
+            ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
+            ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
+            ->where('users.id', '=', Auth::user()->id)
+            ->get();
+        }
+
+        $ruchers = DB::table('ruchers')->get();
 
         return view('melibornes.index')
-            ->with('melibornes', $melibornes);
+            ->with('melibornes', $melibornes)
+            ->with('ruchers', $ruchers);
     }
 
     /**
@@ -43,7 +65,19 @@ class MeliborneController extends AppBaseController
      */
     public function create()
     {
-        return view('melibornes.create');
+            if ( Auth::user()->role == "admin")
+            {
+                $ruchers = Rucher::all();
+            }
+            else
+            {
+                $ruchers = DB::table('ruchers')
+                ->where('idApiculteur', '=', Auth::user()->id)
+                ->get();
+            }
+
+            return view('melibornes.create')
+            ->with('ruchers', $ruchers);
     }
 
     /**
@@ -59,7 +93,7 @@ class MeliborneController extends AppBaseController
 
         $meliborne = $this->meliborneRepository->create($input);
 
-        Flash::success('Meliborne saved successfully.');
+        Flash::success('Meliborne créé avec succès');
 
         return redirect(route('melibornes.index'));
     }
@@ -76,7 +110,7 @@ class MeliborneController extends AppBaseController
         $meliborne = $this->meliborneRepository->findWithoutFail($id);
 
         if (empty($meliborne)) {
-            Flash::error('Meliborne not found');
+            Flash::error('Meliborne introuvable');
 
             return redirect(route('melibornes.index'));
         }
@@ -96,12 +130,25 @@ class MeliborneController extends AppBaseController
         $meliborne = $this->meliborneRepository->findWithoutFail($id);
 
         if (empty($meliborne)) {
-            Flash::error('Meliborne not found');
+            Flash::error('Meliborne introuvable');
 
             return redirect(route('melibornes.index'));
         }
 
-        return view('melibornes.edit')->with('meliborne', $meliborne);
+        if ( Auth::user()->role == "admin")
+        {
+            $ruchers = Rucher::all();
+        }
+        else
+        {
+            $ruchers = DB::table('ruchers')
+            ->where('idApiculteur', '=', Auth::user()->id)
+            ->get();
+        }
+
+        return view('melibornes.edit')
+        ->with('meliborne', $meliborne)
+        ->with('ruchers', $ruchers);
     }
 
     /**

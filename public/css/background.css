@@ -1,0 +1,23 @@
+.login-page, .register-page
+{
+  background: right 0% bottom 0% no-repeat url("../img/wallpaper.png");
+  background-size: cover;
+}
+
+.login-box, .register-box
+{
+  background: white;
+  border: solid rgb(247, 191, 7) 2px;
+}
+
+.btn-primary
+{
+  background-color: rgb(247, 191, 7);
+  border-color: rgb(223, 174, 11);
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus
+{
+  background-color: rgb(223, 174, 11);
+  border-color: rgb(223, 174, 11);
+}

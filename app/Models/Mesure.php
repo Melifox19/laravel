@@ -24,8 +24,9 @@ class Mesure extends Model
     use SoftDeletes;
 
     public $table = 'mesures';
-    
 
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -53,7 +54,8 @@ class Mesure extends Model
         'longitude' => 'float',
         'latitude' => 'float',
         'debitSonore' => 'integer',
-        'idRuche' => 'integer'
+        'idRuche' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**
@@ -66,5 +68,8 @@ class Mesure extends Model
         'niveauBatterie' => 'longitude float:nullable text'
     ];
 
-    
+    public function ruches()
+    {
+      return $this->belongsTo(\App\Models\Ruche::class, 'idRuche');
+    }
 }
