@@ -1,6 +1,6 @@
 .login-page, .register-page
 {
-  background: right 0% bottom 0% no-repeat url("./img/wallpaper.png");
+  background: right 0% bottom 0% no-repeat url("../img/wallpaper.png");
   background-size: cover;
 }
 
