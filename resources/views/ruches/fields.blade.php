@@ -1,4 +1,4 @@
-<script src="{{ URL::asset('js/rucheForm.js')}}" type="text/text/javascript"></script>
+<script src="{{ URL::asset('js/rucheForm.js')}}" type="text/javascript"></script>
 
 <!-- Addrmelinet Field -->
 <div class="form-group col-sm-6">
@@ -29,9 +29,9 @@
 </div>
 
 <!-- Idmeliborne Field -->
-<div class="form-group col-sm-6">
+<div id="meliborneField" class="form-group col-sm-6" style="display:block">
     {!! Form::label('idMeliborne', 'Appartient à la Méliborne:') !!}
-    <select class="form-control" name="idRucher">
+    <select class="form-control" name="idMeliborne">
         @foreach($melibornes as $meliborne)
         <option value="{!! $meliborne->id !!}">{!! $meliborne->id !!} - {!! $meliborne->nom !!}</option>
         @endforeach
@@ -39,7 +39,7 @@
 </div>
 
 <!-- Idsigfox Field -->
-<div class="form-group col-sm-6" style="display:none">
+<div id="sigfoxField" class="form-group col-sm-6" style="display:none">
     {!! Form::label('idSigfox', 'ID SigFox:') !!}
     {!! Form::text('idSigfox', null, ['class' => 'form-control']) !!}
 </div>
