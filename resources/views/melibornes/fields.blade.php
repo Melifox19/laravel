@@ -1,19 +1,17 @@
-<!-- Niveaubatterie Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('niveauBatterie', 'Niveaubatterie:') !!}
-    {!! Form::number('niveauBatterie', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Idsigfox Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('idSigfox', 'Idsigfox:') !!}
+    {!! Form::label('idSigfox', 'ID SigFox:') !!}
     {!! Form::text('idSigfox', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Idrucher Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('idRucher', 'Idrucher:') !!}
-    {!! Form::number('idRucher', null, ['class' => 'form-control']) !!}
+    {!! Form::label('idRucher', 'Appartient au rucher:') !!}
+    <select class="form-control" name="idRucher">
+        @foreach($ruchers as $rucher)
+            <option value="{!! $rucher->id !!}">{!! $rucher->id !!} - {!! $rucher->nom !!}</option>
+        @endforeach
+    </select>
 </div>
 
 <!-- Submit Field -->

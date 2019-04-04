@@ -9,55 +9,28 @@
   </thead>
   <tbody>
 
-    @if (Auth::user()->role == 'admin')
+    @foreach($ruchers as $rucher)
+    @foreach($users as $user)
+    @if($rucher->idApiculteur == $user->id)
 
-
-    @foreach($ruchers as $rucher) <!-- ========== Si l'utilisateur est un admin on affiche tout les ruchers ========== -->
+    <tr>
+      <td>{!! $rucher->id !!}</td>
+      <td>{!! $rucher->nom !!}</td>
+      <td>{!! $rucher->idApiculteur !!} - {!! $user->name !!}</td>
+      <td>
+        {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
+        <div class='btn-group'>
+          <a href="{!! route('ruchers.show', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
+          <a href="{!! route('ruchers.edit', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+          {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+        </div>
+        {!! Form::close() !!}
+      </td>
+    </tr>
     
-    <tr>
-      <td>{!! $rucher->id !!}</td>
-      <td>{!! $rucher->nom !!}</td>
-      <td>{!! $rucher->idApiculteur !!}</td>
-      <td>
-        {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
-        <div class='btn-group'>
-          <a href="{!! route('ruchers.show', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-          <a href="{!! route('ruchers.edit', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-          {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-        </div>
-        {!! Form::close() !!}
-      </td>
-    </tr>
-
-    @endforeach <!-- ================================================================================================== -->
-
-
-    @else
-
-
-    @foreach($user->ruchers as $rucher)  <!-- == Sinon on affiche seulement les ruchers de l'utilisateur en question == -->
-
-    <tr>
-      <td>{!! $rucher->id !!}</td>
-      <td>{!! $rucher->nom !!}</td>
-      <td>{!! $rucher->idApiculteur !!}</td>
-      <td>
-        {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
-        <div class='btn-group'>
-          <a href="{!! route('ruchers.show', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
-          <a href="{!! route('ruchers.edit', [$rucher->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-          {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
-        </div>
-        {!! Form::close() !!}
-      </td>
-    </tr>
-
-    @endforeach <!-- ========================================================================================== -->
-
-
     @endif
-
-
+    @endforeach
+    @endforeach
 
   </tbody>
 </table>

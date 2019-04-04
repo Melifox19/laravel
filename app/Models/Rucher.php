@@ -19,7 +19,8 @@ class Rucher extends Model
 
     public $table = 'ruchers';
 
-
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -35,7 +36,8 @@ class Rucher extends Model
      */
     protected $casts = [
         'nom' => 'string',
-        'idApiculteur' => 'integer'
+        'idApiculteur' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**
@@ -50,6 +52,11 @@ class Rucher extends Model
     public function ruches()
     {
       return $this->hasMany(\App\Models\Ruche::class, 'idRucher');
+    }
+
+    public function melibornes()
+    {
+      return $this->hasMany(\App\Models\Meliborne::class, 'idRucher');
     }
 
     public function users()

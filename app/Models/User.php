@@ -5,6 +5,10 @@ namespace App\Models;
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 /**
 * Class User
 * @package App\Models
@@ -26,8 +30,6 @@ class User extends Model
 
   const CREATED_AT = 'created_at';
   const UPDATED_AT = 'updated_at';
-
-
   protected $dates = ['deleted_at'];
 
 

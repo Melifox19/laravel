@@ -19,10 +19,7 @@
             </div>
         </div>
         <div class="text-center">
-        
-        @include('adminlte-templates::common.paginate', ['records' => $ruchers])
-
+            
         </div>
     </div>
 @endsection
-

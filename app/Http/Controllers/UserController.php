@@ -58,6 +58,13 @@ class UserController extends AppBaseController
   */
   public function store(CreateUserRequest $request)
   {
+    $request->validate([
+      "name" => "required|min:5|max:50",
+      "email" => "required|email",
+      "password" => "required|confirmed"
+    ]);
+
+    $request['password_confirmation'] = Hash::make($request['$password_confirmation']);
     $request['password'] = Hash::make($request['password']);
 
     $input = $request->all();
@@ -127,6 +134,14 @@ class UserController extends AppBaseController
       return redirect(route('users.index'));
     }
 
+    $request->validate([
+      "name" => "required|min:5|max:50",
+      "email" => "required|email",
+      "password" => "confirmed"
+    ]);
+
+
+    $request['password_confirmation'] = Hash::make($request['$password_confirmation']);
     $request['password'] = Hash::make($request['password']);
 
     $user = $this->userRepository->update($request->all(), $id);
