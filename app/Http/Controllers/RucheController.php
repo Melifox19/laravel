@@ -11,6 +11,13 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+//Ajout des dépendances perso
+use Illuminate\Support\Facades\DB;
+use App\Models\Rucher;
+use App\Models\Meliborne;
+use App\Models\User;
+use Auth;
+
 class RucheController extends AppBaseController
 {
     /** @var  RucheRepository */
@@ -30,10 +37,28 @@ class RucheController extends AppBaseController
     public function index(Request $request)
     {
         $this->rucheRepository->pushCriteria(new RequestCriteria($request));
-        $ruches = $this->rucheRepository->all();
+
+
+        if ( Auth::user()->role == 'admin' )
+        {
+            $ruches = $this->rucheRepository->all();
+        }
+        else
+        {
+            $ruches = DB::table('ruches')
+            ->select('ruches.*')
+            ->join('ruchers', 'ruches.idRucher', '=', 'ruchers.id')
+            ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
+            ->where('users.id', '=', Auth::user()->id)
+            ->get();
+        }
+
+        $ruchers = DB::table('ruchers')->get();
+
 
         return view('ruches.index')
-            ->with('ruches', $ruches);
+            ->with('ruches', $ruches)
+            ->with('ruchers', $ruchers);
     }
 
     /**
@@ -43,7 +68,28 @@ class RucheController extends AppBaseController
      */
     public function create()
     {
-        return view('ruches.create');
+      if ( Auth::user()->role == "admin")
+      {
+          $ruchers = Rucher::all();
+          $melibornes = Meliborne::all();
+      }
+      else
+      {
+          $ruchers = DB::table('ruchers')
+          ->where('idApiculteur', '=', Auth::user()->id)
+          ->get();
+
+          $melibornes = DB::table('melibornes')
+          ->select('melibornes.*')
+          ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
+          ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
+          ->where('users.id', '=', Auth::user()->id)
+          ->get();
+      }
+
+        return view('ruches.create')
+        ->with('ruchers', $ruchers)
+        ->with('melibornes', $melibornes);
     }
 
     /**

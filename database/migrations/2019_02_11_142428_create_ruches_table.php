@@ -20,7 +20,8 @@ class CreateRuchesTable extends Migration
             $table->enum('type', ['meliruche', 'melilabo']);
             $table->integer('idRucher')->unsigned();
             $table->integer('idMeliborne')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
             $table->foreign('idRucher')->references('id')->on('ruchers');
             $table->foreign('idMeliborne')->references('id')->on('melibornes');

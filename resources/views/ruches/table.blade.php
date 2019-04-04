@@ -1,22 +1,22 @@
 <table class="table table-responsive" id="ruches-table">
     <thead>
         <tr>
-            <th>Addrmelinet</th>
-        <th>Idsigfox</th>
-        <th>Type</th>
-        <th>Idrucher</th>
-        <th>Idmeliborne</th>
+            <th>Dans le rucher</th>
+            <th>Adresse locale (Melinet)</th>
+            <th>Type de ruche</th>
+            <th>ID SigFox (Si Melilabo)</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
-    @foreach($ruches as $ruche)
+        @foreach($ruches as $ruche)
+        @foreach($ruchers as $rucher)
+        @if( $ruche->idRucher == $rucher->id )
         <tr>
+            <td>{!! $ruche->idRucher !!} - {!! $rucher->nom !!}</td>
             <td>{!! $ruche->addrMelinet !!}</td>
-            <td>{!! $ruche->idSigfox !!}</td>
             <td>{!! $ruche->type !!}</td>
-            <td>{!! $ruche->idRucher !!}</td>
-            <td>{!! $ruche->idMeliborne !!}</td>
+            <td>{!! $ruche->idSigfox !!}</td>
             <td>
                 {!! Form::open(['route' => ['ruches.destroy', $ruche->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
@@ -27,6 +27,8 @@
                 {!! Form::close() !!}
             </td>
         </tr>
-    @endforeach
+        @endif
+        @endforeach
+        @endforeach
     </tbody>
 </table>

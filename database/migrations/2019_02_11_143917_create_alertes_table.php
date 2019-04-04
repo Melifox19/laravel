@@ -19,7 +19,8 @@ class CreateAlertesTable extends Migration
             $table->enum('type', ['capteur', 'mesure', 'vol']);
             $table->string('description');
             $table->integer('idRuche')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
             $table->foreign('idRuche')->references('id')->on('ruches');
         });

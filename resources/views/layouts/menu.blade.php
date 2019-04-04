@@ -1,8 +1,7 @@
-
 @if (Auth::user()->role == 'admin')
-  <li class="{{ Request::is('users*') ? 'active' : '' }}">
-    <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Utilisateurs</span></a>
-  </li>
+<li class="{{ Request::is('users*') ? 'active' : '' }}">
+  <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Utilisateurs</span></a>
+</li>
 @endif
 
 <li class="{{ Request::is('melibornes*') ? 'active' : '' }}">
