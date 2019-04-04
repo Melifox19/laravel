@@ -60,7 +60,7 @@ class RucherController extends AppBaseController
     public function create()
     {
         $users = User::all('id','name');
-        
+
         return view('ruchers.create')
         ->with('users', $users);
     }

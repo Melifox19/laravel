@@ -27,7 +27,7 @@
         {!! Form::close() !!}
       </td>
     </tr>
-
+    
     @endif
     @endforeach
     @endforeach

@@ -15,11 +15,3 @@
 <li class="<?php echo e(Request::is('ruches*') ? 'active' : ''); ?>">
   <a href="<?php echo route('ruches.index'); ?>"><i class="fa fa-edit"></i><span>Ruches</span></a>
 </li>
-
-<li class="<?php echo e(Request::is('mesures*') ? 'active' : ''); ?>">
-  <a href="<?php echo route('mesures.index'); ?>"><i class="fa fa-edit"></i><span>Mesures</span></a>
-</li>
-
-<li class="<?php echo e(Request::is('alertes*') ? 'active' : ''); ?>">
-  <a href="<?php echo route('alertes.index'); ?>"><i class="fa fa-edit"></i><span>Alertes</span></a>
-</li>
