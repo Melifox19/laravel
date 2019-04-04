@@ -16,3 +16,13 @@
 <li class="{{ Request::is('alertes*') ? 'active' : '' }}">
   <a href="{!! route('alertes.index') !!}"><i class="fa fa-edit"></i><span>Alertes</span></a>
 </li>
+
+  <li class="treeview">
+    <a href="#"><i class="fa fa-caret-right"></i>Rucher 1</a>
+    <ul class="treeview-menu">
+      <li><a href="#">Ruche 1.1</a></li>
+      <li><a href="#">Ruche 1.2</a></li>
+      <li><a href="#">Ruche 1.3</a></li>
+
+    </ul>
+  </li>

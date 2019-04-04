@@ -23,15 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+      date_default_timezone_set('UTC');
         $chart1 = \Chart::title([
               'text' => 'Température Méliruche',
             ])
             ->chart([
               'type'     => 'spline', // pie , columnt ect
               'renderTo' => 'hchart', // render the chart into your div with id
+              'width' => '800'
             ])
             ->subtitle([
-              'text' => 'Sous-titre', //sous-titre du tableau
+              'text' => 'Température intérieure', //sous-titre du tableau
             ])
             ->colors([
               '#0c2959'
@@ -39,25 +41,36 @@ class HomeController extends Controller
             ->xaxis([
               'type' => 'datetime',
               'dateTimeLabelFormats' => [
-                'month' => '%e %b.'
+                'hour' => '%H : %M.'
               ],
               'title' => [
                 'text' => 'Date'
               ]
           ])
           ->yaxis([
-            'text' => 'This Y Axis',
+            'text' => 'Temp.',
           ])
           ->legend([
             'layout'        => 'vertical',
-            'align'         => 'middle',
+            'align'         => 'right',
             'verticalAlign' => 'bottom',
           ])
           ->series(
              [
                [
-                 'name'  => 'Voting',
-                 'data'  => [43934, 52503, 57177, 69658],
+                 'name'  => 'Température',
+                 'data'  => [
+                              [gmmktime(15, 01, 01, 1, 15, 2019) * 1000, 30], //Temps * 1000
+                              [gmmktime(15, 11, 01, 1, 15, 2019)* 1000, 35],  //Highcharts fonctionne en ns
+                              [gmmktime(16, 01, 01, 1, 15, 2019)* 1000, 45],
+                              [gmmktime(17, 00, 00, 1, 15, 2019)* 1000, 50],
+                              [gmmktime(18, 00, 00, 1, 15, 2019)* 1000, 55],
+                              [gmmktime(19, 00, 00, 1, 15, 2019)* 1000, 25],
+                              [gmmktime(20, 00, 00, 1, 15, 2019)* 1000, 10],
+                              [gmmktime(21, 00, 00, 1, 15, 2019)* 1000, 10],
+                              [gmmktime(22, 00, 00, 1, 15, 2019)* 1000, 10],
+                              [gmmktime(23, 00, 00, 1, 15, 2019)* 1000, 10]
+                            ],
                  // 'color' => '#0c2959',
                ],
              ])

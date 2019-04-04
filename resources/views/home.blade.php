@@ -3,25 +3,32 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-4 no-float">
-            <div class="">
-                <h2>Information ruche</h2>
+
+        <div class="col-md-4">
+            <div class="box">
+                <h3 class="box-title">Information ruche</h3>
                 <br />
-                <h4>Température: </h4>
-                <h4>Pression: </h4>
-                <h4>Hygrométrie: </h4>
-                <h4>Géolocalisation: </h4>
-                <h4>Vibration: </h4>
-                <h4>Son: </h4>
-            </div>
-            <div class="">
-                <h2>OpenStreetMaps</h2>
+                <p>Température: </p>
+                <p>Pression: </p>
+                <p>Hygrométrie: </p>
+                <p>Géolocalisation: </p>
+                <p>Vibration: </p>
+                <p>Son: </p>
             </div>
         </div>
-        <div class="col-md-8 no-float">
-            <h2>High charts</h2>
-            <div class="container" id="hchart">
-                {!! $chart1 !!}
+
+        <div class="col-md-4">
+            <div class="box">
+                <h3 class="box-title">OpenStreetMaps</h3>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="box">
+                <h3 class="vox-title">High charts</h3>
+                <div class="container box-body" id="hchart">
+                    {!! $chart1 !!}
+                </div>
             </div>
         </div>
     </div>
