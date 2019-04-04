@@ -16,10 +16,16 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
+<!-- Confirm Password Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('password_confirmation', 'Confirmation du mot de passe:') !!}
+    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+</div>
+
 <!-- Role Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('role', 'Rôle:') !!}
-    {!! Form::select('type', ['user' => 'Apiculteur', 'admin' => 'Administrateur'], null, ['class' => 'form-control']) !!}
+    {!! Form::select('role', ['user' => 'Apiculteur', 'admin' => 'Administrateur'], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->

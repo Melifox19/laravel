@@ -13,7 +13,7 @@
                <div class="row">
                    {!! Form::model($rucher, ['route' => ['ruchers.update', $rucher->id], 'method' => 'patch']) !!}
 
-                        @include('ruchers.fields')
+                        @include('ruchers.fields_edit')
 
                    {!! Form::close() !!}
                </div>

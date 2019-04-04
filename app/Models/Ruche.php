@@ -21,8 +21,9 @@ class Ruche extends Model
     use SoftDeletes;
 
     public $table = 'ruches';
-    
 
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -43,7 +44,8 @@ class Ruche extends Model
         'addrMelinet' => 'integer',
         'idSigfox' => 'string',
         'idRucher' => 'integer',
-        'idMeliborne' => 'integer'
+        'idMeliborne' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**
@@ -53,8 +55,17 @@ class Ruche extends Model
      */
     public static $rules = [
         'addrMelinet' => 'between:1,8',
-        'idSigfox' => 'email'
+        'idSigfox' => 'nullable|email'
     ];
 
-    
+    public function melibornes()
+    {
+      return $this->belongsTo(\App\Models\Meliborne::class, 'idMeliborne');
+    }
+
+    public function ruchers()
+    {
+      return $this->belongsTo(\App\Models\Ruchers::class, 'idRucher');
+    }
+
 }
