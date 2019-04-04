@@ -1,10 +1,9 @@
 <table class="table table-responsive" id="ruches-table">
     <thead>
         <tr>
-            <th>ID</th>
+            <th>Dans le rucher</th>
             <th>Adresse locale (Melinet)</th>
             <th>Type de ruche</th>
-            <th>Dans le rucher</th>
             <th>ID SigFox (Si Melilabo)</th>
             <th colspan="3">Action</th>
         </tr>
@@ -14,10 +13,9 @@
         @foreach($ruchers as $rucher)
         @if( $ruche->idRucher == $rucher->id )
         <tr>
-            <td>{!! $ruche->id !!}</td>
+            <td>{!! $ruche->idRucher !!} - {!! $rucher->nom !!}</td>
             <td>{!! $ruche->addrMelinet !!}</td>
             <td>{!! $ruche->type !!}</td>
-            <td>{!! $ruche->idRucher !!} - {!! $rucher->nom !!}</td>
             <td>{!! $ruche->idSigfox !!}</td>
             <td>
                 {!! Form::open(['route' => ['ruches.destroy', $ruche->id], 'method' => 'delete']) !!}

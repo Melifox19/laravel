@@ -2,7 +2,7 @@
 
 <!-- Addrmelinet Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('addrMelinet', 'Adresse locale:') !!}
+    {!! Form::label('addrMelinet', 'Adresse MéliNet:') !!}
     {!! Form::text('addrMelinet', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -33,9 +33,9 @@
     {!! Form::label('idMeliborne', 'Appartient à la Méliborne:') !!}
     <select class="form-control" name="idMeliborne">
         @foreach($melibornes as $meliborne)
-        <option value="{!! $meliborne->id !!}">{!! $meliborne->id !!} - {!! $meliborne->nom !!}</option>
+        <option value="{!! $meliborne->id !!}">{!! $meliborne->id !!} - {!! $meliborne->idSigfox !!}</option>
         @endforeach
-    </select>-
+    </select>
 </div>
 
 <!-- Idsigfox Field -->

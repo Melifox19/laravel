@@ -80,7 +80,10 @@ class RucheController extends AppBaseController
           ->get();
 
           $melibornes = DB::table('melibornes')
-          ->where('idApiculteur', '=', Auth::user()->id)
+          ->select('melibornes.*')
+          ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
+          ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
+          ->where('users.id', '=', Auth::user()->id)
           ->get();
       }
 

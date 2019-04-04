@@ -55,7 +55,7 @@ class Ruche extends Model
      */
     public static $rules = [
         'addrMelinet' => 'between:1,8',
-        'idSigfox' => 'email'
+        'idSigfox' => 'nullable|email'
     ];
 
     public function melibornes()
