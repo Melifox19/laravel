@@ -19,9 +19,8 @@ class CreateRuchersTable extends Migration
             $table->integer('idApiculteur')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->timestamp('deleted_at')->nullable();
             $table->softDeletes();
-            $table->foreign('idApiculteur')->references('id')->on('users');  
+            $table->foreign('idApiculteur')->references('id')->on('users');
         });
     }
 
