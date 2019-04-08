@@ -42,7 +42,8 @@ class RucherController extends AppBaseController
         }
         else
         {
-            $ruchers = User::find(Auth::user()->id)->ruchers;
+            $ruchers = User::find(Auth::user()->id)->ruchers
+            ->where('deleted_at', '=', NULL);
         }
 
         $users = User::all();

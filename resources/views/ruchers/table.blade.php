@@ -11,7 +11,6 @@
 
     @foreach($ruchers as $rucher)
     @foreach($users as $user)
-    @if($rucher->idApiculteur == $user->id)
 
     <tr>
       <td>{!! $rucher->id !!}</td>
