@@ -27,3 +27,7 @@ Homestead.json
 #Custom
 storage\debugbar
 storage\framework\sessions
+storage\framework\cache
+storage\framework\testing
+storage\framework\views
+storage\logs
