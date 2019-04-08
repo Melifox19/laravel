@@ -1,0 +1,544 @@
+/* Ajout des utilisateurs */
+
+
+
+INSERT INTO users
+(
+  'name',
+  'email',
+  'role',
+  'email_verified_at',
+  'password',
+  'remember_token',
+  'created_at',
+  'updated_at',
+  'deleted_at'
+)
+VALUES
+(
+  'admin',
+  'melifox.kastler2019@gmail.com',
+  'admin',
+  NULL,
+  '$2y$10$2Dx.Vp0usAG.bbHa3WJDaemC8pGHdcIg.N0YcAyQ0ashM6uNov0jW',
+  NULL,
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  'toto',
+  'toto@gmail.com',
+  'user',
+  NULL,
+  '$2y$10$i2K.pw9nktjyFntLSa3CbutW/bTWe9Az2rtYOscZlRfgug9OFf.yq',
+  NULL,
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  'tata',
+  'tata@gmail.com',
+  'user',
+  NULL,
+  '$2y$10$i2K.pw9nktjyFntLSa3CbutW/bTWe9Az2rtYOscZlRfgug9OFf.yq',
+  NULL,
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+)
+
+
+
+/* -------------------
+Ajout des ruchers */
+
+
+
+INSERT INTO ruchers
+(
+  'nom',
+  'idApiculteur',
+  'created_at',
+  'updated_at',
+  'deleted_at'
+)
+VALUES
+(
+  'Rucher des Pyrénnées (Toto)',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  'Rucher du Mont Blanc (Toto)',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  'Rucher du Piton de la Fournaise (Tata)',
+  '3',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  'Rucher de l\'AAI',
+  '3',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+)
+
+
+
+/* -------------------
+Ajout de Melibornes */
+
+
+
+INSERT INTO melibornes
+(
+  'niveauBatterie',
+  'idSigfox',
+  'idRucher',
+  'created_at',
+  'updated_at',
+  'deleted_at'
+)
+VALUES
+(
+  '87',
+  'toto_pyrennees1@sigfox.com',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '22',
+  'toto_pyrennees2@sigfox.com',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '34',
+  'toto_montblanc1@sigfox.com',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '87',
+  'tata_fournaise1@sigfox.com',
+  '3',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '12',
+  'tata_AAI1@sigfox.com',
+  '4',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '62',
+  'tata_AAI2@sigfox.com',
+  '4',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '59',
+  'tata_AAI3@sigfox.com',
+  '4',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+)
+
+/* ---------------
+Ajout des ruches */
+
+INSERT INTO ruches
+(
+  'addrMelinet',
+  'idSigfox',
+  'type',
+  'idRucher',
+  'idMeliborne',
+  'created_at',
+  'updated_at',
+  'deleted_at'
+)
+VALUES
+(
+  '1',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '2',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '3',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '4',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '5',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '6',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '7',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '8',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '1',
+  NULL,
+  'meliruche',
+  '1',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '2',
+  NULL,
+  'meliruche',
+  '1',
+  '2',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '1',
+  NULL,
+  'meliruche',
+  '2',
+  '3',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '1',
+  NULL,
+  'meliruche',
+  '3',
+  '4',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '1',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '2',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '3',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '4',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '5',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '6',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '7',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '8',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '1',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '2',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '3',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '4',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '5',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '6',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '7',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '8',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '1',
+  NULL,
+  'meliruche',
+  '4',
+  '7',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '2',
+  NULL,
+  'meliruche',
+  '4',
+  '7',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+
+
+(
+  NULL,
+  'toto_pyrenneesM1@sigfox.com',
+  'melilabo',
+  '1',
+  NULL,
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+
+
+
+/* ---------------
+Ajout des mesures */
+
+INSERT INTO mesures
+(
+  'horodatageMesure',
+  'temperature',
+  'humidite',
+  'niveauBatterie',
+  'longitude',
+  'latitude',
+  'debitSonore',
+  'idRuche',
+  'created_at',
+  'updated_at',
+  'deleted_at'
+)
+VALUES
+(
+  '2019-01-01 14:30:00',
+  '31.3',
+  '',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
+(
+  '2019-01-01 15:00:00',
+  '32.0',
+  '',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIME,
+  CURRENT_TIME,
+  NULL
+),
