@@ -28,6 +28,10 @@ Route::group(['middleware' => ['auth']],function()
 
   // Route pour tout les utilisateurs ----------------------------------------------------
 
+  Route::resource('mesures', 'MesureController');
+
+  Route::resource('alertes', 'AlerteController');
+
   Route::resource('ruchers', 'RucherController');
 
   Route::resource('profile', 'ProfileController');
