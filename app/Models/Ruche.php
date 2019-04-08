@@ -54,7 +54,7 @@ class Ruche extends Model
      * @var array
      */
     public static $rules = [
-        'addrMelinet' => 'between:1,8',
+        'addrMelinet' => 'nullable|between:1,8',
         'idSigfox' => 'nullable|email'
     ];
 

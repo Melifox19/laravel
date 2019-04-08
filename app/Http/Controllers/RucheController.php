@@ -105,7 +105,7 @@ class RucheController extends AppBaseController
 
         $ruche = $this->rucheRepository->create($input);
 
-        Flash::success('Ruche saved successfully.');
+        Flash::success('Ruche créé avec succès');
 
         return redirect(route('ruches.index'));
     }
@@ -122,7 +122,7 @@ class RucheController extends AppBaseController
         $ruche = $this->rucheRepository->findWithoutFail($id);
 
         if (empty($ruche)) {
-            Flash::error('Ruche not found');
+            Flash::error('Informations introuvables');
 
             return redirect(route('ruches.index'));
         }
@@ -139,15 +139,37 @@ class RucheController extends AppBaseController
      */
     public function edit($id)
     {
+      if ( Auth::user()->role == "admin")
+      {
+          $ruchers = Rucher::all();
+          $melibornes = Meliborne::all();
+      }
+      else
+      {
+          $ruchers = DB::table('ruchers')
+          ->where('idApiculteur', '=', Auth::user()->id)
+          ->get();
+
+          $melibornes = DB::table('melibornes')
+          ->select('melibornes.*')
+          ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
+          ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
+          ->where('users.id', '=', Auth::user()->id)
+          ->get();
+      }
+
         $ruche = $this->rucheRepository->findWithoutFail($id);
 
         if (empty($ruche)) {
-            Flash::error('Ruche not found');
+            Flash::error('Informations introuvables');
 
             return redirect(route('ruches.index'));
         }
 
-        return view('ruches.edit')->with('ruche', $ruche);
+        return view('ruches.edit')
+        ->with('ruche', $ruche)
+        ->with('ruchers', $ruchers)
+        ->with('melibornes', $melibornes);
     }
 
     /**
@@ -163,14 +185,14 @@ class RucheController extends AppBaseController
         $ruche = $this->rucheRepository->findWithoutFail($id);
 
         if (empty($ruche)) {
-            Flash::error('Ruche not found');
+            Flash::error('Impossible de modifier la ruche');
 
             return redirect(route('ruches.index'));
         }
 
         $ruche = $this->rucheRepository->update($request->all(), $id);
 
-        Flash::success('Ruche updated successfully.');
+        Flash::success('Ruche modifié avec succès');
 
         return redirect(route('ruches.index'));
     }
@@ -187,14 +209,14 @@ class RucheController extends AppBaseController
         $ruche = $this->rucheRepository->findWithoutFail($id);
 
         if (empty($ruche)) {
-            Flash::error('Ruche not found');
+            Flash::error('Impossible de supprimer la ruche');
 
             return redirect(route('ruches.index'));
         }
 
         $this->rucheRepository->delete($id);
 
-        Flash::success('Ruche deleted successfully.');
+        Flash::success('Ruche supprimé avec succès');
 
         return redirect(route('ruches.index'));
     }
