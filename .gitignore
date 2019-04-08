@@ -25,9 +25,13 @@ Homestead.json
 
 
 #Custom
+<<<<<<< HEAD
 storage\debugbar
 storage\framework\sessions
 storage\framework\cache
 storage\framework\testing
 storage\framework\views
 storage\logs
+=======
+storage\*
+>>>>>>> 44f2b3f05ca05ddfa880a93fbcfb6cbba03fae8f

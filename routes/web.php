@@ -27,7 +27,7 @@ Route::group(['middleware' => ['auth']],function()
   });
 
   // Route pour tout les utilisateurs ----------------------------------------------------
-
+  
   Route::resource('ruchers', 'RucherController');
 
   Route::resource('profile', 'ProfileController');
@@ -35,6 +35,10 @@ Route::group(['middleware' => ['auth']],function()
   Route::resource('melibornes', 'MeliborneController');
 
   Route::resource('ruches', 'RucheController');
+
+  Route::resource('mesures', 'MesureController');
+
+  Route::resource('alertes', 'AlerteController');
 
   Route::get('/home', 'HomeController@index')->name('home');
 
