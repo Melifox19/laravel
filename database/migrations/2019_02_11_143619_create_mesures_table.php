@@ -25,7 +25,6 @@ class CreateMesuresTable extends Migration
             $table->integer('idRuche')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->timestamp('deleted_at')->nullable();
             $table->softDeletes();
             $table->foreign('idRuche')->references('id')->on('ruches');
         });

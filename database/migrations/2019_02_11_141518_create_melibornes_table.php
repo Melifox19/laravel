@@ -20,7 +20,6 @@ class CreateMelibornesTable extends Migration
             $table->integer('idRucher')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            $table->timestamp('deleted_at')->nullable();
             $table->softDeletes();
             $table->foreign('idRucher')->references('id')->on('ruchers');
         });
