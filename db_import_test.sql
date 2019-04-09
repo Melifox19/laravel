@@ -1,0 +1,1334 @@
+/* Ajout des utilisateurs */
+INSERT INTO `users`
+(
+  `id`,
+  `name`,
+  `email`,
+  `role`,
+  `email_verified_at`,
+  `password`,
+  `remember_token`,
+  `created_at`,
+  `updated_at`,
+  `deleted_at`
+)
+VALUES
+(
+  NULL,
+  'admin',
+  'melifox.kastler2019@gmail.com',
+  'admin',
+  NULL,
+  '$2y$10$2Dx.Vp0usAG.bbHa3WJDaemC8pGHdcIg.N0YcAyQ0ashM6uNov0jW',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  'toto',
+  'toto@gmail.com',
+  'user',
+  NULL,
+  '$2y$10$i2K.pw9nktjyFntLSa3CbutW/bTWe9Az2rtYOscZlRfgug9OFf.yq',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  'tata',
+  'tata@gmail.com',
+  'user',
+  NULL,
+  '$2y$10$i2K.pw9nktjyFntLSa3CbutW/bTWe9Az2rtYOscZlRfgug9OFf.yq',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+);
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------
+Ajout des ruchers */
+
+
+
+INSERT INTO ruchers(
+  `id`,
+  `nom`,
+  `idApiculteur`,
+  `created_at`,
+  `updated_at`,
+  `deleted_at`
+)
+VALUES
+(
+  NULL,
+  'Rucher des Pyrénnées (Toto)',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  'Rucher du Mont Blanc (Toto)',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  'Rucher du Piton de la Fournaise (Tata)',
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  'Rucher de l\'AAI',
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+);
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------
+Ajout de Melibornes */
+
+
+
+INSERT INTO melibornes(
+  `id`,
+  `niveauBatterie`,
+  `idSigfox`,
+  `idRucher`,
+  `created_at`,
+  `updated_at`,
+  `deleted_at`
+)
+VALUES
+(
+  NULL,
+  '87',
+  'toto_pyrennees1@sigfox.com',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '22',
+  'toto_pyrennees2@sigfox.com',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '34',
+  'toto_montblanc1@sigfox.com',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '87',
+  'tata_fournaise1@sigfox.com',
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '12',
+  'tata_AAI1@sigfox.com',
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '62',
+  'tata_AAI2@sigfox.com',
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '59',
+  'tata_AAI3@sigfox.com',
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+);
+
+/* ---------------------------------------------------------------------------------------------------------------
+Ajout des ruches */
+
+INSERT INTO ruches(
+  `id`,
+  `addrMelinet`,
+  `idSigfox`,
+  `type`,
+  `idRucher`,
+  `idMeliborne`,
+  `created_at`,
+  `updated_at`,
+  `deleted_at`
+)
+VALUES
+/* Rucher 1 ---------------------------------*/
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '3',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '4',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '5',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '6',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '7',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '8',
+  NULL,
+  'meliruche',
+  '1',
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '1',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2',
+  NULL,
+  'meliruche',
+  '1',
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+
+/* Rucher 2 ---------------------------------*/
+
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '2',
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '3',
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/* Rucher 3 ---------------------------------*/
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '3',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '4',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '5',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '6',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '7',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '8',
+  NULL,
+  'meliruche',
+  '4',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '3',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '4',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '5',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '6',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '7',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '8',
+  NULL,
+  'meliruche',
+  '4',
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '1',
+  NULL,
+  'meliruche',
+  '4',
+  '7',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2',
+  NULL,
+  'meliruche',
+  '4',
+  '7',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/* Rucher 4 ---------------------------------*/
+
+(
+  NULL,
+  NULL,
+  'toto_pyrenneesM1@sigfox.com',
+  'melilabo',
+  '1',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  NULL,
+  'tata_fournaiseM1@sigfox.com',
+  'melilabo',
+  '3',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  NULL,
+  'tata_fournaiseM2@sigfox.com',
+  'melilabo',
+  '3',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  NULL,
+  'tata_AAIM1@sigfox.com',
+  'melilabo',
+  '4',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  NULL,
+  'tata_AAIM2@sigfox.com',
+  'melilabo',
+  '1',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  NULL,
+  'tata_AAIM3@sigfox.com',
+  'melilabo',
+  '4',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  NULL,
+  'tata_AAIM4@sigfox.com',
+  'melilabo',
+  '1',
+  NULL,
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+);
+
+
+
+/* ---------------------------------------------------------------------------------------------------------------
+Ajout des mesures */
+
+INSERT INTO mesures(
+  `id`,
+  `horodatageMesure`,
+  `temperature`,
+  `humidite`,
+  `niveauBatterie`,
+  `longitude`,
+  `latitude`,
+  `debitSonore`,
+  `idRuche`,
+  `created_at`,
+  `updated_at`,
+  `deleted_at`
+)
+VALUES
+(
+  NULL,
+  '2019-01-01 14:30:00',
+  '31.3',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:00:00',
+  '32.0',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:30:00',
+  '28.3',
+  '8',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:00:00',
+  '28.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:30:00',
+  '27.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:00:00',
+  '25.5',
+  '12',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:30:00',
+  '20.5',
+  '20',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 18:00:00',
+  '18',
+  '35',
+  '70',
+  NULL,
+  NULL,
+  NULL,
+  '1',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/*Ruche 2 ----------------------------*/
+(
+  NULL,
+  '2019-01-01 14:30:00',
+  '31.3',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:00:00',
+  '32.0',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:30:00',
+  '28.3',
+  '8',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:00:00',
+  '28.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:30:00',
+  '27.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:00:00',
+  '25.5',
+  '12',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:30:00',
+  '20.5',
+  '20',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 18:00:00',
+  '18',
+  '35',
+  '70',
+  NULL,
+  NULL,
+  NULL,
+  '2',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/*Ruche 3 -----------------------------*/
+(
+  NULL,
+  '2019-01-01 14:30:00',
+  '31.3',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:00:00',
+  '32.0',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:30:00',
+  '28.3',
+  '8',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:00:00',
+  '28.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:30:00',
+  '27.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:00:00',
+  '25.5',
+  '12',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:30:00',
+  '20.5',
+  '20',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 18:00:00',
+  '18',
+  '35',
+  '70',
+  NULL,
+  NULL,
+  NULL,
+  '3',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/*Ruche 4 -----------------------------*/
+(
+  NULL,
+  '2019-01-01 14:30:00',
+  '31.3',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:00:00',
+  '32.0',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:30:00',
+  '28.3',
+  '8',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:00:00',
+  '28.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:30:00',
+  '27.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:00:00',
+  '25.5',
+  '12',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:30:00',
+  '20.5',
+  '20',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 18:00:00',
+  '18',
+  '35',
+  '70',
+  NULL,
+  NULL,
+  NULL,
+  '4',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/*Ruche 5 -----------------------------*/
+(
+  NULL,
+  '2019-01-01 14:30:00',
+  '31.3',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:00:00',
+  '32.0',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:30:00',
+  '28.3',
+  '8',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:00:00',
+  '28.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:30:00',
+  '27.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:00:00',
+  '25.5',
+  '12',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:30:00',
+  '20.5',
+  '20',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 18:00:00',
+  '18',
+  '35',
+  '8',
+  NULL,
+  NULL,
+  NULL,
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+/*Ruche 6 ------------------------------ */
+(
+  NULL,
+  '2019-01-01 14:30:00',
+  '31.3',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:00:00',
+  '32.0',
+  '5',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 15:30:00',
+  '28.3',
+  '8',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:00:00',
+  '28.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 16:30:00',
+  '27.0',
+  '10',
+  '80',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:00:00',
+  '25.5',
+  '12',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 17:30:00',
+  '20.5',
+  '20',
+  '75',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+),
+(
+  NULL,
+  '2019-01-01 18:00:00',
+  '18',
+  '35',
+  '70',
+  NULL,
+  NULL,
+  NULL,
+  '6',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+);
+
+/* Alertes ----------------------------------*/
+
+INSERT INTO alertes
+(
+  `id`,
+  `horodatageAlerte`,
+  `type`,
+  `description`,
+  `idRuche`,
+  `created_at`,
+  `updated_at`,
+  `deleted_at`
+)
+VALUES
+(
+  NULL,
+  '2019-01-01 18:05:00',
+  'mesure',
+  'Ruche 1-1-5 - Batterie Faible',
+  '5',
+  CURRENT_TIMESTAMP,
+  CURRENT_TIMESTAMP,
+  NULL
+);

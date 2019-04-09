@@ -19,7 +19,7 @@ class CreateRuchesTable extends Migration
             $table->string('idSigfox')->nullable();
             $table->enum('type', ['meliruche', 'melilabo']);
             $table->integer('idRucher')->unsigned();
-            $table->integer('idMeliborne')->unsigned();
+            $table->integer('idMeliborne')->unsigned()->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
