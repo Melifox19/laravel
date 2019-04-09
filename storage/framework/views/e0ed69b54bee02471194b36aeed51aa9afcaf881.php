@@ -1,13 +1,3 @@
-<script src="<?php echo e(URL::asset('js/rucheForm.js')); ?>" type="text/javascript"></script>
-
-<!-- Addrmelinet Field -->
-<div class="form-group col-sm-6">
-    <?php echo Form::label('addrMelinet', 'Adresse locale:'); ?>
-
-    <?php echo Form::text('addrMelinet', null, ['class' => 'form-control']); ?>
-
-</div>
-
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('type', 'Type:'); ?>
@@ -22,6 +12,15 @@
 
 </div>
 
+<!-- Addrmelinet Field -->
+<div class="form-group col-sm-6" id="addrMelinetField">
+    <?php echo Form::label('addrMelinet', 'Adresse MéliNet:'); ?>
+
+    <?php echo Form::text('addrMelinet', null, ['class' => 'form-control']); ?>
+
+</div>
+
+
 <!-- Idrucher Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('idRucher', 'Appartient au rucher:'); ?>
@@ -34,18 +33,18 @@
 </div>
 
 <!-- Idmeliborne Field -->
-<div id="meliborneField" class="form-group col-sm-6" style="display:block">
+<div id="meliborneField" class="form-group col-sm-6">
     <?php echo Form::label('idMeliborne', 'Appartient à la Méliborne:'); ?>
 
     <select class="form-control" name="idMeliborne">
         <?php $__currentLoopData = $melibornes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $meliborne): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <option value="<?php echo $meliborne->id; ?>"><?php echo $meliborne->id; ?> - <?php echo $meliborne->nom; ?></option>
+        <option value="<?php echo $meliborne->id; ?>"><?php echo $meliborne->id; ?> - <?php echo $meliborne->idSigfox; ?></option>
         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    </select>-
+    </select>
 </div>
 
 <!-- Idsigfox Field -->
-<div id="sigfoxField" class="form-group col-sm-6" style="display:none">
+<div id="sigfoxField" class="form-group col-sm-6">
     <?php echo Form::label('idSigfox', 'ID SigFox:'); ?>
 
     <?php echo Form::text('idSigfox', null, ['class' => 'form-control']); ?>
@@ -58,3 +57,6 @@
 
     <a href="<?php echo route('ruches.index'); ?>" class="btn btn-default">Cancel</a>
 </div>
+
+<script src="<?php echo e(URL::asset('js/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(URL::asset('js/rucheForm.js')); ?>" type="text/javascript"></script>

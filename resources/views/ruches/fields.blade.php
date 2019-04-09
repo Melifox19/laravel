@@ -1,5 +1,3 @@
-<script src="{{ URL::asset('js/rucheForm.js')}}" type="text/javascript">window.onload = changeDisplay;</script>
-
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('type', 'Type:') !!}
@@ -50,3 +48,6 @@
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('ruches.index') !!}" class="btn btn-default">Cancel</a>
 </div>
+
+<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('js/rucheForm.js') }}" type="text/javascript"></script>
