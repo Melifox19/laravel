@@ -1,4 +1,6 @@
 /* Ajout des utilisateurs */
+USE melifox19;
+
 INSERT INTO `users`
 (
   `id`,
