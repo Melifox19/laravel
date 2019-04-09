@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <section class="content-header">
         <h1>
-            Rucher
+            Ruche
         </h1>
     </section>
     <div class="content">
@@ -10,10 +10,10 @@
 
             <div class="box-body">
                 <div class="row">
-                    <?php echo Form::open(['route' => 'ruchers.store']); ?>
+                    <?php echo Form::open(['route' => 'ruches.store']); ?>
 
 
-                        <?php echo $__env->make('ruchers.fields', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                        <?php echo $__env->make('ruches.fields', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
                     <?php echo Form::close(); ?>
 

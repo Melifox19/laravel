@@ -1,22 +1,22 @@
 <table class="table table-responsive" id="ruches-table">
     <thead>
         <tr>
-            <th>Addrmelinet</th>
-        <th>Idsigfox</th>
-        <th>Type</th>
-        <th>Idrucher</th>
-        <th>Idmeliborne</th>
+            <th>Dans le rucher</th>
+            <th>Adresse locale (Melinet)</th>
+            <th>Type de ruche</th>
+            <th>ID SigFox (Si Melilabo)</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>
     <tbody>
-    <?php $__currentLoopData = $ruches; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruche): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $ruches; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruche): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = $ruchers; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $rucher): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php if( $ruche->idRucher == $rucher->id ): ?>
         <tr>
+            <td><?php echo $ruche->idRucher; ?> - <?php echo $rucher->nom; ?></td>
             <td><?php echo $ruche->addrMelinet; ?></td>
-            <td><?php echo $ruche->idSigfox; ?></td>
             <td><?php echo $ruche->type; ?></td>
-            <td><?php echo $ruche->idRucher; ?></td>
-            <td><?php echo $ruche->idMeliborne; ?></td>
+            <td><?php echo $ruche->idSigfox; ?></td>
             <td>
                 <?php echo Form::open(['route' => ['ruches.destroy', $ruche->id], 'method' => 'delete']); ?>
 
@@ -30,6 +30,8 @@
 
             </td>
         </tr>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endif; ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </tbody>
 </table>

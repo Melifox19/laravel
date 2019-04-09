@@ -1,11 +1,3 @@
-<script src="{{ URL::asset('js/rucheForm.js')}}" type="text/javascript"></script>
-
-<!-- Addrmelinet Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('addrMelinet', 'Adresse MéliNet:') !!}
-    {!! Form::text('addrMelinet', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('type', 'Type:') !!}
@@ -18,6 +10,13 @@
     )) !!}
 </div>
 
+<!-- Addrmelinet Field -->
+<div class="form-group col-sm-6" id="addrMelinetField">
+    {!! Form::label('addrMelinet', 'Adresse MéliNet:') !!}
+    {!! Form::text('addrMelinet', null, ['class' => 'form-control']) !!}
+</div>
+
+
 <!-- Idrucher Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('idRucher', 'Appartient au rucher:') !!}
@@ -29,7 +28,7 @@
 </div>
 
 <!-- Idmeliborne Field -->
-<div id="meliborneField" class="form-group col-sm-6" style="display:block">
+<div id="meliborneField" class="form-group col-sm-6">
     {!! Form::label('idMeliborne', 'Appartient à la Méliborne:') !!}
     <select class="form-control" name="idMeliborne">
         @foreach($melibornes as $meliborne)
@@ -39,7 +38,7 @@
 </div>
 
 <!-- Idsigfox Field -->
-<div id="sigfoxField" class="form-group col-sm-6" style="display:none">
+<div id="sigfoxField" class="form-group col-sm-6">
     {!! Form::label('idSigfox', 'ID SigFox:') !!}
     {!! Form::text('idSigfox', null, ['class' => 'form-control']) !!}
 </div>
@@ -49,3 +48,6 @@
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
     <a href="{!! route('ruches.index') !!}" class="btn btn-default">Cancel</a>
 </div>
+
+<script src="{{ URL::asset('js/jquery.min.js') }}"></script>
+<script src="{{ URL::asset('js/rucheForm.js') }}" type="text/javascript"></script>

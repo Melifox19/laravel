@@ -1,3 +1,5 @@
+<script src="<?php echo e(URL::asset('js/rucheForm.js')); ?>" type="text/javascript">window.onload = changeDisplay;</script>
+
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     <?php echo Form::label('type', 'Type:'); ?>
@@ -57,6 +59,3 @@
 
     <a href="<?php echo route('ruches.index'); ?>" class="btn btn-default">Cancel</a>
 </div>
-
-<script src="<?php echo e(URL::asset('js/jquery.min.js')); ?>"></script>
-<script src="<?php echo e(URL::asset('js/rucheForm.js')); ?>" type="text/javascript"></script>
