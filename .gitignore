@@ -22,9 +22,10 @@ Homestead.json
 /.vagrant
 
 # End of https://www.gitignore.io/api/laravel
-
-#custom
-
-storage/app
-storage/debugbar
-storage/framework
+#Custom
+storage\debugbar
+storage\framework\sessions
+storage\framework\cache
+storage\framework\testing
+storage\framework\views
+storage\logs

@@ -15,10 +15,11 @@ class CreateMelibornesTable extends Migration
     {
         Schema::create('melibornes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('niveauBatterie');
+            $table->integer('niveauBatterie')->nullable();
             $table->string('idSigfox');
             $table->integer('idRucher')->unsigned();
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
             $table->softDeletes();
             $table->foreign('idRucher')->references('id')->on('ruchers');
         });

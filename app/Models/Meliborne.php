@@ -20,7 +20,8 @@ class Meliborne extends Model
 
     public $table = 'melibornes';
 
-
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
     protected $dates = ['deleted_at'];
 
 
@@ -38,7 +39,8 @@ class Meliborne extends Model
     protected $casts = [
         'niveauBatterie' => 'integer',
         'idSigfox' => 'string',
-        'idRucher' => 'integer'
+        'idRucher' => 'integer',
+        'deleted_at' => 'string'
     ];
 
     /**
@@ -50,5 +52,13 @@ class Meliborne extends Model
         'idSigfox' => 'email'
     ];
 
+    public function ruches()
+    {
+      return $this->hasMany(\App\Models\Ruche::class, 'idMeliborne');
+    }
 
+    public function ruchers()
+    {
+      return $this->belongsTo(\App\Models\Rucher::class, 'idRucher');
+    }
 }
