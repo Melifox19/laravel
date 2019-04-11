@@ -27,7 +27,6 @@ Route::group(['middleware' => ['auth']],function()
   });
 
   // Route pour tout les utilisateurs ----------------------------------------------------
-  
   Route::resource('ruchers', 'RucherController');
 
   Route::resource('profile', 'ProfileController');
