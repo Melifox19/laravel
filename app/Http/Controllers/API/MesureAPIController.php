@@ -16,6 +16,11 @@ class MesureAPIController extends AppBaseController
     public function store(Request $request) {
         // on suppose que la requête a été formulée correctement en JSON
         $attributs = $request->toArray();
+
+        $addrMelinet = $request->num;
+
+
+
         // on crée un article à partir du tableau d'atributs
         $mesure = Mesure::create($attributs);
         // on retourne l'article créé et un code réponse 201 (created)

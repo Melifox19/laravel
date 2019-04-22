@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Routes WebService -----------------------------------------------------
 Route::get ('mesures', 'MesureAPIController@index');
 
 Route::post('mesures', 'MesureAPIController@store');
