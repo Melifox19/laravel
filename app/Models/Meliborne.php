@@ -49,7 +49,7 @@ class Meliborne extends Model
      * @var array
      */
     public static $rules = [
-        'idSigfox' => 'email'
+        
     ];
 
     public function ruches()
