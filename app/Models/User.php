@@ -73,4 +73,14 @@ class User extends Model
   {
     return $this->hasMany(\App\Models\Rucher::class, 'idApiculteur');
   }
+
+  public function melibornes()
+  {
+    return $this->hasManyThrough(\App\Models\Meliborne::class, \App\Models\Rucher::class, 'idApiculteur', 'idRucher');
+  }
+
+  public function ruches()
+  {
+    return $this->hasManyThrough(\App\Models\Ruche::class, \App\Models\Rucher::class, 'idApiculteur', 'idRucher');
+  }
 }
