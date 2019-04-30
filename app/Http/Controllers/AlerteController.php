@@ -30,7 +30,7 @@ class AlerteController extends AppBaseController
     public function index(Request $request)
     {
         $this->alerteRepository->pushCriteria(new RequestCriteria($request));
-        $alertes = $this->alerteRepository->all();
+        $alertes = $this->alerteRepository;
 
         return view('alertes.index')
             ->with('alertes', $alertes);

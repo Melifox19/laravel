@@ -39,7 +39,7 @@ class MeliborneController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $melibornes = $this->meliborneRepository->all(); // On affiche toutes les melibornes
+            $melibornes = $this->meliborneRepository; // On affiche toutes les melibornes
         }
         else
         {

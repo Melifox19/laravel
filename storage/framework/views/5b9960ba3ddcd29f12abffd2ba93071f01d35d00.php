@@ -17,10 +17,11 @@
             </div>
         </div>
         <div class="text-center">
-        
+
+          <?php echo $__env->make('adminlte-templates::common.paginate', ['records' => $ruches], \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
         </div>
     </div>
 <?php $__env->stopSection(); ?>
-
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), array('__data', '__path')))->render(); ?>

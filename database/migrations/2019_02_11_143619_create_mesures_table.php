@@ -16,12 +16,17 @@ class CreateMesuresTable extends Migration
         Schema::create('mesures', function (Blueprint $table) {
             $table->increments('id');
             $table->dateTime('horodatageMesure');
-            $table->float('temperature');
-            $table->integer('humidite');
+            $table->float('masse');
+            $table->float('temperatureInt');
+            $table->float('temperatureExt');
+            $table->integer('humiditeInt');
+            $table->integer('humiditeExt')->nullable();
+            $table->integer('pression');
             $table->integer('niveauBatterie');
             $table->float('longitude')->nullable();
             $table->float('latitude')->nullable();
-            $table->integer('debitSonore')->nullable();
+            $table->integer('debitSonore200')->nullable();
+            $table->integer('debitSonore400')->nullable();
             $table->integer('idRuche')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();

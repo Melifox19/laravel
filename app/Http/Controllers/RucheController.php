@@ -41,7 +41,7 @@ class RucheController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $ruches = $this->rucheRepository->all();
+            $ruches = $this->rucheRepository;
         }
         else
         {

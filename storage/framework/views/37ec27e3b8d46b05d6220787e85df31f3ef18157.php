@@ -3,7 +3,9 @@
     <tr>
       <th>ID</th>
       <th>Nom</th>
+      <?php if(Auth::user()->role == "admin"): ?>
       <th>Propriétaire</th>
+      <?php endif; ?>
       <th colspan="3">Action</th>
     </tr>
   </thead>
@@ -16,7 +18,9 @@
     <tr>
       <td><?php echo $rucher->id; ?></td>
       <td><?php echo $rucher->nom; ?></td>
+      <?php if(Auth::user()->role == "admin"): ?>
       <td><?php echo $rucher->idApiculteur; ?> - <?php echo $user->name; ?></td>
+      <?php endif; ?>
       <td>
         <?php echo Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']); ?>
 

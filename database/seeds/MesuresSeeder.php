@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\Ruche;
 
 class MesuresSeeder extends Seeder
 {
@@ -11,6 +12,11 @@ class MesuresSeeder extends Seeder
      */
     public function run()
     {
-      $ruches = factory(\App\Models\Mesure::class, 200)->create();
+      $ruches_list = Ruche::all();
+
+      foreach ($ruches_list as $ruche => $data)
+      {
+        $ruches = factory(\App\Models\Mesure::class, 10)->create(['idRuche' => $data->idRucher]);
+      }
     }
 }

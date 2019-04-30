@@ -32,12 +32,17 @@ class Mesure extends Model
 
     public $fillable = [
         'horodatageMesure',
-        'temperature',
-        'humidite',
+        'masse',
+        'temperatureInt',
+        'temperatureExt',
+        'humiditeInt',
+        'humiditeExt',
+        'pression',
         'niveauBatterie',
         'longitude',
         'latitude',
-        'debitSonore',
+        'debitSonore200',
+        'debitSonore400',
         'idRuche'
     ];
 
@@ -48,12 +53,17 @@ class Mesure extends Model
      */
     protected $casts = [
         'horodatageMesure' => 'datetime',
-        'temperature' => 'float',
-        'humidite' => 'integer',
+        'masse' => 'float',
+        'temperatureInt' => 'float',
+        'temperatureExt' => 'float',
+        'humiditeInt' => 'integer',
+        'humiditeExt' => 'integer',
+        'pression' => 'integer',
         'niveauBatterie' => 'integer',
         'longitude' => 'float',
         'latitude' => 'float',
-        'debitSonore' => 'integer',
+        'debitSonore200' => 'integer',
+        'debitSonore400' => 'integer',
         'idRuche' => 'integer',
         'deleted_at' => 'string'
     ];
