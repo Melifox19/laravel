@@ -147,7 +147,7 @@ class AlertesSeeder extends Seeder
             ]);
           }
 
-          // --------------------------- Débit Sonore (200Hz) ---------------------------
+          // --------------------------- Débit Sonore (200Hz & 400 Hz) ---------------------------
 
           if ($data->debitSonore200 > 190 && $data->debitSonore200 < 210)
           {
