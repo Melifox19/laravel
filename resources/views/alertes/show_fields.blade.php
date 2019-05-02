@@ -6,13 +6,13 @@
 
 <!-- Horodatagealerte Field -->
 <div class="form-group">
-    {!! Form::label('horodatageAlerte', 'Horodatagealerte:') !!}
+    {!! Form::label('horodatageAlerte', 'Date & Heure:') !!}
     <p>{!! $alerte->horodatageAlerte !!}</p>
 </div>
 
 <!-- Type Field -->
 <div class="form-group">
-    {!! Form::label('type', 'Type:') !!}
+    {!! Form::label('type', 'Type d'alerte:') !!}
     <p>{!! $alerte->type !!}</p>
 </div>
 
@@ -27,16 +27,3 @@
     {!! Form::label('idRuche', 'Idruche:') !!}
     <p>{!! $alerte->idRuche !!}</p>
 </div>
-
-<!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $alerte->created_at !!}</p>
-</div>
-
-<!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $alerte->updated_at !!}</p>
-</div>
-
