@@ -41,7 +41,7 @@ class RucheController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $ruches = $this->rucheRepository;
+            $ruches = $this->rucheRepository->all();
         }
         else
         {
@@ -107,6 +107,7 @@ class RucheController extends AppBaseController
     public function show($id)
     {
         $ruche = $this->rucheRepository->findWithoutFail($id);
+        $rucher = Rucher::find($ruche->idRucher);
 
         if (empty($ruche)) {
             Flash::error('Informations introuvables');
@@ -114,7 +115,9 @@ class RucheController extends AppBaseController
             return redirect(route('ruches.index'));
         }
 
-        return view('ruches.show')->with('ruche', $ruche);
+        return view('ruches.show')
+        ->with('ruche', $ruche)
+        ->with('rucher', $rucher);
     }
 
     /**

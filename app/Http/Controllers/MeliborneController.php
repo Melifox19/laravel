@@ -39,7 +39,7 @@ class MeliborneController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $melibornes = $this->meliborneRepository; // On affiche toutes les melibornes
+            $melibornes = $this->meliborneRepository->all(); // On affiche toutes les melibornes
         }
         else
         {
@@ -101,6 +101,7 @@ class MeliborneController extends AppBaseController
     public function show($id)
     {
         $meliborne = $this->meliborneRepository->findWithoutFail($id);
+        $rucher = Rucher::find($meliborne->idRucher);
 
         if (empty($meliborne)) {
             Flash::error('Meliborne introuvable');
@@ -108,7 +109,9 @@ class MeliborneController extends AppBaseController
             return redirect(route('melibornes.index'));
         }
 
-        return view('melibornes.show')->with('meliborne', $meliborne);
+        return view('melibornes.show')
+        ->with('meliborne', $meliborne)
+        ->with('rucher', $rucher);
     }
 
     /**
