@@ -39,19 +39,14 @@ class MeliborneController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $melibornes = $this->meliborneRepository->all();
+            $melibornes = $this->meliborneRepository; // On affiche toutes les melibornes
         }
         else
         {
-            $melibornes = DB::table('melibornes')
-            ->select('melibornes.*')
-            ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
-            ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
-            ->where('users.id', '=', Auth::user()->id)
-            ->get();
+          $melibornes = User::find(Auth::user()->id)->melibornes; // On affiche les mélibornes de l'utilisateur connecté
         }
 
-        $ruchers = DB::table('ruchers')->get();
+        $ruchers = Rucher::all();
 
         return view('melibornes.index')
             ->with('melibornes', $melibornes)
@@ -65,15 +60,13 @@ class MeliborneController extends AppBaseController
      */
     public function create()
     {
-            if ( Auth::user()->role == "admin")
+            if ( Auth::user()->role == "admin") // Si admin on affiche tout les ruchers
             {
                 $ruchers = Rucher::all();
             }
             else
             {
-                $ruchers = DB::table('ruchers')
-                ->where('idApiculteur', '=', Auth::user()->id)
-                ->get();
+                $ruchers = User::find(Auth::user()->id)->ruchers; // Si utilisateur on affiche seulement ses ruchers
             }
 
             return view('melibornes.create')
@@ -135,15 +128,13 @@ class MeliborneController extends AppBaseController
             return redirect(route('melibornes.index'));
         }
 
-        if ( Auth::user()->role == "admin")
+        if ( Auth::user()->role == "admin") // Si Admin on affiche tous les ruchers
         {
             $ruchers = Rucher::all();
         }
         else
         {
-            $ruchers = DB::table('ruchers')
-            ->where('idApiculteur', '=', Auth::user()->id)
-            ->get();
+          $ruchers = User::find(Auth::user()->id)->ruchers; // Si utilisateur on affiche seulement ses ruchers
         }
 
         return view('melibornes.edit')

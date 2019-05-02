@@ -30,7 +30,7 @@ class MesureController extends AppBaseController
     public function index(Request $request)
     {
         $this->mesureRepository->pushCriteria(new RequestCriteria($request));
-        $mesures = $this->mesureRepository->paginate(10);
+        $mesures = $this->mesureRepository;
 
         return view('mesures.index')
             ->with('mesures', $mesures);

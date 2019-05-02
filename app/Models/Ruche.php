@@ -54,8 +54,7 @@ class Ruche extends Model
      * @var array
      */
     public static $rules = [
-        'addrMelinet' => 'nullable|between:1,8',
-        'idSigfox' => 'nullable|email'
+        'addrMelinet' => 'nullable|between:1,8'
     ];
 
     public function melibornes()
@@ -66,6 +65,16 @@ class Ruche extends Model
     public function ruchers()
     {
       return $this->belongsTo(\App\Models\Ruchers::class, 'idRucher');
+    }
+
+    public function mesures()
+    {
+      return $this->hasMany(\App\Models\Mesure::class, 'idRuche');
+    }
+
+    public function alertes()
+    {
+      return $this->hasMany(\App\Models\Alerte::class, 'idRuche');
     }
 
 }

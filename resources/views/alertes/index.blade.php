@@ -19,8 +19,9 @@
             </div>
         </div>
         <div class="text-center">
-        
+
+          @include('adminlte-templates::common.paginate', ['records' => $alertes])
+
         </div>
     </div>
 @endsection
-

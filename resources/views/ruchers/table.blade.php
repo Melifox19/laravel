@@ -3,7 +3,9 @@
     <tr>
       <th>ID</th>
       <th>Nom</th>
+      @if(Auth::user()->role == "admin")
       <th>Propriétaire</th>
+      @endif
       <th colspan="3">Action</th>
     </tr>
   </thead>
@@ -16,7 +18,9 @@
     <tr>
       <td>{!! $rucher->id !!}</td>
       <td>{!! $rucher->nom !!}</td>
+      @if(Auth::user()->role == "admin")
       <td>{!! $rucher->idApiculteur !!} - {!! $user->name !!}</td>
+      @endif
       <td>
         {!! Form::open(['route' => ['ruchers.destroy', $rucher->id], 'method' => 'delete']) !!}
         <div class='btn-group'>

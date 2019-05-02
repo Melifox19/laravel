@@ -13,9 +13,33 @@ class MesureAPIController extends AppBaseController
         return Mesure::all();
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         // on suppose que la requête a été formulée correctement en JSON
         $attributs = $request->toArray();
+
+        switch ($attributs->type)
+        {
+          case '00': //Envoie de données Méliruches
+            // code...
+            break;
+
+          case '01': //Envoie de données Mélilabos
+            // code...
+            break;
+
+          case '10': //Envoie de données de géolocalisation
+            // code...
+            break;
+
+          case '11': //Non attribué...
+            // code...
+            break;
+
+          default:
+            // code...
+            break;
+        }
 
         $addrMelinet = $request->num;
 

@@ -41,20 +41,15 @@ class RucheController extends AppBaseController
 
         if ( Auth::user()->role == 'admin' )
         {
-            $ruches = $this->rucheRepository->all();
+            $ruches = $this->rucheRepository;
         }
         else
         {
-            $ruches = DB::table('ruches')
-            ->select('ruches.*')
-            ->join('ruchers', 'ruches.idRucher', '=', 'ruchers.id')
-            ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
-            ->where('users.id', '=', Auth::user()->id)
-            ->get();
+          $ruches = User::find(Auth::user()->id)->ruches; // On affiche les ruches de l'utilisateur connecté
+
         }
 
-        $ruchers = DB::table('ruchers')->get();
-
+        $ruchers = Rucher::all();
 
         return view('ruches.index')
             ->with('ruches', $ruches)
@@ -75,16 +70,8 @@ class RucheController extends AppBaseController
       }
       else
       {
-          $ruchers = DB::table('ruchers')
-          ->where('idApiculteur', '=', Auth::user()->id)
-          ->get();
-
-          $melibornes = DB::table('melibornes')
-          ->select('melibornes.*')
-          ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
-          ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
-          ->where('users.id', '=', Auth::user()->id)
-          ->get();
+        $ruchers = User::find(Auth::user()->id)->ruchers; // Si utilisateur on affiche seulement ses ruchers
+          $melibornes = User::find(Auth::user()->id)->melibornes; // On affiche les mélibornes de l'utilisateur connecté
       }
 
         return view('ruches.create')
@@ -146,16 +133,8 @@ class RucheController extends AppBaseController
       }
       else
       {
-          $ruchers = DB::table('ruchers')
-          ->where('idApiculteur', '=', Auth::user()->id)
-          ->get();
-
-          $melibornes = DB::table('melibornes')
-          ->select('melibornes.*')
-          ->join('ruchers', 'melibornes.idRucher', '=', 'ruchers.id')
-          ->join('users', 'ruchers.idApiculteur', '=', 'users.id')
-          ->where('users.id', '=', Auth::user()->id)
-          ->get();
+        $ruchers = User::find(Auth::user()->id)->ruchers; // Si utilisateur on affiche seulement ses ruchers
+          $melibornes = User::find(Auth::user()->id)->melibornes; // On affiche les mélibornes de l'utilisateur connecté
       }
 
         $ruche = $this->rucheRepository->findWithoutFail($id);
