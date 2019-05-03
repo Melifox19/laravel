@@ -22,6 +22,15 @@ class UsersSeeder extends Seeder
         ]);
 
         User::insert([
+          'name' => 'Api',
+          'email' => 'api@melifox.com',
+          'role' => 'admin',
+          'password' => '$2y$10$2Dx.Vp0usAG.bbHa3WJDaemC8pGHdcIg.N0YcAyQ0ashM6uNov0jW',
+          'created_at' => '2019-01-01 00:00:00',
+          'updated_at' => '2019-01-01 00:00:00',
+        ]);
+
+        User::insert([
           'name' => 'Toto',
           'email' => 'toto@gmail.com',
           'role' => 'user',

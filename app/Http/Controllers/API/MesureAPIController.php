@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\;
 
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 use App\Models\Mesure;
@@ -17,10 +18,17 @@ class MesureAPIController extends AppBaseController
         return Mesure::all();
     }
 
+    public function update(Request $request)
+    {
+        $token = Str::random(60);
+    }
+
     public function store(Request $request)
     {
         // on suppose que la requête a été formulée correctement en JSON
         $data = $request->toArray();
+
+        return response()->json($data, 201);
 
         switch ($data->typ)
         {
@@ -49,7 +57,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->masse > 70) // Si la masse est supérieure à 70 kg
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Masse elevee',
                     'idRuche' => $attributs->idRuche
@@ -58,7 +66,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->masse < 20)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Masse faible',
                     'idRuche' => $attributs->idRuche
@@ -68,7 +76,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->masse < 0)
             {
                 Alert::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'vol',
                     'description' => 'Ruche non detectee',
                     'idRuche' => $attributs->idRuche
@@ -80,7 +88,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureInt > 36)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature interieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -89,7 +97,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureInt < 30)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature interieure faible',
                     'idRuche' => $attributs->idRuche
@@ -101,7 +109,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureExt > 40)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature exterieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -110,7 +118,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureExt < 0)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature exterieure faible',
                     'idRuche' => $attributs->idRuche
@@ -122,7 +130,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->humiditeInt > 25)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Humidite interieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -131,7 +139,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->humiditeInt < 20)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Humidite interieure faible',
                     'idRuche' => $attributs->idRuche
@@ -143,7 +151,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->niveauBatterie < 30)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Batterie faible',
                     'idRuche' => $attributs->idRuche
@@ -183,7 +191,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->masse > 70) // Si la masse est supérieure à 70 kg
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Masse elevee',
                     'idRuche' => $attributs->idRuche
@@ -192,7 +200,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->masse < 20)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Masse faible',
                     'idRuche' => $attributs->idRuche
@@ -202,7 +210,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->masse < 0)
             {
                 Alert::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'vol',
                     'description' => 'Ruche non detectee',
                     'idRuche' => $attributs->idRuche
@@ -214,7 +222,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureInt > 36)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature interieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -223,7 +231,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureInt < 30)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature interieure faible',
                     'idRuche' => $attributs->idRuche
@@ -235,7 +243,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureExt > 40)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature exterieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -244,7 +252,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->temperatureExt < 0)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Temperature exterieure faible',
                     'idRuche' => $attributs->idRuche
@@ -256,7 +264,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->humiditeInt > 25)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Humidite interieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -265,7 +273,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->humiditeInt < 20)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Humidite interieure faible',
                     'idRuche' => $attributs->idRuche
@@ -278,7 +286,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->humiditeExt > 25)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Humidite exterieure elevee',
                     'idRuche' => $attributs->idRuche
@@ -287,7 +295,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->humiditeExt < 20)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Humidite exterieure faible',
                     'idRuche' => $attributs->idRuche
@@ -299,7 +307,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->niveauBatterie < 30)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Batterie faible',
                     'idRuche' => $attributs->idRuche
@@ -311,7 +319,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->debitSonore200 > 190 && $attributs->debitSonore200 < 210)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Essaimage potentiel (200 Hz)',
                     'idRuche' => $attributs->idRuche
@@ -321,7 +329,7 @@ class MesureAPIController extends AppBaseController
             if ($attributs->debitSonore400 > 400 && $attributs->debitSonore400 < 500)
             {
                 Alerte::insert([
-                    'horodatageAlerte' => $faker->dateTimeInInterval('-5 years', '2 hours'),
+                    'horodatageAlerte' => date("Y-m-d H:i:s"),
                     'type' => 'mesure',
                     'description' => 'Essaimage potentiel (400 Hz)',
                     'idRuche' => $attributs->idRuche
@@ -340,7 +348,7 @@ class MesureAPIController extends AppBaseController
                 'longitude' => $data['longitude'],
                 'latitude' => $data['latitude'],
                 'idRuche' => $ruche->id
-            ]
+            ];
 
             $mesure = Mesure::create($attributs);
             // on retourne l'article créé et un code réponse 201 (created)
