@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Support\Str;
@@ -28,15 +28,14 @@ class MesureAPIController extends AppBaseController
         // on suppose que la requête a été formulée correctement en JSON
         $data = $request->toArray();
 
-        return response()->json($data, 201);
-
-        switch ($data->typ)
+        switch ($data['typ'])
         {
             case '00': //Envoie de données Méliruches --------------------------------------------------------
             $idSigfox = $data['idSigfox'];
 
-            $meliborne = Meliborne::where('idSigfox', $idSigfox);
-            $ruche = Ruche::where('addrMelinet', $data->addrMelinet)->where('idMeliborne', $meliborne->id);
+            $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
+
+            $ruche = Ruche::where('addrMelinet', $data['addrMelinet'])->where('idMeliborne', $meliborne->id)->first();
 
             $attributs = [
                 'horodatageMesure' => $data['horodatageMesure'],
