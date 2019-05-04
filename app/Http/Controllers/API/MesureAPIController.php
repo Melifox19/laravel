@@ -37,18 +37,21 @@ class MesureAPIController extends AppBaseController
 
             $ruche = Ruche::where('addrMelinet', $data['addrMelinet'])->where('idMeliborne', $meliborne->id)->first();
 
-            $attributs = [
+            $mesure = Mesure::create([
                 'horodatageMesure' => $data['horodatageMesure'],
                 'masse' => $data['masse'],
                 'temperatureInt' => $data['temperatureInt'],
                 'temperatureExt' => $data['temperatureExt'],
                 'humiditeInt' => $data['humiditeInt'],
+                'humiditeExt' => 'NULL',
                 'pression' => $data['pression'],
                 'niveauBatterie' => $data['niveauBatterie'],
+                'debitSonore200' => 'NULL',
+                'debitSonore400' => 'NULL',
                 'idRuche' => $ruche->id
-            ];
-            // on crée un article à partir du tableau d'atributs
-            $mesure = Mesure::create($attributs);
+            ]);
+
+            return response()->json($mesure, 201);
 
 
             // On vérifie si les valeurs ne sont pas trop critiques pour pouvoir créer l'alerte
@@ -339,7 +342,7 @@ class MesureAPIController extends AppBaseController
             return response()->json($mesure, 201);
             break;
 
-            case '10': //Envoie de données de géolocalisation ----------------------------------------------------------
+            /*case '10': //Envoie de données de géolocalisation ----------------------------------------------------------
             $idSigfox = $data['idSigfox'];
             $ruche = Ruche::where('idSigfox', $idSigfox);
 
@@ -360,7 +363,7 @@ class MesureAPIController extends AppBaseController
 
             default:
             // code...
-            break;
+            break;*/
         }
     }
 }
