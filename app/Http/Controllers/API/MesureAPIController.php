@@ -37,6 +37,8 @@ class MesureAPIController extends AppBaseController
 
             $ruche = Ruche::where('addrMelinet', $data['addrMelinet'])->where('idMeliborne', $meliborne->id)->first();
 
+            return response()->json($ruche->id, 201);
+
             $mesure = Mesure::create([
                 'horodatageMesure' => $data['horodatageMesure'],
                 'masse' => $data['masse'],
