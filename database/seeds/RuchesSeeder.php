@@ -12,7 +12,7 @@ class RuchesSeeder extends Seeder
      */
     public function run()
     {
-      $ruches = factory(\App\Models\Ruche::class, 50)->create();
+      $ruches = factory(\App\Models\Ruche::class, 20)->create();
 
       //Meliruche du projet SNIR
       Ruche::insert([

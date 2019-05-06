@@ -16,7 +16,7 @@ class MesuresSeeder extends Seeder
 
       foreach ($ruches_list as $ruche => $data)
       {
-        $ruches = factory(\App\Models\Mesure::class, 10)->create(['idRuche' => $data->idRucher]);
+        $ruches = factory(\App\Models\Mesure::class, 5)->create(['idRuche' => $data->idRucher]);
       }
     }
 }
