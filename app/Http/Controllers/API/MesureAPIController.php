@@ -23,6 +23,18 @@ class MesureAPIController extends AppBaseController
     // on suppose que la requête a été formulée correctement en JSON
     $data = $request->toArray();
 
+
+
+
+
+
+
+
+
+
+
+
+
     switch ($data['typ'])
     {
       case '00': //Envoie de données Méliruches --------------------------------------------------------
@@ -33,7 +45,7 @@ class MesureAPIController extends AppBaseController
 
       if (isset($meliborne)) // Si on trouve une Meliborne
       {
-        // On recherche la ruche correspondante à l'addresse Melinet
+        // On recherche la ruche correspondante à l'addresse Melinet de la Meliborne trouvé
         $ruche = Ruche::where('addrMelinet', $data['addrMelinet'])->where('idMeliborne', $meliborne->id)->first();
 
         if(isset($ruche)) // Si on trouve une Ruche

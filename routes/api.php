@@ -1,4 +1,5 @@
-<?php
+<?php# End of https://www.gitignore.io/api/laravel
+
 
 use Illuminate\Http\Request;
 
