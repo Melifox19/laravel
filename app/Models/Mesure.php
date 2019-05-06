@@ -70,8 +70,17 @@ class Mesure extends Model
      * @var array
      */
     public static $rules = [
-        'humidite' => 'poids float number',
-        'niveauBatterie' => 'longitude float:nullable text'
+        'horodatageMesure' => 'required|date'
+        'masse' => 'required|float',
+        'temperatureInt' => 'required|float',
+        'temperatureExt' => 'required|float',
+        'humiditeInt' => 'required|integer',
+        'humiditeExt' => 'nullable|integer',
+        'pression' => 'required|integer',
+        'niveauBatterie' => 'required|integer',
+        'debitSonore200' => 'nullable|integer',
+        'debitSonore400' => 'nullable|integer',
+        'idRuche' => 'required|integer|exists:Ruches,id'
     ];
 
     public function ruches()

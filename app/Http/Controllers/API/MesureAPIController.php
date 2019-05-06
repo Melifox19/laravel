@@ -382,6 +382,7 @@ class MesureAPIController extends AppBaseController
         $meliborne_insert = [
           'longitude' => $data['longitude'],
           'latitude' => $data['latitude'],
+          'niveauBatterie' => $data['niveauBatterie']
         ];
 
         // On modifie la géolocalisation de la Meliborne

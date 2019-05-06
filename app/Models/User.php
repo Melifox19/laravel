@@ -63,7 +63,9 @@ class User extends Model
   * @var array
   */
   public static $rules = [
-    
+    'name' => 'required|string|max:191',
+    'email' => 'required|email|unique|max:191',
+    'password' => 'required|string|max:191'
   ];
 
   /**

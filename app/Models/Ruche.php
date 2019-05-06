@@ -59,7 +59,12 @@ class Ruche extends Model
      * @var array
      */
     public static $rules = [
-        'addrMelinet' => 'nullable|between:1,8'
+        'addrMelinet' => 'nullable|integer|between:1,8',
+        'idSigfox' => 'nullable|string|regex:[0-9A-F]{6}',
+        'longitude' => 'nullable|float',
+        'latitude' => 'nullable|float',
+        'idRucher' => 'integer|exists:Ruchers,id',
+        'idMeliborne' => 'nullable|integer|exists:Melibornes,id'
     ];
 
     public function melibornes()

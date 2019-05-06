@@ -46,7 +46,8 @@ class Rucher extends Model
      * @var array
      */
     public static $rules = [
-
+      'nom' => 'required|string|max:191',
+      'idApiculteur' => 'required|integer|exists:users,id'
     ];
 
     public function ruches()
