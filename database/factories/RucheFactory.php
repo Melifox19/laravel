@@ -20,8 +20,10 @@ $factory->define(App\Models\Ruche::class, function (Faker $faker)
   else
   {
     return [
-      'idSigfox' => $faker->regexify('0[x][0-9A-F]{6}'),
+      'idSigfox' => $faker->regexify('[0-9A-F]{6}'),
         'type' => 'melilabo',
+        'longitude' => $faker->longitude(),
+        'latitude' => $faker->latitude(),
         'idRucher' => $faker->numberBetween(1, 4),
         'created_at' => date('Y-m-d H:i:s'),
         'updated_at' => date('Y-m-d H:i:s')

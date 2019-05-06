@@ -98,6 +98,7 @@ class RucherController extends AppBaseController
     public function show($id)
     {
         $rucher = $this->rucherRepository->findWithoutFail($id);
+        $user = User::find($rucher->idApiculteur);
 
         if (empty($rucher)) {
             Flash::error('Rucher introuvable');
@@ -105,7 +106,7 @@ class RucherController extends AppBaseController
             return redirect(route('ruchers.index'));
         }
 
-        return view('ruchers.show')->with('rucher', $rucher);
+        return view('ruchers.show')->with('rucher', $rucher)->with('user', $user);
     }
 
     /**

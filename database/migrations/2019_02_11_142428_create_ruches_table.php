@@ -18,6 +18,8 @@ class CreateRuchesTable extends Migration
             $table->integer('addrMelinet')->nullable();
             $table->string('idSigfox')->nullable();
             $table->enum('type', ['meliruche', 'melilabo']);
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->integer('idRucher')->unsigned();
             $table->integer('idMeliborne')->unsigned()->nullable();
             $table->timestamp('created_at')->useCurrent();

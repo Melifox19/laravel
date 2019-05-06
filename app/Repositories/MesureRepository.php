@@ -20,14 +20,17 @@ class MesureRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'horodatageMesure',
-        'temperature',
-        'humidite',
-        'niveauBatterie',
-        'longitude',
-        'latitude',
-        'debitSonore',
-        'idRuche'
+      'horodatageMesure',
+      'masse',
+      'temperatureInt',
+      'temperatureExt',
+      'humiditeInt',
+      'humiditeExt',
+      'pression',
+      'niveauBatterie',
+      'debitSonore200',
+      'debitSonore400',
+      'idRuche'
     ];
 
     /**

@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function ()
+{
   return redirect('login');
 });
 
@@ -24,6 +25,8 @@ Route::group(['middleware' => ['auth']],function()
   Route::group(['middleware' => ['admin']], function()
   {
     Route::resource('users', 'UserController');
+    Route::resource('mesures', 'MesureController');
+    Route::resource('alertes', 'AlerteController');
   });
 
   // Route pour tout les utilisateurs ----------------------------------------------------
@@ -34,10 +37,6 @@ Route::group(['middleware' => ['auth']],function()
   Route::resource('melibornes', 'MeliborneController');
 
   Route::resource('ruches', 'RucheController');
-
-  Route::resource('mesures', 'MesureController');
-
-  Route::resource('alertes', 'AlerteController');
 
   Route::get('/home', 'HomeController@index')->name('home');
 

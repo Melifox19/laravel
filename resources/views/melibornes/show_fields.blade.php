@@ -1,25 +1,39 @@
+@if(Auth::user()->role == 'Admin')
 <!-- Id Field -->
 <div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
+    {!! Form::label('id', 'ID:') !!}
     <p>{!! $meliborne->id !!}</p>
 </div>
+@endif
 
 <!-- Niveaubatterie Field -->
 <div class="form-group">
-    {!! Form::label('niveauBatterie', 'Niveaubatterie:') !!}
+    {!! Form::label('niveauBatterie', 'Niveau de batterie:') !!}
     <p>{!! $meliborne->niveauBatterie !!}</p>
+</div>
+
+<!-- Longitude Field -->
+<div class="form-group">
+    {!! Form::label('longitude', 'Longitude:') !!}
+    <p>{!! $meliborne->longitude !!}</p>
+</div>
+
+<!-- Latitude Field -->
+<div class="form-group">
+    {!! Form::label('latitude', 'Latitude:') !!}
+    <p>{!! $meliborne->latitude !!}</p>
 </div>
 
 <!-- Idsigfox Field -->
 <div class="form-group">
-    {!! Form::label('idSigfox', 'Idsigfox:') !!}
+    {!! Form::label('idSigfox', 'ID SigFox:') !!}
     <p>{!! $meliborne->idSigfox !!}</p>
 </div>
 
-<!-- Idrucher Field -->
+<!-- Idmeliborne Field -->
 <div class="form-group">
-    {!! Form::label('idRucher', 'Idrucher:') !!}
-    <p>{!! $meliborne->idRucher !!}</p>
+    {!! Form::label('idRucher', 'Dans le meliborne:') !!}
+    <p>{!! $meliborne->idRucher !!} - {!! $rucher->nom !!}</p>
 </div>
 
 <!-- Created At Field -->
@@ -34,3 +48,12 @@
     <p>{!! $meliborne->updated_at !!}</p>
 </div>
 
+<div class="form-group">
+  {!! Form::label('actions', 'Actions:') !!}
+{!! Form::open(['route' => ['melibornes.destroy', $meliborne->id], 'method' => 'delete']) !!}
+<div class='btn-group'>
+  <a href="{!! route('melibornes.edit', [$meliborne->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+  {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Etes-vous sur ?')"]) !!}
+</div>
+{!! Form::close() !!}
+</div>

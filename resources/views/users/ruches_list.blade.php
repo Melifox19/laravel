@@ -11,7 +11,7 @@
         <th>Nom</th>
         <th>Date de création</th>
         <th>Dernière modification</th>
-        <th colspan="3">Action</th>
+        <th colspan="3">Voir rucher </th>
       </tr>
     </thead>
     <tbody>
@@ -32,11 +32,17 @@
           </td>
         </tr>
 
-        <tr class="allRuche_case">
+        <tr class="allRuche_case" >
           @foreach($rucher->ruches as $ruche)
           <td class="ruche_case">
-            Ruche {!! $rucher->id !!}-{!! $ruche->addrMelinet !!} <br />
-
+            <?php if (isset($ruche->addrMelinet))
+            { ?>
+              Ruche : {!! $rucher->id !!}-{!! $ruche->addrMelinet !!} <?php
+            }
+            else
+            { ?>
+              Melilabo : {!! $rucher->id !!}-{!! $ruche->idSigfox !!} <?php
+            } ?>
             <div class='btn-group'>
               <a href="{!! route('ruches.show', [$ruche->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
             </div>

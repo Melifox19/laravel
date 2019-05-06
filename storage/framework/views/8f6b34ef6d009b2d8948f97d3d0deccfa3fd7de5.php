@@ -12,7 +12,7 @@
         <th>Nom</th>
         <th>Date de création</th>
         <th>Dernière modification</th>
-        <th colspan="3">Voir rucher </th>
+        <th colspan="3">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -35,17 +35,11 @@
           </td>
         </tr>
 
-        <tr class="allRuche_case" >
+        <tr class="allRuche_case">
           <?php $__currentLoopData = $rucher->ruches; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ruche): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <td class="ruche_case">
-            <?php if (isset($ruche->addrMelinet))
-            { ?>
-              Ruche : <?php echo $rucher->id; ?>-<?php echo $ruche->addrMelinet; ?> <?php
-            }
-            else
-            { ?>
-              Melilabo : <?php echo $rucher->id; ?>-<?php echo $ruche->idSigfox; ?> <?php
-            } ?>
+            Ruche <?php echo $rucher->id; ?>-<?php echo $ruche->addrMelinet; ?> <br />
+
             <div class='btn-group'>
               <a href="<?php echo route('ruches.show', [$ruche->id]); ?>" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
             </div>

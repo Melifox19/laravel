@@ -32,20 +32,24 @@
     <p>************</p>
 </div>
 
-<!-- Remember Token Field -->
-<div class="form-group">
-    {!! Form::label('remember_token', 'Jeton mémoire:') !!}
-    <p>{!! $user->remember_token !!}</p>
-</div>
-
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Date de création:') !!}
+    {!! Form::label('created_at', 'Créé le:') !!}
     <p>{!! $user->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Dernière MàJ:') !!}
+    {!! Form::label('updated_at', 'Dernière mise à jour:') !!}
     <p>{!! $user->updated_at !!}</p>
+</div>
+
+<div class="form-group">
+  {!! Form::label('actions', 'Actions:') !!}
+{!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
+<div class='btn-group'>
+  <a href="{!! route('users.edit', [$user->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
+  {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Etes-vous sur ?')"]) !!}
+</div>
+{!! Form::close() !!}
 </div>
