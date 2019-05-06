@@ -19,6 +19,6 @@ use Illuminate\Http\Request;
 });*/
 
 // Routes WebService -----------------------------------------------------
-Route::get ('mesures', 'MesureAPIController@index');
+Route::get ('sigfox', 'MesureAPIController@index');
 
-Route::post('mesures', 'MesureAPIController@store');
+Route::post('sigfox', 'MesureAPIController@store');

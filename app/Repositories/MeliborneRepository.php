@@ -22,6 +22,8 @@ class MeliborneRepository extends BaseRepository
     protected $fieldSearchable = [
         'niveauBatterie',
         'idSigfox',
+        'longitude',
+        'latitude',
         'idRucher'
     ];
 

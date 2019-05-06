@@ -6,14 +6,14 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class Meliborne
- * @package App\Models
- * @version February 11, 2019, 2:15 pm UTC
- *
- * @property integer niveauBatterie
- * @property string idSigfox
- * @property integer idRucher
- */
+* Class Meliborne
+* @package App\Models
+* @version February 11, 2019, 2:15 pm UTC
+*
+* @property integer niveauBatterie
+* @property string idSigfox
+* @property integer idRucher
+*/
 class Meliborne extends Model
 {
     use SoftDeletes;
@@ -28,37 +28,41 @@ class Meliborne extends Model
     public $fillable = [
         'niveauBatterie',
         'idSigfox',
+        'longitude',
+        'latitude',
         'idRucher'
     ];
 
     /**
-     * The attributes that should be casted to native types.
-     *
-     * @var array
-     */
+    * The attributes that should be casted to native types.
+    *
+    * @var array
+    */
     protected $casts = [
         'niveauBatterie' => 'integer',
         'idSigfox' => 'string',
+        'longitude' => 'float',
+        'latitude' => 'float',
         'idRucher' => 'integer',
         'deleted_at' => 'string'
     ];
 
     /**
-     * Validation rules
-     *
-     * @var array
-     */
+    * Validation rules
+    *
+    * @var array
+    */
     public static $rules = [
-        
+
     ];
 
     public function ruches()
     {
-      return $this->hasMany(\App\Models\Ruche::class, 'idMeliborne');
+        return $this->hasMany(\App\Models\Ruche::class, 'idMeliborne');
     }
 
     public function ruchers()
     {
-      return $this->belongsTo(\App\Models\Rucher::class, 'idRucher');
+        return $this->belongsTo(\App\Models\Rucher::class, 'idRucher');
     }
 }

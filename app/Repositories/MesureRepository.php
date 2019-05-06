@@ -28,8 +28,6 @@ class MesureRepository extends BaseRepository
       'humiditeExt',
       'pression',
       'niveauBatterie',
-      'longitude',
-      'latitude',
       'debitSonore200',
       'debitSonore400',
       'idRuche'

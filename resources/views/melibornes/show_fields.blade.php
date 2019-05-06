@@ -12,6 +12,18 @@
     <p>{!! $meliborne->niveauBatterie !!}</p>
 </div>
 
+<!-- Longitude Field -->
+<div class="form-group">
+    {!! Form::label('longitude', 'Longitude:') !!}
+    <p>{!! $meliborne->longitude !!}</p>
+</div>
+
+<!-- Latitude Field -->
+<div class="form-group">
+    {!! Form::label('latitude', 'Latitude:') !!}
+    <p>{!! $meliborne->latitude !!}</p>
+</div>
+
 <!-- Idsigfox Field -->
 <div class="form-group">
     {!! Form::label('idSigfox', 'ID SigFox:') !!}

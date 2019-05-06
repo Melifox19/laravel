@@ -31,6 +31,8 @@ class Ruche extends Model
         'addrMelinet',
         'idSigfox',
         'type',
+        'longitude',
+        'latitude',
         'idRucher',
         'idMeliborne'
     ];
@@ -43,6 +45,9 @@ class Ruche extends Model
     protected $casts = [
         'addrMelinet' => 'integer',
         'idSigfox' => 'string',
+        'type' => 'string',
+        'longitude' => 'float',
+        'latitude' => 'float',
         'idRucher' => 'integer',
         'idMeliborne' => 'integer',
         'deleted_at' => 'string'

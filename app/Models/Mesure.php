@@ -39,8 +39,6 @@ class Mesure extends Model
         'humiditeExt',
         'pression',
         'niveauBatterie',
-        'longitude',
-        'latitude',
         'debitSonore200',
         'debitSonore400',
         'idRuche'
@@ -60,8 +58,6 @@ class Mesure extends Model
         'humiditeExt' => 'integer',
         'pression' => 'integer',
         'niveauBatterie' => 'integer',
-        'longitude' => 'float',
-        'latitude' => 'float',
         'debitSonore200' => 'integer',
         'debitSonore400' => 'integer',
         'idRuche' => 'integer',

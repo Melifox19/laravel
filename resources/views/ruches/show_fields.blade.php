@@ -28,6 +28,22 @@
 </div>
 @endif
 
+@if($ruche->type == 'melilabo')
+<!-- Longitude Field -->
+<div class="form-group">
+    {!! Form::label('longitude', 'Longitude:') !!}
+    <p>{!! $ruche->longitude !!}</p>
+</div>
+@endif
+
+@if($ruche->type == 'melilabo')
+<!-- Latitude Field -->
+<div class="form-group">
+    {!! Form::label('latitude', 'Latitude:') !!}
+    <p>{!! $ruche->latitude !!}</p>
+</div>
+@endif
+
 <!-- Idrucher Field -->
 <div class="form-group">
     {!! Form::label('idRucher', 'Dans le rucher:') !!}

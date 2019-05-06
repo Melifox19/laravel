@@ -369,25 +369,38 @@ public function store(Request $request)
     case '10': //Envoie de données de géolocalisation ----------------------------------------------------------
     $idSigfox = $data['idSigfox'];
 
-    $ruche = Ruche::where('idSigfox', $idSigfox);
+    // On cherche si l'ID est lié à une Méliborne
+    $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
 
-    if (isset($ruche))
+    if (isset($meliborne)) // Si on trouve une meliborne on y ajoute sa géolocalisation
     {
-      $mesure = [
+      $meliborne_insert = [
         'longitude' => $data['longitude'],
         'latitude' => $data['latitude'],
-        'idRuche' => $ruche->id
       ];
 
-      $mesure = Mesure::create($mesure);
+      $meliborne_rslt = Meliborne::where('id', $meliborne->id)->update($meliborne_insert);
+
       // on retourne l'article créé et un code réponse 201 (created)
-      return response()->json($mesure, 201);
+      return response()->json($meliborne_rslt, 201);
+    }
+
+    $ruche = Ruche::where('idSigfox', $idSigfox)->first();
+
+    if (isset($ruche)) // Si non, on cherche si une mélilabo correspondante
+    {
+      $ruche_insert = [
+        'longitude' => $data['longitude'],
+        'latitude' => $data['latitude']
+      ];
+
+
+      $ruche_rslt = Ruche::where('id', $ruche->id)->update($ruche_insert);
+
+      // on retourne l'article créé et un code réponse 201 (created)
+      return response()->json($ruche_rslt, 201);
     }
     break;
-
-
-
-
 
 
 
@@ -403,7 +416,7 @@ public function store(Request $request)
 
     default:
     // code...
-    break;*/
+    break;
   }
 }
 }

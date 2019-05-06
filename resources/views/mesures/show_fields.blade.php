@@ -40,18 +40,6 @@
     <p>{!! $mesure->niveauBatterie !!}</p>
 </div>
 
-<!-- Longitude Field -->
-<div class="form-group">
-    {!! Form::label('longitude', 'Longitude:') !!}
-    <p>{!! $mesure->longitude !!}</p>
-</div>
-
-<!-- Latitude Field -->
-<div class="form-group">
-    {!! Form::label('latitude', 'Latitude:') !!}
-    <p>{!! $mesure->latitude !!}</p>
-</div>
-
 <!-- Debitsonore200 Field -->
 <div class="form-group">
     {!! Form::label('debitSonore200', 'Debit sonore 200Hz:') !!}

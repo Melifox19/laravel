@@ -17,6 +17,8 @@ class CreateMelibornesTable extends Migration
             $table->increments('id');
             $table->integer('niveauBatterie')->nullable();
             $table->string('idSigfox');
+            $table->string('longitude')->nullable();
+            $table->string('latitude')->nullable();
             $table->integer('idRucher')->unsigned();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
