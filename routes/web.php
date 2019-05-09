@@ -11,14 +11,16 @@
 |
 */
 
+Route::resource('login', 'LoginController@login');
+
 Route::get('/', function ()
 {
   return redirect('login');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => ['auth']],function()
+Route::group(['middleware' => ['auth', 'verified']],function()
 {
   // Route pour les administrateurs ------------------------------------------------------
 
