@@ -168,7 +168,7 @@ class MesureAPIController extends AppBaseController
           }
 
           // on retourne l'article créé et un code réponse 201 (created)
-          return response()->json($mesure, 201);
+          //return response()->json($mesure, 201);
         }
       }
       break;
@@ -356,7 +356,7 @@ class MesureAPIController extends AppBaseController
         }
 
         // on retourne l'article créé et un code réponse 201 (created)
-        return response()->json($mesure, 201);
+        //return response()->json($mesure, 201);
       }
       break;
 
@@ -389,7 +389,7 @@ class MesureAPIController extends AppBaseController
         $meliborne_rslt = Meliborne::where('id', $meliborne->id)->update($meliborne_insert);
 
         // on retourne l'article créé et un code réponse 201 (created)
-        return response()->json($meliborne_rslt, 201);
+        //return response()->json($meliborne_rslt, 201);
       }
 
       $ruche = Ruche::where('idSigfox', $idSigfox)->first();
@@ -404,7 +404,7 @@ class MesureAPIController extends AppBaseController
         $ruche_rslt = Ruche::where('id', $ruche->id)->update($ruche_insert);
 
         // on retourne l'article créé et un code réponse 201 (created)
-        return response()->json($ruche_rslt, 201);
+        //return response()->json($ruche_rslt, 201);
       }
       break;
 
