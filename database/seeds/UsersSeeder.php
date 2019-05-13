@@ -14,8 +14,9 @@ class UsersSeeder extends Seeder
     {
         User::insert([
           'name' => 'Admin',
-          'email' => 'melifox.kastler2019@gmail.com',
+          'email' => 'projet.melifox@gmail.com',
           'role' => 'admin',
+          'email_verified_at' => '2019-01-01 00:00:00',
           'password' => '$2y$10$2Dx.Vp0usAG.bbHa3WJDaemC8pGHdcIg.N0YcAyQ0ashM6uNov0jW',
           'created_at' => '2019-01-01 00:00:00',
           'updated_at' => '2019-01-01 00:00:00',
