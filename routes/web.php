@@ -11,6 +11,14 @@
 |
 */
 
+// Route pour le choix de la langue
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
+
+
 Route::resource('login', 'LoginController@login');
 
 Route::get('/', function ()
