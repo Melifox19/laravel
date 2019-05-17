@@ -39,6 +39,27 @@
 
 </head>
 <body class="hold-transition login-page">
+
+  <header class="main-header">
+    <div class="navbar-custom-menu" style="background-color:white;">
+      <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+          <!-- Menu Toggle Button -->
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-language">   Languages</i>
+          </a>
+
+
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('locale/en') }}" >EN</a></li>
+            <li><a href="{{ url('locale/fr') }}" >FR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
   <div class="login-box">
       <div class="login-logo">
           <a href="{{ url('/home') }}"><b>MELIFOX19</b></a>
@@ -49,17 +70,17 @@
         <div class="row justify-content-center">
             <div class="col-md-14">
                 <div class="card">
-                    <div class="card-header">{{ __('Veuillez vérifier votre adresse mail') }}</div>
+                    <div class="card-header">{{ __('auth.verify') }}</div>
 
                     <div class="card-body">
                         @if (session('resent'))
                             <div class="alert alert-success" role="alert">
-                                {{ __('Un nouveau lien de vérification a été envoyé à votre adresse') }}
+                                {{ __('auth.new_link') }}
                             </div>
                         @endif
                         <br />
-                        {{ __('Veuillez confirmer votre compte !') }}<br/>
-                        {{ __('Vous n\'avez rien reçu ?') }} <a href="{{ route('verification.resend') }}">{{ __('Renvoyer un mail de vérification') }}</a>.
+                        {{ __('auth.confirm') }}<br/>
+                        {{ __('auth.no_receive') }} <a href="{{ route('verification.resend') }}">{{ __('auth.resend') }}</a>.
                     </div>
                 </div>
             </div>

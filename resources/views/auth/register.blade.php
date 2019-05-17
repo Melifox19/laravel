@@ -38,20 +38,39 @@
     <![endif]-->
 </head>
 <body class="hold-transition register-page">
+
+  <header class="main-header">
+    <div class="navbar-custom-menu" style="background-color:white;">
+      <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+          <!-- Menu Toggle Button -->
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-language">   Languages</i>
+          </a>
+
+
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('locale/en') }}" >EN</a></li>
+            <li><a href="{{ url('locale/fr') }}" >FR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
 <div class="register-box">
     <div class="register-logo">
         <a href="{{ url('/home') }}"><b>MELIFOX19</b></a>
     </div>
 
     <div class="register-box-body">
-        <p class="login-box-msg">S'enregistrer</p>
-
         <form method="post" action="{{ url('/register') }}">
 
             {!! csrf_field() !!}
 
             <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
-                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Nom">
+                <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="{{__('tables.name')}}">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
 
                 @if ($errors->has('name'))
@@ -73,7 +92,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                <input type="password" class="form-control" name="password" placeholder="{{__('tables.psswd')}}">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password'))
@@ -84,7 +103,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirmer le mot de passe">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="{{__('tables.psswd_confirm')}}">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password_confirmation'))
@@ -95,22 +114,15 @@
             </div>
 
             <div class="row">
-                <div class="col-xs-7">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> J'accepte les <a href="#">CGU</a>
-                        </label>
-                    </div>
-                </div>
                 <!-- /.col -->
                 <div class="col-xs-5">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">S'enregistrer</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">{{__('auth.sign_up')}}</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
-        <a href="{{ url('/login') }}" class="text-center">J'ai déjà un compte</a>
+        <a href="{{ url('/login') }}" class="text-center">{{__('auth.have_account')}}</a>
     </div>
     <!-- /.form-box -->
 </div>
