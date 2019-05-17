@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use App\Models\Ruche;
+
 class MesureController extends AppBaseController
 {
     /** @var  MesureRepository */
@@ -22,37 +24,39 @@ class MesureController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Mesure.
-     *
-     * @param Request $request
-     * @return Response
-     */
+    * Display a listing of the Mesure.
+    *
+    * @param Request $request
+    * @return Response
+    */
     public function index(Request $request)
     {
         $this->mesureRepository->pushCriteria(new RequestCriteria($request));
         $mesures = $this->mesureRepository->all();
 
         return view('mesures.index')
-            ->with('mesures', $mesures);
+        ->with('mesures', $mesures);
     }
 
     /**
-     * Show the form for creating a new Mesure.
-     *
-     * @return Response
-     */
+    * Show the form for creating a new Mesure.
+    *
+    * @return Response
+    */
     public function create()
     {
-        return view('mesures.create');
+        $ruches = Ruche::all();
+
+        return view('mesures.create')->with('ruches', $ruches);
     }
 
     /**
-     * Store a newly created Mesure in storage.
-     *
-     * @param CreateMesureRequest $request
-     *
-     * @return Response
-     */
+    * Store a newly created Mesure in storage.
+    *
+    * @param CreateMesureRequest $request
+    *
+    * @return Response
+    */
     public function store(CreateMesureRequest $request)
     {
         $input = $request->all();
@@ -65,53 +69,57 @@ class MesureController extends AppBaseController
     }
 
     /**
-     * Display the specified Mesure.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Display the specified Mesure.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function show($id)
     {
         $mesure = $this->mesureRepository->findWithoutFail($id);
 
+        $ruche = Ruche::find($mesure->idRuche);
+
         if (empty($mesure)) {
             Flash::error('Mesure not found');
 
             return redirect(route('mesures.index'));
         }
 
-        return view('mesures.show')->with('mesure', $mesure);
+        return view('mesures.show')->with('mesure', $mesure)->with('ruche', $ruche);
     }
 
     /**
-     * Show the form for editing the specified Mesure.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Show the form for editing the specified Mesure.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function edit($id)
     {
         $mesure = $this->mesureRepository->findWithoutFail($id);
 
+        $ruches = Ruche::all();
+
         if (empty($mesure)) {
             Flash::error('Mesure not found');
 
             return redirect(route('mesures.index'));
         }
 
-        return view('mesures.edit')->with('mesure', $mesure);
+        return view('mesures.edit')->with('mesure', $mesure)->with('ruches', $ruches);
     }
 
     /**
-     * Update the specified Mesure in storage.
-     *
-     * @param  int              $id
-     * @param UpdateMesureRequest $request
-     *
-     * @return Response
-     */
+    * Update the specified Mesure in storage.
+    *
+    * @param  int              $id
+    * @param UpdateMesureRequest $request
+    *
+    * @return Response
+    */
     public function update($id, UpdateMesureRequest $request)
     {
         $mesure = $this->mesureRepository->findWithoutFail($id);
@@ -130,12 +138,12 @@ class MesureController extends AppBaseController
     }
 
     /**
-     * Remove the specified Mesure from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Remove the specified Mesure from storage.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function destroy($id)
     {
         $mesure = $this->mesureRepository->findWithoutFail($id);

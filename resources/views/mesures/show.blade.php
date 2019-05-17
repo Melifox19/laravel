@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Mesure
+            {{__('tables.measure')}}
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('mesures.show_fields')
-                    <a href="{!! route('mesures.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('mesures.index') !!}" class="btn btn-default">{{__('tables.cancel')}}</a>
                 </div>
             </div>
         </div>

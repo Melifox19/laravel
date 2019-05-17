@@ -11,6 +11,8 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
+use App\Models\Ruche;
+
 class AlerteController extends AppBaseController
 {
     /** @var  AlerteRepository */
@@ -22,37 +24,39 @@ class AlerteController extends AppBaseController
     }
 
     /**
-     * Display a listing of the Alerte.
-     *
-     * @param Request $request
-     * @return Response
-     */
+    * Display a listing of the Alerte.
+    *
+    * @param Request $request
+    * @return Response
+    */
     public function index(Request $request)
     {
         $this->alerteRepository->pushCriteria(new RequestCriteria($request));
         $alertes = $this->alerteRepository->all();
 
         return view('alertes.index')
-            ->with('alertes', $alertes);
+        ->with('alertes', $alertes);
     }
 
     /**
-     * Show the form for creating a new Alerte.
-     *
-     * @return Response
-     */
+    * Show the form for creating a new Alerte.
+    *
+    * @return Response
+    */
     public function create()
     {
-        return view('alertes.create');
+        $ruches = Ruche::all();
+
+        return view('alertes.create')->with('ruches', $ruches);
     }
 
     /**
-     * Store a newly created Alerte in storage.
-     *
-     * @param CreateAlerteRequest $request
-     *
-     * @return Response
-     */
+    * Store a newly created Alerte in storage.
+    *
+    * @param CreateAlerteRequest $request
+    *
+    * @return Response
+    */
     public function store(CreateAlerteRequest $request)
     {
         $input = $request->all();
@@ -65,12 +69,12 @@ class AlerteController extends AppBaseController
     }
 
     /**
-     * Display the specified Alerte.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Display the specified Alerte.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function show($id)
     {
         $alerte = $this->alerteRepository->findWithoutFail($id);
@@ -85,15 +89,17 @@ class AlerteController extends AppBaseController
     }
 
     /**
-     * Show the form for editing the specified Alerte.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Show the form for editing the specified Alerte.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function edit($id)
     {
         $alerte = $this->alerteRepository->findWithoutFail($id);
+
+        $ruches = Ruche::all();
 
         if (empty($alerte)) {
             Flash::error('Alerte not found');
@@ -101,17 +107,17 @@ class AlerteController extends AppBaseController
             return redirect(route('alertes.index'));
         }
 
-        return view('alertes.edit')->with('alerte', $alerte);
+        return view('alertes.edit')->with('alerte', $alerte)->with('ruches', $ruches);
     }
 
     /**
-     * Update the specified Alerte in storage.
-     *
-     * @param  int              $id
-     * @param UpdateAlerteRequest $request
-     *
-     * @return Response
-     */
+    * Update the specified Alerte in storage.
+    *
+    * @param  int              $id
+    * @param UpdateAlerteRequest $request
+    *
+    * @return Response
+    */
     public function update($id, UpdateAlerteRequest $request)
     {
         $alerte = $this->alerteRepository->findWithoutFail($id);
@@ -130,12 +136,12 @@ class AlerteController extends AppBaseController
     }
 
     /**
-     * Remove the specified Alerte from storage.
-     *
-     * @param  int $id
-     *
-     * @return Response
-     */
+    * Remove the specified Alerte from storage.
+    *
+    * @param  int $id
+    *
+    * @return Response
+    */
     public function destroy($id)
     {
         $alerte = $this->alerteRepository->findWithoutFail($id);

@@ -23,7 +23,10 @@ Homestead.json
 
 #Custom
 storage\debugbar
-storage\framework\
+storage\framework\cache\data\
+storage\framework\sessions\
+storage\framework\views\
+storage\framework\testing\
 storage\logs
 
 # End of https://www.gitignore.io/api/laravel

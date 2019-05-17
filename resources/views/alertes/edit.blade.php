@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Alerte
+          {{__('tables.warning')}}
         </h1>
    </section>
    <div class="content">

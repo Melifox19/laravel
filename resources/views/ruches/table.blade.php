@@ -1,10 +1,10 @@
 <table class="table table-responsive" id="ruches-table">
     <thead>
         <tr>
-            <th>Dans le rucher</th>
-            <th>Adresse locale (Melinet)</th>
-            <th>Type de ruche</th>
-            <th>ID SigFox (Si Melilabo)</th>
+            <th>{{ __('tables.in_apiary')}}</th>
+            <th>{{__('tables.local_addr')}}</th>
+            <th>{{__('tables.hive_typ')}}</th>
+            <th>{{ __('tables.sigfox_id')}}</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>

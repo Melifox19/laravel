@@ -3,7 +3,7 @@
 @section('content')
 <section class="content-header">
   <h1>
-    Apiculteurs
+    {{ __('tables.user')}}
   </h1>
 </section>
 <div class="content">
@@ -16,7 +16,7 @@
         <br />
 
         <div class="ruche_table">
-          @include('users.ruches_list')  
+          @include('users.ruches_list')
         </div>
         <!-- ================================================ -->
         <a href="{!! route('users.index') !!}" class="btn btn-default">Back</a>

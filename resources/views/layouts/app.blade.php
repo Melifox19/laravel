@@ -75,18 +75,18 @@
                                     class="img-circle" alt="User Image"/>
                                     <p>
                                         {!! Auth::user()->name !!}
-                                        <small>Membre depuis {!! Auth::user()->created_at->format('M. Y') !!}</small>
+                                        <small>{{ __('layouts.member_since')}} {!! Auth::user()->created_at->format('M. Y') !!}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="{!! url('/profile') !!}" class="btn btn-default btn-flat">Profil</a>
+                                        <a href="{!! url('/profile') !!}" class="btn btn-default btn-flat">{{ __('layouts.profile')}}</a>
                                     </div>
                                     <div class="pull-right">
                                         <a href="{!! url('/logout') !!}" class="btn btn-default btn-flat"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                                        Déconnecter
+                                        {{ __('layouts.disco')}}
                                     </a>
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                         {{ csrf_field() }}

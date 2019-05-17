@@ -2,9 +2,9 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Batterie</th>
-      <th>ID SigFox</th>
-      <th>Dans le rucher</th>
+      <th>{{__('tables.battery')}}</th>
+      <th>{{__('tables.sigfox_id')}}</th>
+      <th>{{__('tables.in_apiary')}}</th>
       <th colspan="3">Action</th>
     </tr>
   </thead>

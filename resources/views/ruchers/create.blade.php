@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Rucher
+            {{__('tables.apiary')}}
         </h1>
     </section>
     <div class="content">
