@@ -16,9 +16,9 @@ class AlerteMail extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(array $alerte)
     {
-        //
+      $this->alerte = $alerte;
     }
 
     /**
@@ -40,11 +40,14 @@ class AlerteMail extends Notification
      */
     public function toMail($notifiable)
     {
+
+
+      $url = url('alertes'.'/'.$this->alerte['id']);
+
         return (new MailMessage)
                     ->greeting( __('warnings.greeting') )
                     ->line( __('warnings.intro') )
-                    ->action(__('warnings.button'), url('/'))
-                    ->line('Thank you for using our application!');
+                    ->action(__('warnings.button'), $url);
     }
 
     /**

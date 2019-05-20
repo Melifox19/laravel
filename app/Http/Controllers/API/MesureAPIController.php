@@ -10,6 +10,8 @@ use App\Models\Mesure;
 use App\Models\Alerte;
 use App\Models\Meliborne;
 use App\Models\Ruche;
+use App\Models\Rucher;
+use App\Models\User;
 
 use App\Notifications\AlerteMail;
 
@@ -36,7 +38,6 @@ class MesureAPIController extends AppBaseController
 
 
 
-
     switch ($data['typ'])
     {
       case '00': //Envoie de données Méliruches --------------------------------------------------------
@@ -44,8 +45,8 @@ class MesureAPIController extends AppBaseController
 
       // On cherche la Meliborne correspondante à l'ID Sigfox
       $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
-
-      $user = $meliborne->user;
+      $rucher = Rucher::where('id', $meliborne->idRucher)->first();
+      $user = $rucher->users;
 
       if (isset($meliborne)) // Si on trouve une Meliborne
       {
@@ -76,6 +77,9 @@ class MesureAPIController extends AppBaseController
               'idRuche' => $mesure->idRuche
             ]);
 
+
+            $alerte = [ 'id' => $alerte->id ];
+
             $user->notify(new AlerteMail($alerte));
 
           }
@@ -88,8 +92,13 @@ class MesureAPIController extends AppBaseController
               'idRuche' => $mesure->idRuche
             ]);
 
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($idAlerte));
+
+
           }
-          if ($mesure->masse < 0)
+          if ($mesure->masse <= 0)
           {
             $alerte = Alerte::create([
               'horodatageAlerte' => date("Y-m-d H:i:s"),
@@ -97,6 +106,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Ruche non detectee',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
 
           // ------------ Température intérieure ---------------
@@ -109,6 +123,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Temperature interieure elevee',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
           if ($mesure->temperatureInt < 30)
           {
@@ -118,6 +137,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Temperature interieure faible',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
 
           // --------- Température extérieure --------
@@ -130,6 +154,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Temperature exterieure elevee',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
           if ($mesure->temperatureExt < 0)
           {
@@ -139,6 +168,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Temperature exterieure faible',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
 
           // ----------------- Humidité intérieure -----------------
@@ -151,6 +185,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Humidite interieure elevee',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
           if ($mesure->humiditeInt < 20)
           {
@@ -160,6 +199,11 @@ class MesureAPIController extends AppBaseController
               'description' => 'Humidite interieure faible',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
 
           // ----------- Niveau de batterie --------
@@ -172,10 +216,15 @@ class MesureAPIController extends AppBaseController
               'description' => 'Batterie faible',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $alerte = [ 'id' => $alerte->id ];
+
+            $user->notify(new AlerteMail($alerte));
+
           }
 
           // on retourne l'article créé et un code réponse 201 (created)
-          //return response()->json($mesure, 201);
+          return response()->json($mesure, 201);
         }
       }
       break;
@@ -223,6 +272,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Masse elevee',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
         if ($mesure->masse < 20)
         {
@@ -233,6 +287,11 @@ class MesureAPIController extends AppBaseController
             'idRuche' => $mesure->idRuche
           ]);
 
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
+
         }
         if ($mesure->masse < 0)
         {
@@ -242,6 +301,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Ruche non detectee',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // ------------ Température intérieure -------------------
@@ -254,6 +318,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Temperature interieure elevee',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
         if ($mesure->temperatureInt < 30)
         {
@@ -263,6 +332,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Temperature interieure faible',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // ------------- Température extérieure ---------------
@@ -275,6 +349,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Temperature exterieure elevee',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
         if ($mesure->temperatureExt < 0)
         {
@@ -284,6 +363,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Temperature exterieure faible',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // ------------- Humidité intérieure ---------------------
@@ -296,6 +380,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Humidite interieure elevee',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
         if ($mesure->humiditeInt < 20)
         {
@@ -305,6 +394,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Humidite interieure faible',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // ------------- Humidité extérieure ------------------
@@ -317,6 +411,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Humidite exterieure elevee',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
         if ($mesure->humiditeExt < 20)
         {
@@ -326,6 +425,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Humidite exterieure faible',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // -------------- Niveau de batterie -------------
@@ -338,6 +442,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Batterie faible',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // ------------ Débit Sonore (200Hz & 400 Hz) --------------
@@ -350,6 +459,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Essaimage potentiel (200 Hz)',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         if ($mesure->debitSonore400 > 400 && $mesure->debitSonore400 < 500)
@@ -360,6 +474,11 @@ class MesureAPIController extends AppBaseController
             'description' => 'Essaimage potentiel (400 Hz)',
             'idRuche' => $mesure->idRuche
           ]);
+
+          $alerte = [ 'id' => $alerte->id ];
+
+          $user->notify(new AlerteMail($alerte));
+
         }
 
         // on retourne l'article créé et un code réponse 201 (created)

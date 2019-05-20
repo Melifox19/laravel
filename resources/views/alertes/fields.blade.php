@@ -19,7 +19,7 @@
 <!-- Idruche Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('idRuche', __('tables.hive_id')) !!}
-    <select class="form-control" name="idRucher">
+    <select class="form-control" name="idRuche">
         @foreach($ruches as $ruche)
             <option value="{!! $ruche->id !!}">{!! $ruche->id !!}</option>
         @endforeach

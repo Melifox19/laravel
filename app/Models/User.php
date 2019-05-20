@@ -25,6 +25,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Model
 {
   use SoftDeletes;
+  use Notifiable;
 
   public $table = 'users';
 

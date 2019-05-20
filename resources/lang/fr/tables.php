@@ -49,6 +49,8 @@ return [
     'hive_id' => 'ID Ruche',
 
     'alert_typ' => 'Type de l\'alerte',
+    'steal' => 'Vol',
+    'sensor' => 'Capteur',
     'desc' => 'Description',
 
     'actions' => 'Actions',
