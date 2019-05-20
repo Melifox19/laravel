@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Meliborne
+            {{__('tables.meliborne')}}
         </h1>
    </section>
    <div class="content">

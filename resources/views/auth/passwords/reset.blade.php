@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>InfyOm Laravel Generator</title>
+    <title>Melifox19</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -36,15 +36,30 @@
 
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
-    </div>
 
+  <header class="main-header">
+    <div class="navbar-custom-menu" style="background-color:white;">
+      <ul class="nav navbar-nav">
+        <!-- User Account Menu -->
+        <li class="dropdown user user-menu">
+          <!-- Menu Toggle Button -->
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="fa fa-language">   Languages</i>
+          </a>
+
+
+          <ul class="dropdown-menu">
+            <li><a href="{{ url('locale/en') }}" >EN</a></li>
+            <li><a href="{{ url('locale/fr') }}" >FR</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+<div class="login-box">
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">Reset your password</p>
-
         <form method="post" action="{{ url('/password/reset') }}">
             {!! csrf_field() !!}
 
@@ -61,7 +76,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                <input type="password" class="form-control" name="password" placeholder="Password">
+                <input type="password" class="form-control" name="password" placeholder="{{__('tables.psswd')}}">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password'))
@@ -72,7 +87,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm password">
+                <input type="password" name="password_confirmation" class="form-control" placeholder="{{__('tables.psswd_confirm')}}">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
 
                 @if ($errors->has('password_confirmation'))
@@ -85,7 +100,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary pull-right">
-                        <i class="fa fa-btn fa-refresh"></i>Reset Password
+                        <i class="fa fa-btn fa-refresh"></i>{{__('auth.change')}}
                     </button>
                 </div>
             </div>

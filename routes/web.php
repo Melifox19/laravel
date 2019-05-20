@@ -11,14 +11,20 @@
 |
 */
 
+// Route pour le choix de la langue
+Route::get('locale/{locale}', function ($locale){
+    Session::put('locale', $locale);
+    return redirect()->back();
+});
+
+Auth::routes(['verify' => true]);
+
 Route::get('/', function ()
 {
   return redirect('login');
 });
 
-Auth::routes();
-
-Route::group(['middleware' => ['auth']],function()
+Route::group(['middleware' => ['auth', 'verified']],function()
 {
   // Route pour les administrateurs ------------------------------------------------------
 
@@ -38,7 +44,5 @@ Route::group(['middleware' => ['auth']],function()
 
   Route::resource('ruches', 'RucheController');
 
-  Route::get('/home', 'HomeController@index')->name('home');
-
-  Route::get('/home', 'HomeController@index');
+  Route::resource('home', 'HomeController');
 });

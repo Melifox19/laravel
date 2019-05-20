@@ -2,9 +2,9 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nom</th>
+      <th>{{ __('tables.name')}}</th>
       @if(Auth::user()->role == "admin")
-      <th>Propriétaire</th>
+      <th>{{ __('tables.owner')}}</th>
       @endif
       <th colspan="3">Action</th>
     </tr>

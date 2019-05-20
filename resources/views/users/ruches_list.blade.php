@@ -1,17 +1,15 @@
 <link href="{!! asset('css/users_show.css') !!}" media="all" rel="stylesheet" type="text/css" />
 
 <div class="form-group">
-  {!! Form::label('', 'Liste des ruches :') !!}
+  {!! Form::label('', __('tables.list_apiary')) !!}
 
 
   <table class="table table-responsive" id="ruchers-table">
     <thead>
       <tr>
         <th>ID</th>
-        <th>Nom</th>
-        <th>Date de création</th>
-        <th>Dernière modification</th>
-        <th colspan="3">Voir rucher </th>
+        <th>{{ __('tables.name')}}</th>
+        <th colspan="3"> {{ __('tables.see_apiary')}} </th>
       </tr>
     </thead>
     <tbody>

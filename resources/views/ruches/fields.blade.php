@@ -1,9 +1,9 @@
 <!-- Type Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('type', 'Type:') !!}
+    {!! Form::label('type', __('tables.hive_typ')) !!}
     {!! Form::select('type', array(
-    'meliruche' => 'Méliruche',
-    'melilabo' => 'Mélilabo'),
+    'meliruche' => 'MéliRuche',
+    'melilabo' => 'MéliLabo'),
     null, array(
     'onchange' => 'javascript:changeDisplay()',
     'class' => 'form-control'
@@ -12,14 +12,14 @@
 
 <!-- Addrmelinet Field -->
 <div class="form-group col-sm-6" id="addrMelinetField">
-    {!! Form::label('addrMelinet', 'Adresse MéliNet:') !!}
+    {!! Form::label('addrMelinet', __('tables.local_addr')) !!}
     {!! Form::text('addrMelinet', null, ['class' => 'form-control']) !!}
 </div>
 
 
 <!-- Idrucher Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('idRucher', 'Appartient au rucher:') !!}
+    {!! Form::label('idRucher', __('tables.in_apiary')) !!}
     <select class="form-control" name="idRucher">
         @foreach($ruchers as $rucher)
         <option value="{!! $rucher->id !!}">{!! $rucher->id !!} - {!! $rucher->nom !!}</option>
@@ -29,7 +29,7 @@
 
 <!-- Idmeliborne Field -->
 <div id="meliborneField" class="form-group col-sm-6">
-    {!! Form::label('idMeliborne', 'Appartient à la Méliborne:') !!}
+    {!! Form::label('idMeliborne', __('tables.meliborne_own')) !!}
     <select class="form-control" name="idMeliborne">
         @foreach($melibornes as $meliborne)
         <option value="{!! $meliborne->id !!}">{!! $meliborne->id !!} - {!! $meliborne->idSigfox !!}</option>
@@ -39,14 +39,14 @@
 
 <!-- Idsigfox Field -->
 <div id="sigfoxField" class="form-group col-sm-6">
-    {!! Form::label('idSigfox', 'ID SigFox:') !!}
+    {!! Form::label('idSigfox', __('tables.sigfox_id')) !!}
     {!! Form::text('idSigfox', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('ruches.index') !!}" class="btn btn-default">Cancel</a>
+    {!! Form::submit(__('tables.save'), ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('ruches.index') !!}" class="btn btn-default">{{__('tables.cancel')}}</a>
 </div>
 
 <script src="{{ URL::asset('js/jquery.min.js') }}"></script>

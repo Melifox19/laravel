@@ -2,10 +2,10 @@
   <thead>
     <tr>
       <th>ID</th>
-      <th>Nom</th>
+      <th>{{ __('tables.name') }}</th>
       <th>E-mail</th>
-      <th>Email verifié</th>
-      <th>Mot de passe</th>
+      <th>{{ __('tables.email_verif') }}</th>
+      <th>{{ __('tables.psswd') }}</th>
       <th colspan="4">Action</th>
     </tr>
   </thead>
@@ -29,7 +29,7 @@
         <div class='btn-group'>
           <a href="{!! route('users.show', [$user->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
           <a href="{!! route('users.edit', [$user->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
-          {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+          {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm(__('tables.sure'))"]) !!}
         </div>
         {!! Form::close() !!}
       </td>

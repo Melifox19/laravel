@@ -1,19 +1,19 @@
 <table class="table table-responsive" id="mesures-table">
     <thead>
         <tr>
-        <th>Date & heure</th>
-        <th>Masse</th>
-        <th>Température intérieure</th>
-        <th>Température extérieure</th>
-        <th>Taux d'humidité intérieure</th>
-        <th>Taux d'humidité extérieure</th>
-        <th>Pression</th>
-        <th>Niveau de batterie</th>
-        <th>Longitude</th>
-        <th>Latitude</th>
-        <th>Debit sonore 200Hz</th>
-        <th>Debit sonore 400Hz</th>
-        <th>ID Ruche</th>
+        <th>{{__('tables.timestamp')}}</th>
+        <th>{{__('tables.mass')}}</th>
+        <th>{{__('tables.indoor_temp')}}</th>
+        <th>{{__('tables.outdoor_temp')}}</th>
+        <th>{{__('tables.indoor_humi')}}</th>
+        <th>{{__('tables.outdoor_humi')}}</th>
+        <th>{{__('tables.pressure')}}</th>
+        <th>{{__('tables.battery_level')}}</th>
+        <th>{{__('tables.longitude')}}</th>
+        <th>{{__('tables.latitude')}}</th>
+        <th>{{__('tables.sound_level200')}}</th>
+        <th>{{__('tables.sound_level400')}}</th>
+        <th>{{__('tables.hive_id')}}</th>
             <th colspan="3">Action</th>
         </tr>
     </thead>

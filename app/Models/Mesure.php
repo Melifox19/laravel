@@ -70,7 +70,7 @@ class Mesure extends Model
      * @var array
      */
     public static $rules = [
-        'horodatageMesure' => 'required|date'
+        'horodatageMesure' => 'required|date',
         'masse' => 'required|float',
         'temperatureInt' => 'required|float',
         'temperatureExt' => 'required|float',

@@ -1,6 +1,6 @@
 <!-- Name Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('name', 'Nom:') !!}
+    {!! Form::label('name', __('tables.name')) !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -12,24 +12,24 @@
 
 <!-- Password Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('password', 'Mot de passe:') !!}
+    {!! Form::label('password', __('tables.psswd')) !!}
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Confirm Password Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('password_confirmation', 'Confirmation du mot de passe:') !!}
+    {!! Form::label('password_confirmation', __('tables.psswd_confirm')) !!}
     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
 </div>
 
 <!-- Role Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('role', 'Rôle:') !!}
-    {!! Form::select('role', ['user' => 'Apiculteur', 'admin' => 'Administrateur'], null, ['class' => 'form-control']) !!}
+    {!! Form::label('role', __('tables.role')) !!}
+    {!! Form::select('role', ['user' => __('tables.apiarist'), 'admin' => __('tables.admin')], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
-    {!! Form::submit('Sauvegarder', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('users.index') !!}" class="btn btn-default">Retour</a>
+    {!! Form::submit(__('tables.save'), ['class' => 'btn btn-primary']) !!}
+    <a href="{!! route('users.index') !!}" class="btn btn-default">{{ __('tables.cancel')}}</a>
 </div>
