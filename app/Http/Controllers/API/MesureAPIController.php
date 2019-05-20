@@ -11,6 +11,8 @@ use App\Models\Alerte;
 use App\Models\Meliborne;
 use App\Models\Ruche;
 
+use App\Notifications\AlerteMail;
+
 class MesureAPIController extends AppBaseController
 {
   public function index()
@@ -43,6 +45,8 @@ class MesureAPIController extends AppBaseController
       // On cherche la Meliborne correspondante à l'ID Sigfox
       $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
 
+      $user = $meliborne->user;
+
       if (isset($meliborne)) // Si on trouve une Meliborne
       {
         // On recherche la ruche correspondante à l'addresse Melinet de la Meliborne trouvé
@@ -65,12 +69,15 @@ class MesureAPIController extends AppBaseController
           // On vérifie si les valeurs ne sont pas trop critiques pour pouvoir créer l'alerte
           if ($mesure->masse > 70)
           {
-            $alerte = $alerte = Alerte::create([
+            $alerte = Alerte::create([
               'horodatageAlerte' => date("Y-m-d H:i:s"),
               'type' => 'mesure',
               'description' => 'Masse elevee',
               'idRuche' => $mesure->idRuche
             ]);
+
+            $user->notify(new AlerteMail($alerte));
+
           }
           if ($mesure->masse < 20)
           {

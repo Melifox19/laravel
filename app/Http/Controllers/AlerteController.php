@@ -13,10 +13,14 @@ use Response;
 
 use App\Models\Ruche;
 
+use Illuminate\Notifications\Notifiable;
+
 class AlerteController extends AppBaseController
 {
     /** @var  AlerteRepository */
     private $alerteRepository;
+
+    use Notifiable;
 
     public function __construct(AlerteRepository $alerteRepo)
     {
