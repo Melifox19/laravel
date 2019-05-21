@@ -80,7 +80,7 @@ class Mesure extends Model
         'niveauBatterie' => 'required|integer',
         'debitSonore200' => 'nullable|integer',
         'debitSonore400' => 'nullable|integer',
-        'idRuche' => 'required|integer|exists:Ruches,id'
+        'idRuche' => 'required|integer|exists:ruches,id'
     ];
 
     public function ruches()

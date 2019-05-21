@@ -51,7 +51,9 @@ class Alerte extends Model
      * @var array
      */
     public static $rules = [
-
+      'horodatageAlerte' => 'required',
+      'description' => 'required|string',
+      'idRuche' => 'required|integer|exists:ruches,id'
     ];
 
     public function ruches()

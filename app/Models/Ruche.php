@@ -63,8 +63,8 @@ class Ruche extends Model
         'idSigfox' => 'nullable|string|regex:[0-9A-F]{6}',
         'longitude' => 'nullable|float',
         'latitude' => 'nullable|float',
-        'idRucher' => 'integer|exists:Ruchers,id',
-        'idMeliborne' => 'nullable|integer|exists:Melibornes,id'
+        'idRucher' => 'integer|exists:ruchers,id',
+        'idMeliborne' => 'nullable|integer|exists:melibornes,id'
     ];
 
     public function melibornes()

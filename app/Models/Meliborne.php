@@ -53,11 +53,11 @@ class Meliborne extends Model
     * @var array
     */
     public static $rules = [
-      'niveauBatterie' => 'required|integer',
-      'idSigfox' => 'required|regex:[0-9A-F]{6}',
+      'niveauBatterie' => 'nullable|integer',
+      'idSigfox' => 'required|regex:/[0-9A-F]{6}/u',
       'longitude' => 'nullable|float',
       'latitude' => 'nullable|float',
-      'idRucher' => 'required|integer|exists:Rucher,id'
+      'idRucher' => 'required|integer|exists:ruchers,id'
 
     ];
 
