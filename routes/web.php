@@ -31,8 +31,6 @@ Route::group(['middleware' => ['auth', 'verified']],function()
   Route::group(['middleware' => ['admin']], function()
   {
     Route::resource('users', 'UserController');
-    Route::resource('mesures', 'MesureController');
-    Route::resource('alertes', 'AlerteController');
   });
 
   // Route pour tout les utilisateurs ----------------------------------------------------
@@ -45,4 +43,8 @@ Route::group(['middleware' => ['auth', 'verified']],function()
   Route::resource('ruches', 'RucheController');
 
   Route::resource('home', 'HomeController');
+
+  Route::resource('mesures', 'MesureController');
+  
+  Route::resource('alertes', 'AlerteController');
 });
