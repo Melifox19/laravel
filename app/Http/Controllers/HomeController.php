@@ -23,8 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-      date_default_timezone_set('UTC');
-        $chart1 = \Chart::title([
+
+
+        $chart = $this->chart(); //Ne pas oublier le $this
+        return view('home', ['chart1' => $chart]);
+    }
+
+    public function chart() {
+
+        //Laravel Highchart
+        date_default_timezone_set('UTC');
+        $lChart = \Chart::title([
               'text' => 'Température Méliruche',
             ])
             ->chart([
@@ -75,9 +84,6 @@ class HomeController extends Controller
                ],
              ])
           ->display();
-
-
-        return view('home', ['chart1' => $chart1]
-                   );
+        return $lChart;
     }
 }

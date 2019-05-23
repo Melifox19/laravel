@@ -16,12 +16,16 @@
   <a href="{!! route('alertes.index') !!}"><i class="fa fa-edit"></i><span>Alertes</span></a>
 </li>
 
-  <li class="treeview">
-    <a href="#"><i class="fa fa-caret-right"></i>Rucher 1</a>
-    <ul class="treeview-menu">
-      <li><a href="#">Ruche 1.1</a></li>
-      <li><a href="#">Ruche 1.2</a></li>
-      <li><a href="#">Ruche 1.3</a></li>
-
-    </ul>
-  </li>
+@foreach($ruchers as $rucher)
+    <li class="treeview">
+        <a href="#"><i class="fa fa-caret-right"></i>{{ $rucher->nom }}</a>
+        <!-- 🐝 -->
+        <ul class="treeview-menu">
+            @foreach($ruches as $ruche)
+                @if($ruche->idRucher == $rucher->id)
+                <li><a href="{{ $ruche->id }}"> {{ $ruche->id }} </a></li>
+                @endif
+            @endforeach
+        </ul>
+    </li>
+@endforeach
