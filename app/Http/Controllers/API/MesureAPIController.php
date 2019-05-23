@@ -45,7 +45,7 @@ class MesureAPIController extends AppBaseController
 
       // On cherche la Meliborne correspondante à l'ID Sigfox
       $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
-      $rucher = Rucher::where('id', $meliborne->idRucher)->first();
+      $rucher = Rucher::where('id', $meliborne['idRucher'])->first();
       $user = $rucher->users;
 
       if (isset($meliborne)) // Si on trouve une Meliborne
