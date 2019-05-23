@@ -45,6 +45,6 @@ Route::group(['middleware' => ['auth', 'verified']],function()
   Route::resource('home', 'HomeController');
 
   Route::resource('mesures', 'MesureController');
-  
+
   Route::resource('alertes', 'AlerteController');
 });

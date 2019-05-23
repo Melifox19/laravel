@@ -180,7 +180,7 @@ return [
     Prettus\Repository\Providers\RepositoryServiceProvider::class,
     \InfyOm\Generator\InfyOmGeneratorServiceProvider::class,
     \InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
-
+    \RezaAr\Highcharts\Provider::class,
   ],
 
   /*
@@ -234,6 +234,7 @@ return [
     'Html' => Collective\Html\HtmlFacade::class,
     'Flash' => Laracasts\Flash\Flash::class,
 
+    'Chart' => RezaAr\Highcharts\Facade::class,
   ],
 
 ];

@@ -3,13 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Melifox19 | Inscription</title>
+    <title>Mélifox - S'enregistrer</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-
-    <!-- Title icon -->
-    <link rel="shortcut icon" href="{{{ asset('img/melicon.png') }}}">
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -61,7 +58,7 @@
 
 <div class="register-box">
     <div class="register-logo">
-        <a href="{{ url('/home') }}"><b>MELIFOX19</b></a>
+        <a href="{{ url('/home') }}"><b>Mélifox </b>2019</a>
     </div>
 
     <div class="register-box-body">
@@ -81,7 +78,7 @@
             </div>
 
             <div class="form-group has-feedback{{ $errors->has('email') ? ' has-error' : '' }}">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="E-mail">
+                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
 
                 @if ($errors->has('email'))
