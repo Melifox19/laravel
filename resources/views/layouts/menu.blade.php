@@ -12,6 +12,10 @@
   <a href="{!! route('melibornes.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.meliborne')}}</span></a>
 </li>
 
+<li class="{{ Request::is('ruches*') ? 'active' : '' }}">
+  <a href="{!! route('ruches.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.hive')}}</span></a>
+</li>
+
 @if (Auth::user()->role == 'admin')
 <li class="{{ Request::is('mesures*') ? 'active' : '' }}">
   <a href="{!! route('mesures.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.measure')}}</span></a>

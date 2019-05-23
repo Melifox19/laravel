@@ -59,7 +59,7 @@ class Ruche extends Model
      * @var array
      */
     public static $rules = [
-        'addrMelinet' => 'nullable|integer|between:1,8',
+        'addrMelinet' => 'nullable|integer|between:0,7',
         'idSigfox' => 'nullable|string|regex:[0-9A-F]{6}',
         'longitude' => 'nullable|float',
         'latitude' => 'nullable|float',
