@@ -43,8 +43,6 @@ class MesureAPIController extends AppBaseController
       case '0': //Envoie de données Méliruches --------------------------------------------------------
       $idSigfox = $data['idSigfox'];
 
-      return response()->json('Good', 201);
-
       // On cherche la Meliborne correspondante à l'ID Sigfox
       $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
       $rucher = Rucher::where('id', $meliborne->idRucher)->first();
@@ -59,13 +57,13 @@ class MesureAPIController extends AppBaseController
         {
           // On créé une entrée dans la table de mesure avec les mesures reçues
           $mesure = Mesure::create([
-            'horodatageMesure' => $data['horodatageMesure'],
+            'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
             'masse' => $data['masse'],
             'temperatureInt' => $data['temperatureInt'],
             'temperatureExt' => $data['temperatureExt'],
             'humiditeInt' => $data['humiditeInt'],
             'pression' => $data['pression'],
-            'niveauBatterie' => $data['niveauBatterie'],
+            'niveauBatterie' => $data['niveauBatterie']*10,
             'idRuche' => $ruche->id
           ]);
 
@@ -252,14 +250,14 @@ class MesureAPIController extends AppBaseController
       {
         // On créé alors une entrée dans la table Mesure avec les données reçues
         $mesure = Mesure::create([
-          'horodatageMesure' => $data['horodatageMesure'],
+          'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
           'masse' => $data['masse'],
           'temperatureInt' => $data['temperatureInt'],
           'temperatureExt' => $data['temperatureExt'],
           'humiditeInt' => $data['humiditeInt'],
           'humiditeExt' => $data['humiditeExt'],
           'pression' => $data['pression'],
-          'niveauBatterie' => $data['niveauBatterie'],
+          'niveauBatterie' => $data['niveauBatterie']*10,
           'debitSonore200' => $data['debitSonore200'],
           'debitSonore400' => $data['debitSonore400'],
           'idRuche' => $ruche->id
@@ -504,17 +502,18 @@ class MesureAPIController extends AppBaseController
       $idSigfox = $data['idSigfox'];
 
       // On cherche si l'ID est lié à une Méliborne
-      $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
-      if (isset($meliborne)) // Si on trouve une meliborne
+      $ruche = Ruche::where('idSigfox', $idSigfox)->first();
+      if (isset($ruche)) // Si on trouve une meliborne
       {
-        $meliborne_insert = [
+        $mesure = [
+          'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
           'longitude' => $data['longitude'],
           'latitude' => $data['latitude'],
           'niveauBatterie' => $data['niveauBatterie']
         ];
 
         // On modifie la géolocalisation de la Meliborne
-        $meliborne_rslt = Meliborne::where('id', $meliborne->id)->update($meliborne_insert);
+        $mesure = Meliborne::where('id', $->id)->update($meliborne_insert);
 
         // on retourne l'article créé et un code réponse 201 (created)
         //return response()->json($meliborne_rslt, 201);
@@ -529,7 +528,7 @@ class MesureAPIController extends AppBaseController
         ];
 
         // On modifie la géolocalisation de la Melilabo
-        $ruche_rslt = Ruche::where('id', $ruche->id)->update($ruche_insert);
+        $ruche_rslt = Mesure::where('id', $ruche->id)->update($ruche_insert);
 
         // on retourne l'article créé et un code réponse 201 (created)
         //return response()->json($ruche_rslt, 201);

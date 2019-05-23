@@ -16,7 +16,7 @@ class CreateMelibornesTable extends Migration
         Schema::create('melibornes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('niveauBatterie')->nullable();
-            $table->string('idSigfox');
+            $table->string('idSigfox')->unique();
             $table->string('longitude')->nullable();
             $table->string('latitude')->nullable();
             $table->integer('idRucher')->unsigned();
