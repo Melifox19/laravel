@@ -40,7 +40,7 @@ class MesureAPIController extends AppBaseController
 
     switch ($data['typ'])
     {
-      case '00': //Envoie de données Méliruches --------------------------------------------------------
+      case '0': //Envoie de données Méliruches --------------------------------------------------------
       $idSigfox = $data['idSigfox'];
 
       // On cherche la Meliborne correspondante à l'ID Sigfox
@@ -239,7 +239,7 @@ class MesureAPIController extends AppBaseController
 
 
 
-      case '01': //Envoie de données Mélilabos ---------------------------------------------------------------
+      case '1': //Envoie de données Mélilabos ---------------------------------------------------------------
 
       $idSigfox = $data['idSigfox'];
 
@@ -498,7 +498,7 @@ class MesureAPIController extends AppBaseController
 
 
 
-      case '10': //Envoie de données de géolocalisation ----------------------------------------------------------
+      case '2': //Envoie de données de géolocalisation ----------------------------------------------------------
       $idSigfox = $data['idSigfox'];
 
       // On cherche si l'ID est lié à une Méliborne
