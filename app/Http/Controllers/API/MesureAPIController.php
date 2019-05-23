@@ -501,24 +501,6 @@ class MesureAPIController extends AppBaseController
       case '2': //Envoie de données de géolocalisation ----------------------------------------------------------
       $idSigfox = $data['idSigfox'];
 
-      // On cherche si l'ID est lié à une Méliborne
-      $ruche = Ruche::where('idSigfox', $idSigfox)->first();
-      if (isset($ruche)) // Si on trouve une meliborne
-      {
-        $mesure = [
-          'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
-          'longitude' => $data['longitude'],
-          'latitude' => $data['latitude'],
-          'niveauBatterie' => $data['niveauBatterie']
-        ];
-
-        // On modifie la géolocalisation de la Meliborne
-        $mesure = Meliborne::where('id', $->id)->update($meliborne_insert);
-
-        // on retourne l'article créé et un code réponse 201 (created)
-        //return response()->json($meliborne_rslt, 201);
-      }
-
       $ruche = Ruche::where('idSigfox', $idSigfox)->first();
       if (isset($ruche)) // Si non, on cherche si une mélilabo correspondante
       {
