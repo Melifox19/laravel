@@ -43,6 +43,8 @@ class MesureAPIController extends AppBaseController
       case '0': //Envoie de données Méliruches --------------------------------------------------------
       $idSigfox = $data['idSigfox'];
 
+      return response()->json('Good', 201);
+
       // On cherche la Meliborne correspondante à l'ID Sigfox
       $meliborne = Meliborne::where('idSigfox', $idSigfox)->first();
       $rucher = Rucher::where('id', $meliborne->idRucher)->first();
