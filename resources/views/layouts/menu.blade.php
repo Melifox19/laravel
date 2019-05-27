@@ -16,17 +16,16 @@
   <a href="{!! route('ruches.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.hive')}}</span></a>
 </li>
 
-@if (Auth::user()->role == 'admin')
+
 <li class="{{ Request::is('mesures*') ? 'active' : '' }}">
   <a href="{!! route('mesures.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.measure')}}</span></a>
 </li>
-@endif
 
-@if (Auth::user()->role == 'admin')
+
 <li class="{{ Request::is('alertes*') ? 'active' : '' }}">
   <a href="{!! route('alertes.index') !!}"><i class="fa fa-edit"></i><span>{{__('tables.warning')}}</span></a>
 </li>
-@endif
+
 
 @foreach($ruchers as $rucher)
     <li class="treeview">
