@@ -59,10 +59,10 @@ class MesureAPIController extends AppBaseController
           $mesure = Mesure::create([
             'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
             'masse' => $data['masse'],
-            'temperatureInt' => $data['temperatureInt'],
-            'temperatureExt' => $data['temperatureExt'],
-            'humiditeInt' => $data['humiditeInt'],
-            'pression' => $data['pression'],
+            'temperatureInt' => $data['temperatureInt']-20,
+            'temperatureExt' => $data['temperatureExt']-20,
+            'humiditeInt' => $data['humiditeInt']+20,
+            'pression' => $data['pression']+600,
             'niveauBatterie' => $data['niveauBatterie']*10,
             'idRuche' => $ruche->id
           ]);
@@ -252,11 +252,11 @@ class MesureAPIController extends AppBaseController
         $mesure = Mesure::create([
           'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
           'masse' => $data['masse'],
-          'temperatureInt' => $data['temperatureInt'],
-          'temperatureExt' => $data['temperatureExt'],
-          'humiditeInt' => $data['humiditeInt'],
-          'humiditeExt' => $data['humiditeExt'],
-          'pression' => $data['pression'],
+          'temperatureInt' => $data['temperatureInt']-20,
+          'temperatureExt' => $data['temperatureExt']-20,
+          'humiditeInt' => $data['humiditeInt']+20,
+          'humiditeExt' => $data['humiditeExt']+20,
+          'pression' => $data['pression']+600,
           'niveauBatterie' => $data['niveauBatterie']*10,
           'debitSonore200' => $data['debitSonore200'],
           'debitSonore400' => $data['debitSonore400'],
