@@ -14,6 +14,7 @@ use Response;
 //Ajout des dépendances perso
 use Illuminate\Support\Facades\DB;
 use App\Models\Rucher;
+use App\Models\Mesure;
 use App\Models\Meliborne;
 use App\Models\User;
 use Auth;
@@ -108,6 +109,7 @@ class RucheController extends AppBaseController
     {
         $ruche = $this->rucheRepository->findWithoutFail($id);
         $rucher = Rucher::find($ruche->idRucher);
+        $mesure = Mesure::where('idRuche', $id)->orderBy('horodatageMesure', 'ASC')->get();
 
         if (empty($ruche)) {
             Flash::error('Informations introuvables');
@@ -115,10 +117,67 @@ class RucheController extends AppBaseController
             return redirect(route('ruches.index'));
         }
 
+        $chart = $this->chart('hchart', $mesure);
+
         return view('ruches.show')
         ->with('ruche', $ruche)
-        ->with('rucher', $rucher);
+        ->with('rucher', $rucher)
+        ->with('chart', $chart)
+        ->with('mesure', $mesure);
     }
+
+
+    public function chart($renderid, $dataIn) {
+
+        $dataOut = array();
+        foreach ($dataIn as $data) {
+            $dataOut[] = array(strtotime($data->horodatageMesure) * 1000, $data->temperatureInt);
+        }
+
+        //Laravel Highchart
+        date_default_timezone_set('UTC');
+        $lChart = \Chart::title([
+              'text' => 'Température Méliruche',
+            ])
+            ->chart([
+              'type'     => 'spline', // pie , columnt ect
+              'renderTo' => $renderid, // render the chart into your div with id
+              'width' => '800'
+            ])
+            ->subtitle([
+              'text' => 'Température intérieure', //sous-titre du tableau
+            ])
+            ->colors([
+              '#0c2959'
+            ])
+            ->xaxis([
+              'type' => 'datetime',
+              'dateTimeLabelFormats' => [
+                'hour' => '%H : %M.'
+              ],
+              'title' => [
+                'text' => 'Date'
+              ]
+          ])
+          ->yaxis([
+            'text' => 'Temp.',
+          ])
+          ->legend([
+            'layout'        => 'vertical',
+            'align'         => 'right',
+            'verticalAlign' => 'bottom',
+          ])
+          ->series(
+             [
+               [
+                 'name'  => 'Température',
+                 'data'  => $dataOut,
+               ],
+             ])
+          ->display();
+        return $lChart;
+    }
+
 
     /**
      * Show the form for editing the specified Ruche.
