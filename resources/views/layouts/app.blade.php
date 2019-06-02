@@ -2,7 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
-    <title>Melifox19</title>
+    <title>Melifox - 2019</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <!-- Title icon -->
@@ -148,7 +148,7 @@
 
         <!-- Branding Image -->
         <a class="navbar-brand" href="{!! url('/') !!}">
-            MELIFOX19
+            Mélifox - 2019
         </a>
     </div>
 

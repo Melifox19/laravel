@@ -4,14 +4,6 @@
 </li>
 @endif
 
-<li class="{{ Request::is('ruchers*') ? 'active' : '' }}">
-  <a href="{!! route('ruchers.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.apiary')}}</span></a>
-</li>
-
-<li class="{{ Request::is('melibornes*') ? 'active' : '' }}">
-  <a href="{!! route('melibornes.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.meliborne')}}</span></a>
-</li>
-
 @if (Auth::user()->role == 'admin')
 <li class="{{ Request::is('mesures*') ? 'active' : '' }}">
   <a href="{!! route('mesures.index') !!}"><i class="fa fa-edit"></i><span>{{ __('tables.measure')}}</span></a>
@@ -31,7 +23,7 @@
         <ul class="treeview-menu">
             @foreach($ruches as $ruche)
                 @if($ruche->idRucher == $rucher->id)
-                <li><a href="{{ $ruche->id }}"> {{ $ruche->id }} </a></li>
+                <li><a href="/ruches/{{ $ruche->id }}"> {{ $ruche->id }} </a></li>
                 @endif
             @endforeach
         </ul>

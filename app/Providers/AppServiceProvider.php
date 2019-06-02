@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Schema;
 //Deps perso
 use Illuminate\Support\Facades\DB;
 use App\Models\Rucher;
-use App\Models\Meliborne;
+use App\Models\Ruche;
 use App\Models\User;
 use Auth;
 
