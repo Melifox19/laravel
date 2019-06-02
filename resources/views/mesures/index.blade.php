@@ -3,9 +3,11 @@
 @section('content')
     <section class="content-header">
         <h1 class="pull-left">{{__('tables.measure')}}</h1>
+        @if(Auth::user()->role == "admin")
         <h1 class="pull-right">
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('mesures.create') !!}">{{__('tables.add')}}</a>
         </h1>
+        @endif
     </section>
     <div class="content">
         <div class="clearfix"></div>
