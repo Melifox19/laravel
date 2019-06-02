@@ -42,6 +42,7 @@ return [
     'battery_level' => 'Battery level',
     'longitude' => 'Longitude',
     'latitude' => 'Latitude',
+    'location' => 'Location',
     'sound_level200' => 'Sound level 200Hz',
     'sound_level400' => 'Soud level 400Hz',
     'hive_id' => 'Hive ID',
