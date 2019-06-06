@@ -15,6 +15,7 @@ use App\Models\Ruche;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Alerte;
 use Auth;
 
 use Illuminate\Notifications\Notifiable;

@@ -15,6 +15,7 @@ use App\Models\Ruche;
 
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Mesure;
 use Auth;
 
 class MesureController extends AppBaseController
