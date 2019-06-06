@@ -44,6 +44,7 @@ return [
     'battery_level' => 'Niveau de batterie',
     'longitude' => 'Longitude',
     'latitude' => 'Latitude',
+    'location' => 'Position',
     'sound_level200' => 'Débit sonore 200Hz',
     'sound_level400' => 'Débit sonore 400Hz',
     'hive_id' => 'ID Ruche',

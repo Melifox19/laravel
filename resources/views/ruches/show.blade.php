@@ -15,5 +15,24 @@
                 </div>
             </div>
         </div>
+
+        <div class="box box-primary">
+            <h3>{{ __('tables.location') }}</h3>
+            <div class="box-body">
+                <div class="row" style="padding-left: 20px">
+                    <p>OpenStreetMaps</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="box box-primary">
+            <h3>Graphes</h3>
+            <div class="box-body">
+                <div class="row" style="padding-left: 20px" id="hchart">
+                    {!! $chart !!}
+                </div>
+            </div>
+        </div>
+
     </div>
 @endsection
