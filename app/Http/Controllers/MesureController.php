@@ -25,17 +25,8 @@ class MesureController extends AppBaseController
 
     public function __construct(MesureRepository $mesureRepo)
     {
-<<<<<<< HEAD
       $ruches = User::find(Auth::user()->id)->ruches;
-
-      foreach ($ruches as $i => $ruche)
-      {
-        $mesures[] = Mesure::where('idRuche', '=', $ruche->id);
-      }
-
-=======
         $this->mesureRepository = $mesureRepo;
->>>>>>> parent of 3f4a865... debugging for last demo #001
     }
 
     /**

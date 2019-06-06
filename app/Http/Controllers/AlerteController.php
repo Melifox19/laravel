@@ -41,26 +41,8 @@ class AlerteController extends AppBaseController
     public function index(Request $request)
     {
         $this->alerteRepository->pushCriteria(new RequestCriteria($request));
-<<<<<<< HEAD
 
-        if(Auth::user()->role == 'admin')
-        {
-
-          $alertes = $this->alerteRepository->all();
-        }
-        else
-        {
-          $ruches = User::find(Auth::user()->id)->ruches;
-
-          foreach ($ruches as $i => $ruche)
-          {
-            $alertes[] = Alerte::where('idRuche', '=', $ruche->id);
-          }
-
-        }
-=======
         $alertes = $this->alerteRepository->all();
->>>>>>> parent of 3f4a865... debugging for last demo #001
 
         return view('alertes.index')
         ->with('alertes', $alertes);
