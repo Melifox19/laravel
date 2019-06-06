@@ -13,6 +13,10 @@ use Response;
 
 use App\Models\Ruche;
 
+use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use Auth;
+
 class MesureController extends AppBaseController
 {
   /** @var  MesureRepository */
