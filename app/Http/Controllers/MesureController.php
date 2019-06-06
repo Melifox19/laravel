@@ -47,7 +47,7 @@ class MesureController extends AppBaseController
     {
       $ruches = User::find(Auth::user()->id)->ruches;
 
-      foreach ($ruches as $ruche)
+      foreach ($ruches as $i => $ruche)
       {
         $mesures[] = Mesure::where('idRuche', '=', $ruche->id);
       }

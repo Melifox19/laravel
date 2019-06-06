@@ -51,7 +51,7 @@ class AlerteController extends AppBaseController
         {
           $ruches = User::find(Auth::user()->id)->ruches;
 
-          foreach ($ruches as $ruche)
+          foreach ($ruches as $i => $ruche)
           {
             $alertes[] = Alerte::where('idRuche', '=', $ruche->id);
           }
