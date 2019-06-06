@@ -36,7 +36,22 @@ class AlerteController extends AppBaseController
     public function index(Request $request)
     {
         $this->alerteRepository->pushCriteria(new RequestCriteria($request));
-        $alertes = $this->alerteRepository->all();
+
+        if(Auth::user()->role == 'admin')
+        {
+
+          $alertes = $this->alerteRepository->all();
+        }
+        else
+        {
+          $ruches = User::find(Auth::user()->id)->ruches;
+
+          foreach ($ruches as $ruche)
+          {
+            $alertes[] = Alerte::where('idRuche', '=', $ruche->id);
+          }
+
+        }
 
         return view('alertes.index')
         ->with('alertes', $alertes);
@@ -49,7 +64,14 @@ class AlerteController extends AppBaseController
     */
     public function create()
     {
+      if ( Auth::user()->role == "admin") // Si admin on affiche tout les ruchers
+      {
         $ruches = Ruche::all();
+      }
+      else
+      {
+        $ruches = User::find(Auth::user()->id)->ruche; // Si utilisateur on affiche seulement ses ruchers
+      }
 
         return view('alertes.create')->with('ruches', $ruches);
     }
@@ -103,7 +125,14 @@ class AlerteController extends AppBaseController
     {
         $alerte = $this->alerteRepository->findWithoutFail($id);
 
-        $ruches = Ruche::all();
+        if ( Auth::user()->role == "admin") // Si admin on affiche tout les ruchers
+        {
+          $ruches = Ruche::all();
+        }
+        else
+        {
+          $ruches = User::find(Auth::user()->id)->ruche; // Si utilisateur on affiche seulement ses ruchers
+        }
 
         if (empty($alerte)) {
             Flash::error('Alerte not found');
