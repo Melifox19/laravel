@@ -60,7 +60,7 @@ class Ruche extends Model
      */
     public static $rules = [
         'addrMelinet' => 'nullable|integer|between:0,7',
-        'idSigfox' => 'nullable|string|regex:/[0-9A-F]{6}/u',
+        'idSigfox' => 'nullable|string|regex:[0-9A-F]{6}',
         'longitude' => 'nullable|float',
         'latitude' => 'nullable|float',
         'idRucher' => 'integer|exists:ruchers,id',
