@@ -25,7 +25,6 @@ class MesureController extends AppBaseController
 
     public function __construct(MesureRepository $mesureRepo)
     {
-      $ruches = User::find(Auth::user()->id)->ruches;
         $this->mesureRepository = $mesureRepo;
     }
 
