@@ -42,7 +42,19 @@ class AlerteController extends AppBaseController
     {
         $this->alerteRepository->pushCriteria(new RequestCriteria($request));
 
-        $alertes = $this->alerteRepository->all();
+        if ( Auth::user()->role == "admin" )
+        {
+          $alertes = $this->alerteRepository->all();
+        }
+        else
+        {
+          $alertes = DB::table('alertes')
+                    ->join('ruches', 'ruches.id', '=', 'alertes.idRuche')
+                    ->join('ruchers', 'ruchers.id', '=', 'ruches.idRucher')
+                    ->join('users', 'users.id', '=', 'ruchers.idApiculteur')
+                    ->where('users.id', '=', Auth::user()->id)
+                    ->get();
+        }
 
         return view('alertes.index')
         ->with('alertes', $alertes);

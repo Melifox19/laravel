@@ -37,7 +37,20 @@ class MesureController extends AppBaseController
     public function index(Request $request)
     {
         $this->mesureRepository->pushCriteria(new RequestCriteria($request));
-        $mesures = $this->mesureRepository->all();
+
+        if ( Auth::user()->role == "admin" )
+        {
+          $mesures = $this->mesureRepository->all();
+        }
+        else
+        {
+          $mesures = DB::table('mesures')
+                    ->join('ruches', 'ruches.id', '=', 'mesures.idRuche')
+                    ->join('ruchers', 'ruchers.id', '=', 'ruches.idRucher')
+                    ->join('users', 'users.id', '=', 'ruchers.idApiculteur')
+                    ->where('users.id', '=', Auth::user()->id)
+                    ->get();
+        }
 
         return view('mesures.index')
         ->with('mesures', $mesures);
