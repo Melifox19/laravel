@@ -58,11 +58,11 @@ class MesureAPIController extends AppBaseController
           // On créé une entrée dans la table de mesure avec les mesures reçues
           $mesure = Mesure::create([
             'horodatageMesure' => date("Y-m-d H:i:s", $data['horodatageMesure']),
-            'masse' => $data['masse'],
-            'temperatureInt' => $data['temperatureInt']-20,
-            'temperatureExt' => $data['temperatureExt']-20,
-            'humiditeInt' => $data['humiditeInt']+20,
-            'pression' => $data['pression']+600,
+            'masse' => $data['masse'] / 20.47,
+            'temperatureInt' => ($data['temperatureInt'] / 3.6286) -20,
+            'temperatureExt' => ($data['temperatureExt'] / 3.6286) -20,
+            'humiditeInt' => ($data['humiditeInt'] / 0.4286) +20,
+            'pression' => ($data['pression'] / 1.02) +600,
             'niveauBatterie' => $data['niveauBatterie']*10,
             'idRuche' => $ruche->id
           ]);
