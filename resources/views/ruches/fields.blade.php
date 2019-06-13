@@ -1,9 +1,3 @@
-<!-- ID Field -->
-<div class="form-group col-sm-6" id="id">
-    {!! Form::label('id', __('tables.id')) !!}
-    {!! Form::text('id', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Type Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('type', __('tables.hive_typ')) !!}

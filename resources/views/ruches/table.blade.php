@@ -1,6 +1,7 @@
 <table class="table table-responsive" id="ruches-table">
     <thead>
         <tr>
+          <th>ID</th>
             <th>{{ __('tables.in_apiary')}}</th>
             <th>{{__('tables.local_addr')}}</th>
             <th>{{__('tables.hive_typ')}}</th>
@@ -13,6 +14,7 @@
         @foreach($ruchers as $rucher)
         @if( $ruche->idRucher == $rucher->id )
         <tr>
+          <td>{!! $ruche->id !!}</td>
             <td>{!! $ruche->idRucher !!} - {!! $rucher->nom !!}</td>
             <td>{!! $ruche->addrMelinet !!}</td>
             <td>{!! $ruche->type !!}</td>
