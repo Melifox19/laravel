@@ -30,10 +30,8 @@
 
 <div class="form-group">
   {!! Form::label('actions', 'Aller à la ruche:') !!}
-{!! Form::open(['route' => ['ruches.destroy', $ruche->id], 'method' => 'delete']) !!}
 <div class='btn-group'>
   <a href="{!! route('ruches.show', [$mesure->idRuche]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-share-alt"></i></a>
-  {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Etes-vous sur ?')"]) !!}
 </div>
 {!! Form::close() !!}
 </div>
