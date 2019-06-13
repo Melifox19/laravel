@@ -1,4 +1,9 @@
 <ul class="nav navbar-nav">
+
+  <li class="">
+    <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
+  </li>
+
   <li class="{{ Request::is('melibornes*') ? 'active' : '' }}">
     <a href="{!! route('melibornes.index') !!}"><i class="fa fa-cog"></i><span> {{ __('tables.meliborne')}}</span></a>
   </li>

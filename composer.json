@@ -12,6 +12,7 @@
         "caouecs/laravel-lang": "~3.0",
         "doctrine/dbal": "~2.3",
         "fideloper/proxy": "^4.0",
+        "gonoware/laravel-maps": "^1.0",
         "infyomlabs/adminlte-templates": "5.7.x-dev",
         "infyomlabs/laravel-generator": "5.7.x-dev",
         "infyomlabs/swagger-generator": "dev-master",
