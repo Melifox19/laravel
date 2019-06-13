@@ -18,7 +18,7 @@
       <td>
         {!! Form::open(['route' => ['alertes.destroy', $alerte->id], 'method' => 'delete']) !!}
         <div class='btn-group'>
-          <a href="{!! route('ruches.show', [$mesure->idRuche]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-share-alt"></i></a>
+          <a href="{!! route('ruches.show', [$alerte->idRuche]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-share-alt"></i></a>
           <a href="{!! route('alertes.show', [$alerte->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-eye-open"></i></a>
           <a href="{!! route('alertes.edit', [$alerte->id]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-edit"></i></a>
           {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
