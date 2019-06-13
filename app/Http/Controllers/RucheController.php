@@ -126,7 +126,13 @@ class RucheController extends AppBaseController
         ->with('mesure', $mesure);
     }
 
-
+    /**
+    * Génère un script highcharts
+    * @param $renderid ID css sur lequel afficher le graphe
+    * @param $dataIn Requête sql de mesures
+    *
+    * @return $lChart
+    **/
     public function chart($renderid, $dataIn) {
 
         $dataOut = array();
