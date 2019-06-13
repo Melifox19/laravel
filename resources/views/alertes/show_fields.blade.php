@@ -27,3 +27,11 @@
     {!! Form::label('idRuche', __('tables.hive_id')) !!}
     <p>{!! $alerte->idRuche !!}</p>
 </div>
+
+<div class="form-group">
+  {!! Form::label('actions', 'Aller à la ruche:') !!}
+<div class='btn-group'>
+  <a href="{!! route('ruches.show', [$alerte->idRuche]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-share-alt"></i></a>
+</div>
+{!! Form::close() !!}
+</div>

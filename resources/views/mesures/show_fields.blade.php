@@ -75,3 +75,12 @@
     {!! Form::label('idRuche', __('tables.hive_id')) !!}
     <p>{!! $mesure->idRuche !!}</p>
 </div>
+
+
+<div class="form-group">
+  {!! Form::label('actions', 'Aller à la ruche:') !!}
+<div class='btn-group'>
+  <a href="{!! route('ruches.show', [$mesure->idRuche]) !!}" class='btn btn-default btn-xs'><i class="glyphicon glyphicon-share-alt"></i></a>
+</div>
+{!! Form::close() !!}
+</div>
