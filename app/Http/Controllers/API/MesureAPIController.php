@@ -63,7 +63,7 @@ class MesureAPIController extends AppBaseController
             'temperatureExt' => ($data['temperatureExt'] / 3.6286) -20,
             'humiditeInt' => ($data['humiditeInt'] / 0.4286) +20,
             'pression' => ($data['pression'] / 1.02) +600,
-            'niveauBatterie' => $data['niveauBatterie']*10,
+            'niveauBatterie' => ($data['niveauBatterie']/ 0.06) *10,
             'idRuche' => $ruche->id
           ]);
 
